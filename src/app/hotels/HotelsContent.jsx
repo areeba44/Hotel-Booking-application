@@ -26,7 +26,7 @@ import { HiAdjustmentsHorizontal } from "react-icons/hi2";
 import { useSearchParams } from 'next/navigation'
 import axios from "axios";
 
-export default function Hotels() {
+export default function HotelsContent() {
   const searchParams = useSearchParams()
   const dataParam = searchParams.get('data')
   // let parsedData = null

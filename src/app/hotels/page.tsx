@@ -383,18 +383,21 @@ export default function Hotels() {
           </div>
         </div>
 
+
+
+
+
         {/* HOTEL LIST + MAP */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
           {/* HOTEL LIST */}
           <div className="lg:col-span-2 space-y-4">
-            {hotels.length > 0 && hotels.map((h, i) => (
+            {HotelList.map((hotel) => (
               <div
-                key={h.id}
+                key={hotel.id}
                 className="bg-white rounded-xl shadow-sm border hover:shadow-md transition p-3"
               >
                 <div className="flex flex-col sm:flex-row gap-4">
-
                   {/* IMAGE */}
                   {/* <Link href={h.link}>
                     <div className="w-full sm:w-50 h-53 relative rounded-lg overflow-hidden cursor-pointer">
@@ -409,8 +412,8 @@ export default function Hotels() {
 
                   {/* HOTEL INFO */}
                   <div className="flex-1 space-y-1">
-                    <h2 className="font-semibold text-lg">{h.HotelName}</h2>
-                    <p className="text-sm text-gray-500">{h.Address}</p>
+                    <h2 className="font-semibold text-lg">{hotel.hotelname}</h2>
+                    <p className="text-sm text-gray-500">{hotel.location}</p>
 
                     {/* RATING */}
                     <div className="flex items-center gap-1 text-yellow-500 text-sm">
@@ -502,9 +505,12 @@ export default function Hotels() {
                 className="border-0"
               />
             </div>
-          </div></div></div>
-      <Footer />
-    </div>
+          </div>
+        </div>
 
+      </div>
+      <Footer />
+
+    </div>
   )
 }

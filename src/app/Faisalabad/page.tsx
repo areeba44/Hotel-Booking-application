@@ -34,7 +34,9 @@ export default function Islamabad() {
   const [priceOpen, setPriceOpen] = useState(false);
   const [freebiesOpen, setFreebiesOpen] = useState(false);
   const [amenitiesOpen, setAmenitiesOpen] = useState(false);
-  const [open, setOpen] = useState(null);
+ 
+const [open, setOpen] = useState<number | null>(null);
+
   const handleSearch = () => {
     alert(`Searching hotels in ${location} from ${checkIn} to ${checkOut}`);
   };
@@ -382,8 +384,9 @@ export default function Islamabad() {
 
                     {/* SOURCES → COLUMN */}
                     <div className="flex flex-col gap-2 text-xs text-gray-600 mt-1">
+            
 
-                      <span className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded-md">
+                      <span className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded-md cursor-pointer">
                         <FaGlobe size={12} /> {hotel.source1}
                         <p className="relative left-93">{hotel.source2}</p>
                       </span>
@@ -394,33 +397,45 @@ export default function Islamabad() {
                       </span>
 
                       {/* DROPDOWN SOURCE */}
-                      <div className="relative">
-                        <span
-                        onClick={() => setOpen(open === hotel.id ? null : hotel.id)}
-                          className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded-md cursor-pointer"
-                        >
-                          <FaGlobe size={12} /> {hotel.source5}
-                          <p className="relative left-88">{hotel.source6}</p>
+            <div className="relative">
 
-                          <SlArrowDown
-                            size={10}
-                            className={`ml-1 transition-transform duration-200 ${open ? "rotate-180" : ""
-                              }`}
-                          />
-                        </span>
+             <div
+          onClick={() => {
+         if (open === hotel.id) {
+        setOpen(null);
+         } else {
+        setOpen(hotel.id);
+      }
+    }}
+    className="flex items-center gap-2 bg-gray-100 px-2 py-1 rounded-md cursor-pointer"
+  >
+    <FaGlobe size={12} />
 
+    <span>{hotel.source5}</span>
 
-                          {open === hotel.id && (
-                          <div className="absolute left-0 mt-2 w-full bg-white border rounded-md shadow-md p-2">
-                            <p className="text-sm">Hotel.com </p>
-                            <p className="text-sm">Booking.com </p>
-                            <p className="text-sm">Agado.com </p>
-                          </div>
-                        )}
-                      </div>
+    {/* right side text */}
+    <span className="ml-auto">{hotel.source6}</span>
 
-                    </div>
-                  </div>
+    {/* arrow rotation */}
+    <SlArrowDown
+      size={10}
+      className={`transition-transform duration-200 ${
+        open === hotel.id ? "rotate-180" : ""
+      }`}
+    />
+  </div>
+
+  {/* dropdown menu */}
+  {open === hotel.id ? (
+    <div className="absolute left-0 mt-2 w-full bg-white border rounded-md shadow-md p-2 space-y-1">
+      <p className="text-sm">Hotel.com</p>
+      <p className="text-sm">Booking.com</p>
+      <p className="text-sm">Agoda.com</p>
+    </div>
+  ) : null}
+
+</div>
+</div></div>
 
                   {/* BEST PRICE */}
                   <div className="flex flex-col justify-center items-end pr-2 min-w-[90px]">

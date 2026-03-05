@@ -30,7 +30,7 @@ export default function AdminDashboard() {
       {/* Sidebar */}
       <aside className="w-72 bg-white shadow-lg border-r border-gray-200 flex flex-col">
         <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-          <h1 className="text-2xl font-extrabold text-amber-600">Admin Panel</h1>
+          <h1 className="text-2xl font-extrabold text-red-900">Admin Panel</h1>
         </div>
 
         <nav className="flex-1 p-4 space-y-2">

@@ -35,7 +35,7 @@ const FAQPage = () => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
   <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-black text-center">
-    Frequently Asked Questions
+    FAQ'S
   </h1>
 
       <div className="space-y-4">

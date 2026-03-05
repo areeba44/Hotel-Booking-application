@@ -38,7 +38,7 @@ export default function ManageUser() {
       {/* Sidebar */}
       <aside className="w-72 bg-white shadow-lg border-r border-gray-200 flex flex-col">
         <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-          <h1 className="text-2xl font-extrabold text-amber-600">Admin Panel</h1>
+          <h1 className="text-2xl font-extrabold text-red-900">Admin Panel</h1>
         </div>
 
         <nav className="flex-1 p-4 space-y-2">
@@ -99,10 +99,10 @@ export default function ManageUser() {
                   <td className="px-4 py-2">{user.role}</td>
                   <td className="px-4 py-2">{user.status}</td>
                   <td className="px-4 py-2 flex gap-2">
-                    <button className="px-3 py-1 bg-amber-600 text-white rounded-md hover:bg-amber-500">
+                    <button className="px-3 py-1 bg-red-400 text-white rounded-md hover:bg-red-700">
                       Edit
                     </button>
-                    <button className="px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600">
+                    <button className="px-3 py-1 bg-red-900 text-white rounded-md hover:bg-red-700">
                       Delete
                     </button>
                   </td>

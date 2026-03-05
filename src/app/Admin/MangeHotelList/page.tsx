@@ -42,7 +42,7 @@ export default function ManageHotelsRow() {
       {/* Sidebar */}
       <aside className="w-72 bg-white shadow-lg border-r border-gray-200 flex flex-col">
         <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-          <h1 className="text-2xl font-extrabold text-amber-600">Admin Panel</h1>
+          <h1 className="text-2xl font-extrabold text-red-900">Admin Panel</h1>
         </div>
 
         <nav className="flex-1 p-4 space-y-2">
@@ -83,7 +83,7 @@ export default function ManageHotelsRow() {
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-gray-800">Manage Hotel Listings</h1>
-          <button className="flex items-center gap-2 px-3 py-2 bg-amber-500 text-white rounded-xl hover:bg-amber-600 transition text-sm">
+          <button className="flex items-center gap-2 px-3 py-2 bg-red-900 text-white rounded-xl hover:bg-red-400 transition text-sm">
             <Plus className="w-4 h-4" /> Add New Hotel
           </button>
         </div>

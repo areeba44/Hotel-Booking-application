@@ -8,3 +8,9 @@ export default function HotelsPage() {
     </Suspense>
   );
 }
+
+
+
+
+
+

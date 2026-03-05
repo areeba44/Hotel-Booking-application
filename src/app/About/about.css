@@ -1,0 +1,105 @@
+/* Hero Section Fix */
+.max-w-screen-2xl {
+  position: relative;
+}
+
+.max-w-screen-2xl img {
+  filter: brightness(75%);
+}
+
+/* Overlay Content Position */
+.max-w-screen-2xl .text-white {
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 700px;
+  z-index: 2;
+}
+
+/* Heading Styling */
+.max-w-screen-2xl h1:first-child {
+  font-size: 60px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.max-w-screen-2xl h1:nth-child(2) {
+  font-size: 28px;
+  line-height: 1.4;
+}
+
+.max-w-screen-2xl p {
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+/* Who We Are Section */
+.bg-white h2 {
+  position: relative;
+}
+
+.bg-white h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #7f1d1d;
+  margin-top: 8px;
+}
+
+/* Image styling */
+.bg-white img {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease;
+}
+
+.bg-white img:hover {
+  transform: scale(1.05);
+}
+
+/* Button Styling */
+button {
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: white;
+  color: #7f1d1d;
+  border: 1px solid #7f1d1d;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .max-w-screen-2xl .text-white {
+    left: 40px;
+  }
+
+  .max-w-screen-2xl h1:first-child {
+    font-size: 48px;
+  }
+
+  .max-w-screen-2xl h1:nth-child(2) {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .max-w-screen-2xl .text-white {
+    left: 20px;
+    right: 20px;
+  }
+
+  .max-w-screen-2xl h1:first-child {
+    font-size: 36px;
+  }
+
+  .max-w-screen-2xl h1:nth-child(2) {
+    font-size: 20px;
+  }
+
+  .bg-white p {
+    font-size: 16px;
+  }
+}

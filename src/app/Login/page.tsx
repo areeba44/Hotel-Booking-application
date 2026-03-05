@@ -1,78 +1,163 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import Navbar from "@/components/Navbar";
 import Link from "next/link";
+import Footer from "@/components/Footer";
+
 export default function GoogleLoginPopup() {
   const [open, setOpen] = useState(true);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      {/* Popup Overlay */}
-      {open && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          {/* Modal Box */}
-          <div className="bg-white w-[95%] sm:w-[400px] rounded-2xl shadow-2xl p-6 relative animate-in fade-in zoom-in duration-200">
-            {/* Close Button */}
-            <button
-              onClick={() => setOpen(false)}
-              className="absolute top-3 right-3 text-gray-400 hover:text-black text-lg"
-            >
-              ✕
-            </button>
+    <div className="flex flex-col min-h-screen">
+      {/* Navbar */}
+      <Navbar />
 
-            {/* Google Logo */}
-            <div className="flex justify-center mb-4">
-              <Image src="/google.png" alt="Google" width={80} height={30} />
-            </div>
+      {/* Main Content */}
+      <main className="flex-grow">
+        {/* Top Section */}
+        <div className="w-full max-w-screen-2xl mx-auto px-6 sm:px-10 xl:px-40 pt-40 pb-20 bg-red-50">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif">
+            Log in or sign up
+          </h1>
 
-            {/* Heading */}
-            <h2 className="text-xl font-semibold text-center mb-4">
-              Sign in with Google
-            </h2>
+          {/* Login Card Center */}
+          <div className="flex items-center justify-center mt-16">
+            <div className="w-full max-w-md p-6 bg-white rounded-xl shadow-lg transition duration-300 transform hover:scale-105 hover:shadow-2xl hover:bg-red-50">
+              
+              {/* Welcome Back Section */}
+              <h2 className="text-3xl font-semibold text-center text-red-900 mb-6">
+                Welcome Back
+              </h2>
 
-            {/* Email Input */}
-            <input
-              type="email"
-              placeholder="Email or phone"
-              className="w-full border rounded-lg px-3 py-2 mb-3 outline-none focus:ring-2 focus:ring-blue-500"
-            />
+              <p className="text-center text-gray-600 mb-6">
+                Login to manage your bookings and profile
+              </p>
 
-            {/* Password Input */}
-            <input
-              type="password"
-              placeholder="Enter your password"
-              className="w-full border rounded-lg px-3 py-2 mb-4 outline-none focus:ring-2 focus:ring-blue-500"
-            />
-
-            {/* Login Button */}
-            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-medium transition">
-              Next
-            </button>
-
-            {/* Footer Links */}
-            
-            <div className="flex justify-between text-sm text-blue-600 mt-4">
-            <Link href="/Registration">
-             <button className="hover:underline">Create account</button>
-                  </Link>
+              {/* Login Form */}
+              <form className="space-y-6">
+                
+                {/* Email */}
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
+                    placeholder="Enter your email"
+                  />
                 </div>
 
-              <button className="hover:underline">Forgot email?</button>
-            </div>
-          </div> 
-      
-      )}
+                {/* Password */}
+                <div>
+                  <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
+                    placeholder="Enter your password"
+                  />
+                </div>
 
-      {/* Demo Page Content */}
-      {!open && (
-        <button
-          onClick={() => setOpen(true)}
-          className="bg-blue-600 text-white px-6 py-2 rounded-xl shadow hover:bg-blue-700"
-        >
-          Open Login Popup
-        </button>
-      )}
+                {/* Terms */}
+                <div className="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    id="terms"
+                    className="h-4 w-4 text-red-600 focus:ring-red-500"
+                  />
+                  <label htmlFor="terms" className="text-sm text-gray-600">
+                    I have read and agree to{" "}
+                    <span className="text-red-600">
+                      Terms and Conditions
+                    </span>
+                  </label>
+                </div>
+
+                {/* Login Button */}
+                <button
+                  type="submit"
+                  className="w-full py-2 bg-red-900 text-white rounded-md hover:bg-red-700 transition duration-200"
+                >
+                  Login
+                </button>
+              </form>
+
+              {/* Forgot Password */}
+              <div className="text-center mt-4">
+                <Link
+                  href="/forgot-password"
+                  className="text-sm text-red-600 hover:text-red-800"
+                >
+                  Forgot password?
+                </Link>
+              </div>
+
+              {/* Signup */}
+              <div className="mt-6 text-center">
+                <p className="text-sm text-gray-600">
+                  Don’t have an account yet?{" "}
+                  <Link
+                    href="/signup"
+                    className="text-red-600 hover:text-red-800"
+                  >
+                    Signup now
+                  </Link>
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

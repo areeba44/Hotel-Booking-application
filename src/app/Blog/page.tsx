@@ -63,8 +63,8 @@ export default function BlogPage() {
       <Navbar />
 
       {/* Our Blog Heading */}
-      <div className="bg-gray-100 py-35 w-full text-center">
-        <h1 className="text-4xl font-bold text-gray-800">Our Blog</h1>
+      <div className="bg-red-50 py-35 w-full text-center">
+        <h1 className="text-5xl font-bold text-gray-800 font-serif">Our Blog</h1>
       </div>
 
       {/* Blog Cards */}
@@ -91,7 +91,7 @@ export default function BlogPage() {
                 <h2 className="font-semibold text-md text-gray-800">{blog.title}</h2>
                 <p className="text-gray-600 text-sm flex-1">{blog.excerpt}</p>
                 <Link href={blog.link}>
-                  <button className="mt-2 self-start px-3 py-1 bg-amber-600 text-white rounded-lg hover:bg-amber-500 transition text-sm">
+                  <button className="mt-2 self-start px-3 py-1 bg-red-900 text-white rounded-lg transition text-sm">
                     Read More
                   </button>
                 </Link>

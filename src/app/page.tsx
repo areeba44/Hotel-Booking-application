@@ -1,16 +1,17 @@
 "use client";
 
 import Navbar from "../components/Navbar";
-import Footer from "@/components/Footer";
+import Footer from "../components/Footer";
 
-export default function Hero() {
+
+
+export default function Page() {
   return (
     <>
       <Navbar />
+    
+      
       <Footer />
-     
-
     </>
   );
 }
-

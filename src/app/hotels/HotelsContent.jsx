@@ -248,7 +248,12 @@ export default function HotelsContent() {
                     {/* Hotel Facilities */}
                     <div className="text-sm text-gray-600 line-clamp-4 mt-2">
                       <p><strong>Facilities:</strong></p>
-                      <p dangerouslySetInnerHTML={{ __html: hotel.Facilities}} />
+                      <p dangerouslySetInnerHTML={{ __html: hotel.HotelFacilities}} />
+                    </div>
+                    {/* Hotel pagination*/}
+                    <div className="text-sm text-gray-600 line-clamp-4 mt-2">
+                      <p><strong>pagination:</strong></p>
+                      <p dangerouslySetInnerHTML={{ __html: hotel.pagination}} />
                     </div>
                   </div>
                   {/* BEST PRICE */}

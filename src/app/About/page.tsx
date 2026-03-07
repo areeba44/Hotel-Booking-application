@@ -7,9 +7,11 @@ import Footer from "@/components/Footer";
 import './about.css'
 const AboutPage = () => {
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Navbar */}
+  <div>
+    {/* Navbar */}
       <Navbar />
+    <div className="min-h-screen flex flex-col">
+    
       <div className="max-w-screen-2xl relative w-full mx-auto px-2 bg-white sm:px-6 pt-56 bottom-2 :px-40 h-[600px] overflow-hidden">
         <Image
           src="/apar.png"
@@ -64,6 +66,7 @@ const AboutPage = () => {
         </div>
       {/* Footer */}
       <Footer />
+    </div>
     </div>
   );
 };

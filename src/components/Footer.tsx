@@ -1,78 +1,92 @@
 "use client";
-import Image from "next/image";
+import Link from "next/link";
+
 import { FaFacebookSquare, FaTwitter, FaInstagramSquare } from "react-icons/fa";
 import "./footer.css";
 export default function Footer() {
   return (
-    <div className="bg-red-900 text-white relative ">
-      <div className="max-w-7xl h-[340px] mx-auto py-10  ">
+    <div className="continer px-9 ">
+    <footer className="bg-red-900 text-white pt-10 pb-5 ">
+      <div className="container mx-auto ">
+
         {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* Logo + Text */}
-          <div>
-            <Image
-              src="/footerlogo.png"
-              alt="logo"
-              width={219}
-              height={66}
-              className="object-containt relative right-6"
-            />
-            <p className="mt-4 text-sm leading-6">
+        <div className="flex flex-col md:flex-row justify-between gap-10">
+
+          {/* Left */}
+          <div className="md:w-1/3">
+            <h2 className="text-2xl font-semibold">STAY HAVEN</h2>
+            <p className="mt-3 text-sm leading-relaxed">
               Experience the finest luxury stays around the world with Stay Haven.
               We bring comfort, elegance, and unforgettable memories to your travel journey.
             </p>
           </div>
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-xl font-semibold mb-6">Quick Links</h3>
-            <ul className="space-y-2 text-sm">
-              <li className="cursor-pointer hover:text-gray-300">Home</li>
-              <li className="cursor-pointer hover:text-gray-300">About Us</li>
-              <li className="cursor-pointer hover:text-gray-300">Rooms & Suites</li>
-              <li className="cursor-pointer hover:text-gray-300">Services</li>
-              <li className="cursor-pointer hover:text-gray-300">Contact</li>
-            </ul>
-          </div>
-          {/* Contact */}
-          <div>
-            <h3 className="text-xl font-semibold mb-6">Contact</h3>
-            <div className="space-y-2 text-sm">
-              <p>123 Luxury Street, Dubai</p>
-              <p>+971 123 456 789</p>
-              <p>info@stayhaven.com</p>
-              <p>Open 24/7 Customer Support</p>
+
+          {/* Right (Quick Links + Contact FLEX) */}
+          <div className="flex flex-col sm:flex-row gap-16">
+
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-lg font-semibold mb-3">Quick Links</h3>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:text-gray-300">Home</a></li>
+                <li><a href="#" className="hover:text-gray-300">About Us</a></li>
+                <li><a href="#" className="hover:text-gray-300">Rooms & Suites</a></li>
+                <li><a href="#" className="hover:text-gray-300">Services</a></li>
+                <li><a href="#" className="hover:text-gray-300">Contact</a></li>
+              </ul>
             </div>
+
+            {/* Contact */}
+            <div>
+              <h3 className="text-lg font-semibold mb-3">Contact</h3>
+              <ul className="space-y-2 text-sm">
+                <li>123 Luxury Street, Dubai</li>
+                <li>+971 123 456 789</li>
+                <li>info@stayhaven.com</li>
+                <li>Open 24/7 Customer Support</li>
+              </ul>
+            </div>
+
           </div>
         </div>
+
         {/* Divider */}
-        <div className="border-t border-gray-300 my-8"></div>
-        {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-          <div className="flex items-center gap-6">
-            <span className="font-semibold text-lg">Follow Us:</span>
-            <div className="flex gap-4">
-              <div className="w-10 h-10 flex items-center justify-center border-2 border-white rounded-full cursor-pointer hover:bg-white hover:text-red-900 transition">
-                <FaTwitter />
-              </div>
-              <div className="w-10 h-10 flex items-center justify-center border-2 border-white rounded-full cursor-pointer hover:bg-white hover:text-red-900 transition">
-                <FaFacebookSquare />
-              </div>
-              <div className="w-10 h-10 flex items-center justify-center border-2 border-white rounded-full cursor-pointer hover:bg-white hover:text-red-900 transition">
-                <FaInstagramSquare />
-              </div>
+        <hr className="border-white my-6" />
+
+        {/* Bottom */}
+        <div className="flex flex-col md:flex-row justify-between items-center text-sm gap-4">
+
+          {/* Social */}
+          <div className="flex items-center gap-3">
+            <span>Follow Us:</span>
+            <div className="flex gap-3">
+              <Link href={""}>
+              <div className="w-8 h-8 border rounded-full flex items-center justify-center">< FaFacebookSquare/></div></Link>
+              <Link href={""}>
+              <div className="w-8 h-8 border rounded-full flex items-center justify-center">< FaTwitter/></div></Link>
+              <Link href={""}>
+              <div className="w-8 h-8 border rounded-full flex items-center justify-center">< FaInstagramSquare/></div></Link>
+            
             </div>
           </div>
-          <div className="flex gap-6 cursor-pointer">
-            <span className="hover:text-gray-300">Terms Policy</span>
-            <span className="hover:text-gray-300">Service Policy</span>
-            <span className="hover:text-gray-300">Cookies</span>
+
+          {/* Copyright */}
+          <p className="text-center">
+            © 2025 Stay Haven All rights reserved. Crafted with passion for luxury travel.
+          </p>
+
+          {/* Policies */}
+          <div className="flex gap-4">
+            <a href="#">Terms Policy</a>
+            <a href="#">Service Policy</a>
+            <a href="#">Cookies</a>
           </div>
+
         </div>
-        {/* Copyright */}
-        <div className="text-center text-xs bottom-5 relative">
-          © 2025 Stay Haven All rights reserved. Crafted with passion for luxury travel.
-        </div>
+
       </div>
+
+    </footer>
     </div>
   );
 }

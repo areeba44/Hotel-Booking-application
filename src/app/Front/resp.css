@@ -1,4 +1,4 @@
-@media screen and (min-width: 320px) and (max-width: 1024px){
+/* @media screen and (min-width: 320px) and (max-width: 1024px){
    .body{
     overflow: hidden;
    }
@@ -120,13 +120,11 @@
        font-size: 19px;
     }
       
-    /* ============================= */
-/* MOBILE RESPONSIVE FIX */
-/* ============================= */
+
 
 @media (max-width: 768px) {
 
-  /* Remove excessive margins */
+ 
   .mr-115,
   .ml-30,
   .ml-37,
@@ -137,7 +135,7 @@
   #disc{
   
   }
-  /* Center heading properly */
+  
   .discover {
     padding-bottom: 30px;
     text-align: center;
@@ -146,104 +144,93 @@
     font-size: 20px;
   }
 
-  /* Fix section spacing */
+ 
   .max-w-7xl {
     bottom: 70 !important;
     padding-bottom: 10px !important;
     font-size: small;
   }
 
-  /* Make cards fully responsive */
+  
   .shadow-2xl {
     width: 100% !important;
     max-width: 95% !important;
     margin: 0 auto 20px auto !important;
   }
 
-  /* Image height adjust for mobile */
+ 
   .shadow-2xl img {
     height: 180px;
   }
 
-  /* Button full width already, just adjust size */
+ 
   .shadow-2xl button {
     height: 42px;
     font-size: 14px;
   }
 }
-/* ============================= */
-/* AMENITIES SECTION CUSTOM CSS */
-/* ============================= */
 
-/* Section Styling */
 .Ame{
   margin-top: 120px;
 }
 
-/* Heading */
+
 .bg-red-900 h2 {
   letter-spacing: 0.5px;
 
 }
 
-/* Paragraph */
+
 .bg-red-900 p {
   font-size: 15px;
   opacity: 0.9;
 }
 
-/* Grid Spacing Fix */
 .bg-red-900 .ml-50 {
   margin-left: 200px;
 }
 
-/* Amenities Item */
+
 .bg-red-900 .flex.items-center {
   transition: all 0.3s ease;
   font-size: 16px;
 }
 
-/* Hover Effect */
 .bg-red-900 .flex.items-center:hover {
   transform: translateX(5px);
   color: #ffe5e5;
 }
 
-/* Icon Styling */
+
 .bg-red-900 .text-2xl {
   font-size: 22px;
 }
 
-/* ============================= */
-/* MOBILE RESPONSIVE */
-/* ============================= */
 
 @media (max-width: 768px) {
 
-  /* Remove large left margin */
+
   .bg-red-900 .ml-50 {
     margin-left: 0 !important;
   }
 
-  /* Adjust section spacing */
   .bg-red-900.relative {
     bottom: 140px !important;
     padding: 40px 20px !important;
   }
 
-  /* Make grid single column on small screens */
+  
   .bg-red-900 .grid {
     grid-template-columns: repeat(1, 1fr) !important;
     gap: 15px;
   }
 
-  /* Center items */
+ 
   .bg-red-900 .flex.items-center {
     justify-content: center;
     text-align: center;
   }
 
-  /* Adjust text size */
   .bg-red-900 h2 {
     font-size: 22px;
   }
@@ -252,25 +239,21 @@
     font-size: 14px;
   }
 }
-/* ============================= */
-/* TESTIMONIAL SECTION CUSTOM CSS */
-/* ============================= */
 
-/* Section spacing adjustments */
 section.py-16 {
   bottom: 100px;
   position: relative;
 
 }
 
-/* Top small heading */
+
 section.py-16 h3 {
   letter-spacing: 1px;
   font-size: 10px;
   font-weight: 400;
 }
 
-/* Main heading */
+
 section.py-16 h1 {
   letter-spacing: 0.5px;
 }
@@ -282,12 +265,11 @@ section.py-16 h1 {
   font-size: 25px;
 }
 
-/* Paragraph */
 section.py-16 p {
   font-size: 17px;
 }
 
-/* Card Styling */
+
 section.py-16 .shadow-lg {
   transition: all 0.3s ease;
   border: 1px solid #f1f1f1;
@@ -298,17 +280,16 @@ section.py-16 .shadow-lg:hover {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
-/* Profile Image */
+
 section.py-16 img {
   border: 3px solid #f3f4f6;
 }
 
-/* Star Icons */
 section.py-16 .text-yellow-500 {
   font-size: 14px;
 }
 
-/* Button Styling */
+
 section.py-16 button {
   transition: all 0.3s ease;
   cursor: pointer;
@@ -319,18 +300,15 @@ section.py-16 button:hover {
   border-color: #7f1d1d;
 }
 
-/* ============================= */
-/* MOBILE RESPONSIVE */
-/* ============================= */
 
 @media (max-width: 768px) {
 
-  /* Remove bottom relative shifts */
+  
   section.py-16 .relative {
     bottom: 0 !important;
   }
 
-  /* Center text properly */
+  
   section.py-16 h1 {
     font-size: 22px;
   }
@@ -340,19 +318,19 @@ section.py-16 button:hover {
     padding: 0 10px;
   }
 
-  /* Reduce card padding */
+
   section.py-16 .bg-white {
     padding: 20px !important;
 
   }
 
-  /* Make button slightly taller */
+  
   section.py-16 button {
     height: 42px;
     font-size: 14px;
   }
 }
-/* Positioning of the entire container */
+
 .relative {
   position: relative;
 }
@@ -361,7 +339,7 @@ section.py-16 button:hover {
   position: absolute;
 }
 
-/* Image styling */
+
 .w-full {
   width: 100%;
 }
@@ -374,58 +352,57 @@ section.py-16 button:hover {
   object-fit: cover;
 }
 
-/* Call to Action Box */
+
 .cta-box {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  max-width: 540px; /* sm:w-[540px] */
+  max-width: 540px; 
   height: 270px;
-  background-color: rgba(127, 29, 29, 0.9); /* bg-red-900/90 */
-  border-radius: 16px; /* rounded-2xl */
+  background-color: rgba(127, 29, 29, 0.9); 
+  border-radius: 16px; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 16px; /* px-4 */
+  padding: 16px; 
 }
 
-/* Heading */
+
 .cta-box h1 {
-  font-size: 24px; /* text-2xl */
+  font-size: 24px; 
   color: white;
-  font-weight: 500; /* font-medium */
+  font-weight: 500; 
 }
 
 @media (min-width: 640px) {
   .cta-box h1 {
-    font-size: 32px; /* sm:text-3xl */
+    font-size: 32px;
   }
 }
 
-/* Paragraph */
+
 .cta-box p {
-  font-size: 14px; /* text-sm */
-  color: #d1d5db; /* text-gray-300 */
-  font-weight: 300; /* font-extralight */
-  margin-top: 12px; /* mt-3 */
+  font-size: 14px; 
+  color: #d1d5db; 
+  font-weight: 300; 
+  margin-top: 12px; 
 }
 
 @media (min-width: 640px) {
   .cta-box p {
-    font-size: 16px; /* sm:text-base */
+    font-size: 16px; 
   }
 }
 
-/* Buttons container */
 .cta-buttons {
   display: flex;
   flex-direction: column;
-  gap: 16px; /* sm:gap-4 */
-  margin-top: 24px; /* mt-6 */
+  gap: 16px; 
+  margin-top: 24px; 
 }
 
 @media (min-width: 640px) {
@@ -434,42 +411,40 @@ section.py-16 button:hover {
   }
 }
 
-/* Button styles */
+
 .cta-btn {
   width: 180px;
   height: 38px;
-  border-radius: 16px; /* rounded-2xl */
+  border-radius: 16px;
   font-family: sans-serif;
   font-weight: 500;
   cursor: pointer;
-  border: 2px solid #7f1d1d; /* red-900 */
+  border: 2px solid #7f1d1d;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .cta-primary {
-  background-color: #7f1d1d; /* red-900 */
+  background-color: #7f1d1d; 
   color: white;
 }
 
 .cta-primary:hover {
   background-color: white;
-  color: #7f1d1d; /* red-900 */
+  color: #7f1d1d; 
 }
 
 .cta-secondary {
   background-color: white;
-  color: #7f1d1d; /* red-900 */
-  border-color: #7f1d1d; /* red-900 */
+  color: #7f1d1d;
+  border-color: #7f1d1d; 
 }
 
 .cta-secondary:hover {
-  background-color: #7f1d1d; /* red-900 */
   color: white;
 }
 .parent-absolute{
    width: 100%;
    height: 100%;
-   /* padding-top: 90px; */
     margin: 0;
     padding: 0;
 
@@ -486,7 +461,7 @@ height: 90px;
 top: 40px;
 left: 35%;
 
-/* height: 80px; */
+
 
 }
 .nxt h1{
@@ -514,4 +489,46 @@ padding-top: 10px;
 
 
 }
-    
+     */
+
+
+
+
+
+
+
+
+  /* Small Mobile */
+@media (max-width: 480px) {
+
+}
+
+/* Mobile */
+@media (min-width: 481px) and (max-width: 767px) {
+
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+/* Small Laptop */
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+}
+
+/* Desktop */
+@media (min-width: 1281px) and (max-width: 1536px) {
+
+}
+
+/* Large Screens */
+@media (min-width: 1537px) {
+
+}
+
+
+
+
+

@@ -36,7 +36,7 @@ export default function HotelsContent() {
         const fetchHotelsData = async () => {
           try {
             const json = JSON.stringify({ country_name: parsedData.country_name, country_code: parsedData.country_code, city_name: parsedData.city_name, city_code: parsedData.city_code, hotel_name: parsedData.hotel_name, page: 1 });
-            const response = await axios.post(`http://10.10.10.190:5001/hotels?action=get_hotels_searches`, JSON.stringify({ params: json }), {
+            const response = await axios.post(`http://10.10.10.160:5000/hotels/1`, JSON.stringify({ params: json }), {
               headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
               },
@@ -250,11 +250,7 @@ export default function HotelsContent() {
                       <p><strong>Facilities:</strong></p>
                       <p dangerouslySetInnerHTML={{ __html: hotel.HotelFacilities}} />
                     </div>
-                    {/* Hotel pagination*/}
-                    <div className="text-sm text-gray-600 line-clamp-4 mt-2">
-                      <p><strong>pagination:</strong></p>
-                      <p dangerouslySetInnerHTML={{ __html: hotel.pagination}} />
-                    </div>
+                    
                   </div>
                   {/* BEST PRICE */}
                   <div className="flex flex-col justify-center items-end pr-2 min-w-[90px]">

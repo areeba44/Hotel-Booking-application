@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Dis from "@/app/Front/Dis";
 import Most from "@/app/Front/Most"
-import Featured from "./Featured";
+// import Featured from "./Featured";
 import Amenities from "./Amenities";
 import Our from "./Our";
 import Ready from "./Ready";
@@ -137,28 +137,21 @@ export default function Home() {
     alt="room"
     fill
     priority
-    className="object-cover brightness-75"
-  />
+    className="object-cover brightness-75"/>
   {/* Overlay Content */}
   <div className="absolute inset-0 flex items-center justify-start px-6 pb-29 sm:px-12 lg:px-24">
     <div className="text-white max-w-xl text-left">
       <h1 className=" main-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-        Find Your Perfect Stay <br />
-        With Stay Haven
-      </h1>
+        Find Your Perfect Stay <br /> With Stay Haven</h1>
       <p className=" main-1 mt-4 text-sm sm:text-base md:text-lg text-gray-200">
-        Discover hotels, resorts, and guest houses at the best prices —
-        <br />
-        with flexible booking options and verified reviews.
-      </p>
-    </div>
-  </div>
-   <div className="  absolute left-0 w-full px-4 sm:px-6 lg:px-12 -bottom-13 flex justify-center">
-      <div className="w-full max-w-5xl bg-white backdrop-blur-md rounded-2xl shadow-lg border border-gray-200 p-4 sm:p-6 flex flex-col gap-4">
+        Discover hotels, resorts, and guest houses at the best prices —<br />with flexible booking options and verified reviews. </p>
+    </div></div>
+   <div className="  absolute left-0 w-full h-40 px-4 sm:px-6 lg:px-12 -bottom-13 flex justify-center">
+      <div className="w-full max-w-5xl bg-white backdrop-blur-md rounded-2xl items-center justify-center d-flex shadow-lg border border-gray-200 p-4 sm:p-6 flex flex-col gap-4">
         {/* Inputs Row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 w-full items-end">
       {/* Hotel Input */}
-          <div className="relative md:col-span-2">
+          <div className="relative md:col-span-2 items-center">
             <input
               type="text"
               placeholder="Hotel"
@@ -168,9 +161,7 @@ export default function Home() {
             {/* Suggestions Dropdown */}
             {hotelLoading ? (
               <div className="absolute top-full mt-1 w-full bg-white border border-gray-200 rounded-md shadow-md text-gray-500 text-sm px-3 py-2">
-                Loading...
-              </div>
-            ) : (
+                Loading... </div> ) : (
               hotelSuggestions.length > 0 && (
                 <div className="absolute top-full mt-1 w-full bg-white border border-gray-200 rounded-md shadow-md z-50 max-h-48 overflow-y-auto">
                   {hotelSuggestions.map((hotel: any, index: number) => (
@@ -195,31 +186,14 @@ export default function Home() {
                     >
                       <div className="font-medium text-gray-900">{hotel.hotelName}</div>
                       <div className="text-gray-500 text-xs">
-                        {hotel.cityName}, {hotel.countyName}
-                      </div>
-                    </div>  
-                  ))}
-                </div>
-              )
-            )}
-          </div>
-
-          {/* Search Button */}
+                        {hotel.cityName}, {hotel.countyName} </div> </div>  ))}</div> ) )} </div>
+             {/* Search Button */}
           <div className="flex justify-center">
             <button
               onClick={handleSearch}
-              className="w-full sm:w-auto bg-red-900 hover:bg-red-800 text-white font-semibold text-lg py-2 px-6 rounded-lg shadow-md hover:shadow-lg transition-transform duration-200 active:scale-95"
-            >
-              Search
-            </button>
-          </div>
-
-        </div>
-      </div>
-    </div></div>
-    <div><Dis/><Most/><Featured/><Amenities/><Our/><Ready/>
-        </div>    
-    <Footer /> 
+              className="w-full sm:w-auto bg-red-900 hover:bg-red-800 text-white font-semibold text-lg py-2 px-6 rounded-lg shadow-md hover:shadow-lg transition-transform duration-200 active:scale-95">
+              Search</button></div> </div>
+      </div></div></div><div><Dis/><Most/><Amenities/><Our/><Ready/></div><Footer /> 
     </>
   );
 }  

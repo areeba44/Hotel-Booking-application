@@ -12,7 +12,7 @@ export default function Destinations() {
   useEffect(() => {
     const FetchData = async () => {
       try {
-        const res = await axios.get("http://10.10.10.160:5000/hotels/random")
+        const res = await axios.get("http://10.10.10.136:5000/hotels/random")
         console.log("check the data", res.data)
         setRandomHotel(res.data)
       } catch (error) {

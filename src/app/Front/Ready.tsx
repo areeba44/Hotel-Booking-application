@@ -17,7 +17,7 @@ export default function Ready(){
       <div className="absolute inset-0 flex items-center justify-center px-4 ">
         <div className="bg-red-900/80 text-white rounded-2xl p-6 md:p-10 max-w-xl w-full text-center shadow-xl">
 
-          <h2 className="text-2xl md:text-4xl font-bold mb-3">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">
             Ready to book your next stay?
           </h2>
 

@@ -4,13 +4,10 @@ import './main.css'
 import { useEffect, useState } from "react";
 import axios from 'axios';
 
-
-
 export default function Destinations() {
   const [index, setIndex] = useState(0);
-  const [randomHotels, setRandomHotel] = useState([])
+  const [randomHotels, setRandomHotel] = useState<any[]>([]) // FIX
   const cardsToShow = 3;
-
 
   useEffect(() => {
     const FetchData = async () => {
@@ -32,6 +29,7 @@ export default function Destinations() {
   const prev = () => {
     if (index > 0) setIndex(index - 1);
   };
+
 
   return (
     <section className="py-19 bg-white">
@@ -58,9 +56,9 @@ export default function Destinations() {
                     <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
 
                      <img
-  src={"./D2.PNG"}
-  alt={dest.name}
-  className="w-full h-40 object-cover"
+                  src={"./D2.PNG"}
+                  alt={dest.name}
+                   className="w-full h-40 object-cover"
 />
 
                       {/* Content */}

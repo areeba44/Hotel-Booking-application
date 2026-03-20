@@ -1,75 +1,97 @@
-"use client"
-
 import {
-  FaWifi,
-  FaCar,
-  FaDumbbell,
-  FaUtensils,
-  FaSnowflake,
-  FaBath,
-  FaSmokingBan,
-  FaArrowUp,
-  FaFire,
-  FaTv,
-  FaChargingStation,
-} from "react-icons/fa";
+  Wifi,
+  Car,
+  Dumbbell,
+  Utensils,
+  Snowflake,
+  Bath,
+  Tv,
+  BatteryCharging,
+  Waves,
+  Flame,
+  CookingPot,
+  Users,
+} from "lucide-react";
 
-import {  GiKitchenKnives } from "react-icons/gi";
-import { GiHotMeal } from "react-icons/gi";
-import { MdSpa, MdPool, MdPeople } from "react-icons/md";
+const amenities = [
+  { icon: Wifi, name: "Free Wi-Fi" },
+  { icon: Car, name: "Free Parking" },
+  { icon: Dumbbell, name: "Fitness Center" },
+  { icon: Utensils, name: "Restaurant" },
+  { icon: Snowflake, name: "Air Conditioning" },
+  { icon: Bath, name: "Luxury Bathroom" },
+  { icon: CookingPot, name: "Kitchen" },
+  { icon: Waves, name: "Swimming Pool" },
+  { icon: Flame, name: "Fireplace" },
+  { icon: BatteryCharging, name: "EV Charging" },
+  { icon: Users, name: "Adults Only" },
+  { icon: Tv, name: "Smart TV" },
+];
 
 export default function Amenities() {
-  const amenities = [
-    { icon: <FaWifi />, name: "Wi-Fi" },
-    { icon: <FaCar />, name: "Free Parking" },
-    { icon: <FaDumbbell />, name: "Fitness Center" },
-    { icon: <FaUtensils />, name: "Restaurant" },
-
-    { icon: <FaSnowflake />, name: "Air Conditioning" },
-    { icon: <FaBath />, name: "Bathroom" },
-    { icon: <FaSmokingBan />, name: "Non-Smoking Rooms" },
-    { icon: <FaArrowUp />, name: "Elevator" },
-
-    { icon: <GiKitchenKnives />, name: "Kitchen" },
-    { icon: <GiHotMeal />, name: "Hot Tub" },
-    { icon: <MdPool />, name: "Pool" },
-    { icon: <FaFire />, name: "Fireplace" },
-
-    { icon: <FaChargingStation />, name: "EV Charging" },
-    { icon: <MdSpa />, name: "Spa" },
-    { icon: <MdPeople />, name: "Adults Only" },
-    { icon: <FaTv />, name: "TV" },
-  ];
-
   return (
-    <div className="continer px-9">
-        
-    <div className="bg-red-900 text-white  py-16 px-6 relative bottom-13">
-     {/* Heading */}
-        <h2 className="text-3xl text-center md:text-4xl font-bold mb-3 ">
+    <section className="w-full bg-gradient-to-b from-red-900 to-red-800  py-12 px-4 sm:px-6 lg:px-8 text-white">
+      <div className="max-w-7xl mx-auto text-center">
+
+        {/* Heading */}
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
           Amenities for a Comfortable Stay
         </h2>
 
-        <p className="text-sm text-center md:text-base mb-10">
-          Everything you need for a relaxing and hassle-free experience
+        {/* Subtext */}
+        <p className="text-gray-200 mb-10 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+          Everything you need for a relaxing and luxurious stay with premium
+          facilities designed for your comfort and convenience.
         </p>
-      <div className=" mx-auto text-center">
 
-        
+        {/* Grid */}
+        <div className="
+          grid 
+          grid-cols-2 
+          sm:grid-cols-3 
+          md:grid-cols-4 
+          lg:grid-cols-6 
+          gap-4 sm:gap-6
+        ">
+          {amenities.map((item, index) => {
+            const Icon = item.icon;
 
-        {/* Amenities Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6  text-left">
+            return (
+              <div
+                key={index}
+                className="
+                  group
+                  bg-white/10 
+                  backdrop-blur-md
+                  border border-white/20
+                  rounded-xl 
+                  p-4 sm:p-5
+                  flex flex-col items-center justify-center
+                  text-center
+                  transition-all duration-300 ease-in-out
+                  hover:bg-white hover:text-red-900
+                  hover:shadow-xl hover:scale-105
+                  cursor-pointer
+                "
+              >
+                <Icon
+                  size={26}
+                  className="
+                    mb-2
+                    transition-transform duration-300
+                    group-hover:scale-110
+                  "
+                />
 
-          {amenities.map((item, index) => (
-            <div key={index} className="flex items-center gap-3">
-              <span className="text-xl">{item.icon}</span>
-              <p className="text-sm">{item.name}</p>
-            </div>
-          ))}
-
+                <p className="text-xs sm:text-sm font-medium tracking-wide">
+                  {item.name}
+                </p>
+              </div>
+            );
+          })}
         </div>
+
       </div>
-    </div>
-    </div>
+    </section>
   );
 }

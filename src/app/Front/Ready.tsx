@@ -3,8 +3,8 @@
 
 export default function Ready(){
     return(
-      <div className="continer px-9">
-        <div className="relative w-full h-[80vh] md:h-[90vh] pt-12">
+      <div className="continer ">
+        <div className="relative top-10 w-full h-[80vh] md:h-[90vh] pt-12">
       
       {/* Background Image */}
       <img

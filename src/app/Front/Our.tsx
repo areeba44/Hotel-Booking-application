@@ -23,11 +23,11 @@ export default function Testimonials() {
   ];
 
   return (
-    <div className="bg-white px-6">
+    <div className="bg-white px-9 ">
       <div className="container mx-auto text-center">
 
         {/* Heading */}
-        <h2 className="text-2xl md:text-4xl font-bold mb-2">
+        <h2 className="text-2xl md:text-4xl font-bold pt-9">
           Our Customers Say About Us
         </h2>
 

@@ -4,8 +4,8 @@ import Image from "next/image"
 export default function Navbar() {
   return (
     <div className="max-w-7xl mx-auto px-4">
-      <nav className="w-full bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <nav className="w-full ">
+        <div className="max-w-7xl  w-full mx-auto px-6 py-4 flex justify-between items-center">
           
           {/* Logo */}
 <Image

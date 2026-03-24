@@ -11,93 +11,85 @@ import Ready from "./Ready";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import "./resp.css";
-import "./main.css";
+
 
 export default function Home() {
-
   const [hotelName, setHotelName] = useState("");
   const [searchhotel, setSearchHotel] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
-
   const router = useRouter();
 
   const handleSearch = () => {
-
-    const data = {
-      hotel_name: hotelName ? hotelName : null
-    };
-
+    const data = { hotel_name: hotelName ? hotelName : null };
     const encoded = encodeURIComponent(JSON.stringify(data));
-
     router.push(`/hotels?data=${encoded}`);
   };
 
   useEffect(() => {
-  if (hotelName.length < 3) {
-    setSearchHotel([]); 
-    return;
-  }
-
-  const FetchData = async () => {
-    try {
-      setLoading(true);
-
-      const res = await axios.get(
-        `http://10.10.10.164:5000/search-hotels/${hotelName}`
-      );
-
-      setSearchHotel(res.data);
-    } catch (error) {
-      console.log(error);
-      setSearchHotel([]);
-    } finally {
-      setLoading(false);
+    if (hotelName.length < 3) {
+      setSearchHotel([]); 
+      return;
     }
-  };
 
- const delay = setTimeout(() => {
-    if (hotelName.length >= 3) {
-      FetchData();
-    } else {
-      setSearchHotel([]);
-    }
-  }, 500);
+    const FetchData = async () => {
+      try {
+        setLoading(true);
+        const res = await axios.get(
+          `https://hotel-booking-backend-wajid.vercel.app/search-hotels/${hotelName}`
+        );
+        setSearchHotel(res.data);
+      } catch (error) {
+        console.log(error);
+        setSearchHotel([]);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  return () => clearTimeout(delay);
-}, [hotelName]);
+    const delay = setTimeout(() => {
+      if (hotelName.length >= 3) FetchData();
+      else setSearchHotel([]);
+    }, 500);
+
+    return () => clearTimeout(delay);
+  }, [hotelName]);
 
   return (
     <>
       <Navbar />
-      <div className="relative w-full h-[500px] sm:h-[650px]">
-        <Image
-          src="/img1.png"
-          alt="room"
-          fill
-          priority
-          className="object-cover brightness-75"/>
-        {/* Text */}
-        <div className="absolute inset-0 flex items-center justify-start px-6 pb-29 sm:px-12 lg:px-24">
-          <div className="text-white max-w-xl">
-            <h1 className="text-3xl md:text-5xl font-bold font-family:'Inter', sans-serif leading-tight">
-              Find Your Perfect Stay <br /> With Stay Haven
-            </h1>
 
-            <p className="mt-4 text-gray-200">
-              Discover hotels, resorts, and guest houses at the best prices —
-              with flexible booking options and verified reviews.
-            </p>
+      {/* First Outer Div with Responsive Container */}
+      <div className="max-w-7xl mx-auto relative w-full h-[500px] sm:h-[650px] px-4">
+        
+        <div>
+          <Image
+            src="/img1.png"
+            alt="room"
+            fill
+            priority
+            className="object-cover brightness-75"
+          />
+          {/* Text */}
+          <div className="absolute inset-0 flex items-center justify-start px-6 pb-29 sm:px-12 lg:px-24">
+            <div className="text-white max-w-xl">
+              <h1 className="text-3xl md:text-5xl font-bold font-family:'Inter', sans-serif leading-tight">
+                Find Your Perfect Stay <br /> With Stay Haven
+              </h1>
+              <p className="mt-4 text-gray-200">
+                Discover hotels, resorts, and guest houses at the best prices —
+                with flexible booking options and verified reviews.
+              </p>
+            </div>
           </div>
         </div>
 
         {/* Search Box */}
         <div className="absolute left-0 w-full px-4 sm:px-6 lg:px-12 -bottom-10 flex justify-center">
-  <div className="w-full max-w-5xl bg-white rounded-xl shadow-lg border border-white p-6">
-   <div className="grid grid-cols-3 gap-2 items-end">
-      {/* Hotel Input */}
-      <div className="relative col-span-2">
-
+          <div className="w-full max-w-5xl bg-white rounded-xl shadow-lg border border-white p-6">
+            <div className="grid grid-cols-3 gap-2 items-end">
+              
+              {/* Hotel Input */}
+              <div className="relative col-span-2">
                 <input
                   type="text"
                   placeholder="Search Hotel"
@@ -105,8 +97,6 @@ export default function Home() {
                   onChange={(e) => setHotelName(e.target.value)}
                   className="w-full px-3 py-1.5 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-red-900 focus:outline-none"
                 />
-
-                {/* Dropdown */}
                 {searchhotel?.length > 0 && hotelName && (
                   <div className="absolute top-full mt-1 w-full bg-white border rounded-md shadow-md max-h-48 overflow-y-auto z-50">
                     {searchhotel
@@ -117,29 +107,45 @@ export default function Home() {
                         <div
                           key={index}
                           onClick={() => setHotelName(hotel.name)}
-                          className="px-3 py-2 cursor-pointer hover:bg-gray-100" >
+                          className="px-3 py-2 cursor-pointer hover:bg-gray-100"
+                        >
                           <div className="font-medium text-sm">{hotel.name}</div>
-
-                          {/* <div className="text-xs text-gray-500">
-                            {hotel.cityName}
-                          </div> */}
-                        </div> ))} </div>)} </div>
+                        </div>
+                      ))}
+                  </div>
+                )}
+              </div>
 
               {/* Search Button */}
               <div className="flex justify-center">
                 <button
-                onClick={handleSearch}
-              className="w-[210px] h-[36px] font-serif text-xl text-centeritem-center bg-red-900 hover:bg-red-800 text-white text-base px-4 py-1 rounded-md shadow">
-               Search
-              </button>
-   </div> </div></div> </div></div> <div>
-        <Dis /><Slider/><Most /><Amenities /><Our /><Ready /> 
+                  onClick={handleSearch}
+                  className="w-[210px] h-[36px] font-serif text-xl text-centeritem-center bg-red-900 hover:bg-red-800 text-white text-base px-4 py-1 rounded-md shadow"
+                >
+                  Search
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
       </div>
+
+      {/* Rest of the page */}
+      <div>
+        <Dis />
+        <Slider />
+        <Most />
+        <Amenities />
+        <Our />
+        <Ready /> 
+      </div>
+
       <Footer />
     </>
   );
 }
-
 
 
 

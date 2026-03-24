@@ -7,27 +7,28 @@ export default function Testimonials() {
       name: "Khan",
       img: "https://randomuser.me/api/portraits/women/65.jpg",
       text: "Booking was quick and simple. I compared several hotels and perfectly matched my needs. The stay was smooth, staff were courteous, and the amenities exceeded expectations. I would highly recommend this platform to anyone looking for a hassle-free and reliable hotel booking experience.",
-      
     },
     {
       name: "Ali Raza",
       img: "https://randomuser.me/api/portraits/men/32.jpg",
       text: "Great hotel options at reasonable prices. The booking process was fast and the confirmation arrived instantly. The website is very user-friendly, making it easy to compare different hotels, read reviews, and make informed decisions without spending hours searching. Definitely a 5-star experience!",
-       rotate: "rotate-0 ",
-      },
+    },
     {
       name: "Sara Ahmed",
       img: "https://randomuser.me/api/portraits/women/44.jpg",
-       text: "The platform is simple and easy to use. I quickly compared different hotels and booked the best option without stress. The interface is intuitive, and the booking confirmation process is instantaneous. I also appreciated the detailed descriptions, high-quality images, and accurate pricing."
+      text: "The platform is simple and easy to use. I quickly compared different hotels and booked the best option without stress. The interface is intuitive, and the booking confirmation process is instantaneous. I also appreciated the detailed descriptions, high-quality images, and accurate pricing."
     }
   ];
 
   return (
-    <div className="bg-white px-9 ">
-      <div className="container mx-auto text-center">
+    // 🔹 Outer Parent
+    <div className="w-full bg-white py-12">
+
+      {/* 🔹 Container */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
         {/* Heading */}
-        <h2 className="text-2xl md:text-4xl font-bold pt-9">
+        <h2 className="text-2xl md:text-4xl font-bold pt-4">
           Our Customers Say About Us
         </h2>
 

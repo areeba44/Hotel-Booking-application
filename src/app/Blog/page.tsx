@@ -58,53 +58,66 @@ const blogs = [
 
 export default function BlogPage() {
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Navbar */}
+    <div>
+      {/* Navbar (full width) */}
       <Navbar />
+    <div className="flex flex-col min-h-screen">
+      
+    
 
-      {/* Our Blog Heading */}
-      <div className="bg-red-50 py-35 w-full text-center">
-        <h1 className="text-5xl font-bold text-gray-800 font-serif">Our Blog</h1>
-      </div>
+      {/* ✅ Parent Container Start */}
+      <div className="max-w-6xl mx-auto w-full">
 
-      {/* Blog Cards */}
-      <main className="flex-1 bg-gray-50 px-4 py-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {blogs.map((blog) => (
-            <div
-              key={blog.id}
-              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition flex flex-col w-full"
-            >
-              {/* Blog Image */}
-              <div className="relative w-full h-44">
-                <Image
-                  src={blog.image}
-                  alt={blog.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-
-              {/* Blog Info */}
-              <div className="p-4 flex flex-col gap-2 flex-1">
-                <p className="text-gray-500 text-xs">{blog.date}</p>
-                <h2 className="font-semibold text-md text-gray-800">{blog.title}</h2>
-                <p className="text-gray-600 text-sm flex-1">{blog.excerpt}</p>
-                <Link href={blog.link}>
-                  <button className="mt-2 self-start px-3 py-1 bg-red-900 text-white rounded-lg transition text-sm">
-                    Read More
-                  </button>
-                </Link>
-              </div>
-            </div>
-          ))}
+        {/* Heading */}
+        <div className="bg-red-50 py-35 w-full overflow-hidden text-center">
+          <h1 className="text-5xl font-bold text-gray-800 font-serif">
+            Our Blog
+          </h1>
         </div>
-      </main>
 
-      {/* Footer */}
+        {/* Blog Cards */}
+        <main className="flex-1 bg-gray-50 px-4 py-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {blogs.map((blog) => (
+              <div
+                key={blog.id}
+                className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition flex flex-col w-full"
+              >
+                {/* Image */}
+                <div className="relative w-full h-44">
+                  <Image
+                    src={blog.image}
+                    alt={blog.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="p-4 flex flex-col gap-2 flex-1">
+                  <p className="text-gray-500 text-xs">{blog.date}</p>
+                  <h2 className="font-semibold text-md text-gray-800">
+                    {blog.title}
+                  </h2>
+                  <p className="text-gray-600 text-sm flex-1">
+                    {blog.excerpt}
+                  </p>
+                  <Link href={blog.link}>
+                    <button className="mt-2 self-start px-3 py-1 bg-red-900 text-white rounded-lg transition text-sm">
+                      Read More
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </main>
+
+      </div></div>
+      {/* ✅ Parent Container End */}
+
+      {/* Footer (full width) */}
       <Footer />
     </div>
   );
 }
-
-

@@ -2,36 +2,57 @@
 
 import Image from "next/image";
 
-const advertisers = [
-  "https://imgcy.trivago.com/image/upload/hardcodedimages/mpm-localised-logos-dark/626.png",
-  "https://imgcy.trivago.com/image/upload/hardcodedimages/mpm-localised-logos-dark/406.png",
-  "https://imgcy.trivago.com/image/upload/hardcodedimages/mpm-localised-logos-dark/3340.png",
-  "https://imgcy.trivago.com/image/upload/hardcodedimages/mpm-localised-logos-dark/2564.png",
-  "https://imgcy.trivago.com/image/upload/hardcodedimages/mpm-localised-logos-dark/14.png",
-  "https://imgcy.trivago.com/image/upload/hardcodedimages/mpm-localised-logos-dark/54.png",
-  "https://imgcy.trivago.com/image/upload/hardcodedimages/mpm-localised-logos-dark/634.png"
-];
-
 export default function AdvertiserBar() {
+  const logos = [
+    "/booking.png",
+    "/agoda1.png",
+    "/exp.png",
+    "/price.png",
+    "/hot.png",
+    "/trip.png",
+  ];
+
   return (
-    <div className="w-full bg-white  overflow-hidden py-4">
+    <div className="bg-white">
+      
+      {/* Parent Container */}
+      <div className="max-w-6xl mx-auto px-4">
+        
 
-      <div className="flex animate-slide whitespace-nowrap">
+        {/* Slider Wrapper */}
+        <div className="relative overflow-hidden">
+          
+          {/* Sliding Track */}
+          <div className="flex w-max animate-slide gap-12">
+            
+            {/* Loop 1 */}
+            {logos.map((logo, index) => (
+              <Image
+                key={index}
+                src={logo}
+                alt="partner"
+                width={120}
+                height={60}
+                className="object-contain"
+              />
+            ))}
 
-        {[...advertisers, ...advertisers].map((logo, index) => (
-          <div key={index} className="mx-6 flex-shrink-0">
-            <Image
-              src={logo}
-              alt="advertiser"
-              width={80}
-              height={14}
-              className="object-contain opacity-80 hover:opacity-100 transition"
-            />
+            {/* Loop 2 */}
+            {logos.map((logo, index) => (
+              <Image
+                key={`dup-${index}`}
+                src={logo}
+                alt="partner"
+                width={120}
+                height={60}
+                className="object-contain"
+              />
+            ))}
+
           </div>
-        ))}
+        </div>
 
       </div>
-
     </div>
   );
 }

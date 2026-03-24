@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import { useEffect, useState } from "react";
 import { FaDollarSign } from "react-icons/fa";
 import { Search } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { FaStar, FaBed, FaSnowflake, FaParking, FaSmokingBan, FaConciergeBell, FaUtensils, FaCoffee, FaWheelchair, FaPlaneDeparture, FaWifi, FaCar, } from "react-icons/fa";
 import { HiAdjustmentsHorizontal } from "react-icons/hi2";
 import { useParams, useSearchParams } from 'next/navigation'
@@ -25,6 +26,7 @@ export default function HotelsContent() {
   const [amenitiesOpen, setAmenitiesOpen] = useState(false);
   const [open, setOpen] = useState(null);
   const [hotels, setHotels] = useState([])
+  const router = useRouter();
   // console.log("Chekc slug", dataParam)
 
   useEffect(() => {
@@ -36,16 +38,16 @@ export default function HotelsContent() {
 
         const fetchHotelsData = async () => {
           try {
-            const params = {
-              country_name: parsedData.country_name,
-              country_code: parsedData.country_code,
-              city_name: parsedData.city_name,
-              city_code: parsedData.city_code,
-              hotel_name: parsedData.hotel_name,
-              page: 1,
-            };
+            // const params = {
+            //   country_name: parsedData.country_name,
+            //   country_code: parsedData.country_code,
+            //   city_name: parsedData.city_name,
+            //   city_code: parsedData.city_code,
+            //   hotel_name: parsedData.hotel_name,
+            //   page: 1,
+            // };
 
-            const response = await axios.get("http://10.10.10.164:5000/hotels", { params });
+            const response = await axios.get(`https://hotel-booking-backend-wajid.vercel.app/search-hotels/${parsedData.hotel_name}`);
             setHotels(response.data);
           } catch (error) {
             console.error("Error fetching hotel data:", error);
@@ -90,7 +92,16 @@ export default function HotelsContent() {
     return prices
   })
   console.log(prices)
-
+  const handleNavigate = (dest) => {
+    const payload = {
+      id: dest.id,
+      name: dest.name,
+    };
+    const encoded = encodeURIComponent(JSON.stringify(payload));
+    console.log("called")
+    // Navigate using window.location.href
+    window.location.href = `/Front/${encoded}`;
+  };
   return (
     <div className="">
       {/* NAVBAR */}
@@ -213,6 +224,7 @@ export default function HotelsContent() {
             )}
           </div>
         </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* HOTEL LIST */}
           <div className="lg:col-span-2 space-y-5">
@@ -233,6 +245,7 @@ export default function HotelsContent() {
                         alt={hotel.name}
                         className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
                     </div> </Link>
+
                   {/* MIDDLE INFO */}
                   <div className="flex-1 p-4 min-w-0">
                     <h2 className="font-serif text-lg">{hotel.name}</h2>
@@ -287,11 +300,12 @@ export default function HotelsContent() {
                       })()}
                     </div>
 
-                    <Link href={`/Front/${hotel.id}`}>
-                      <div className="mt-4  w-full text-center bg-gray-200 hover:bg-red-900 text-black py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ease-in-out cursor-pointer shadow-sm hover:shadow-md">
-                        <span className="ml-2">More detail</span>
-                      </div>
-                    </Link>
+                    <button
+                      onClick={() => handleNavigate(hotel)}
+                      className="w-full block bg-red-900 text-white py-2 text-sm rounded-md hover:bg-red-800 text-center transition"
+                    >
+                      More Details
+                    </button>
                   </div>
                 </div>
               </div>

@@ -1,14 +1,18 @@
 "use client";
 import './resp.css';
 import './main.css';
+import Link from 'next/link';
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import { useRouter } from "next/navigation";
+import { id } from 'react-day-picker/locale';
 export default function Destinations() {
   const [index, setIndex] = useState(0);
   const [randomHotels, setRandomHotel] = useState<any[]>([]);
   const cardsToShow = 3;
-
+  const router = useRouter();
+ 
   useEffect(() => {
     const FetchData = async () => {
       try {
@@ -40,11 +44,9 @@ export default function Destinations() {
       .trim()
       .replace(/\s+/g, "-");
   };
- 
- 
-
+  console.log(Array.isArray(randomHotels), randomHotels);
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-5">
         {/* Heading */}
         <h2 className="text-2xl md:text-3xl font-bold mb-10 px-3 text-gray-800">
@@ -66,48 +68,47 @@ export default function Destinations() {
                     name: dest.name,
                   };
                   const encoded = encodeURIComponent(JSON.stringify(payload));
+
                   window.location.href = `/Front/${encoded}`;
                 };
+        
                 return (
                   <div
-                    key={i}
-                    className="flex-shrink-0 w-full sm:w-1/2 md:w-1/3 px-3" >
-                    <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 h-full flex flex-col">
+  key={i}
+  className="flex-shrink-0 w-full sm:w-1/2 md:w-1/3 px-3 flex"
+>
+  <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 h-[320px] w-full flex flex-col">
 
-                      {/* Image */}
-                      <div className="h-40 overflow-hidden">
-                        <img
-                          src={JSON.parse(dest.images)[0].thumbnail}
-                          alt={dest.name}
-                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                        />
-                      </div>
+    {/* Image */}
+    <div className="h-40 overflow-hidden flex-shrink-0">
+      <img
+        src={JSON.parse(dest.images)[0].thumbnail}
+        alt={dest.name}
+        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+      />
+    </div>
 
-                      {/* Content */}
-                      <div className="p-4 flex flex-col flex-grow">
-                        <div className="flex justify-between items-center ">
-                          <h3 className="text-base font-semibold text-gray-800">
-                            {dest.name}
-                          </h3>
-                          <span className="text-yellow-500 text-sm">
-                            
-                            ⭐ {dest.location_rating}
-                          </span>
-                        </div>
-                        
-                        {/* <p className="text-gray-400 text-xs bottom-4 relative uppercase tracking-wide">
-                          {dest.type}
-                        </p>  */}
-                        <div className="mt-auto">
-                          <button
-                            onClick={handleNavigate}
-                            className="w-full bg-red-900 text-white py-2 text-sm rounded-md hover:bg-red-800 cursor-pointer transition">
-                            View Details
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div> 
+    {/* Content */}
+    <div className="p-4 flex flex-col flex-grow justify-between">
+      <div className="flex justify-between items-center">
+        <h3 className="text-base font-semibold text-gray-800">
+          {dest.name}
+        </h3>
+        <span className="text-yellow-500 text-sm">
+          ⭐ {dest.location_rating}
+        </span>
+      </div>
+
+      <button
+        onClick={handleNavigate}
+        className="w-full bg-red-900 text-white py-2 text-sm rounded-md hover:bg-red-800 transition"
+      >
+        View Details
+      </button>
+    </div>
+
+  </div>
+</div>
                 );
               })}
             </div>

@@ -10,7 +10,7 @@ export default function MostVisited() {
       <div className="max-w-6xl mx-auto">
 
         {/* Heading */}
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 text-gray-900">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 px-4 text-gray-900">
           Most Visited Hotels of 2025
         </h2>
 

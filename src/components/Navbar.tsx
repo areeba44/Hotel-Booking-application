@@ -8,7 +8,7 @@ export default function Navbar() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <div className="max-w-screen-3xl mx-auto px-4">
+    <div className="max-w-screen-3xl mx-auto ">
       <nav className="w-full">
         <div className="max-w-screen-2xl bg-white shadow-sm w-full mx-auto px-6 py-4 flex justify-between items-center">
           {/* Logo */}

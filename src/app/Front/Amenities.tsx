@@ -32,10 +32,10 @@ const amenities = [
 
 export default function Amenities() {
   return (
-    <div className="w-full bg-white">
+    <div className=" bg-white">
 
       {/* 🔹 Container (FULL WIDTH) */}
-      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-screen-2xl mx-auto relative w-full ">
 
         {/* 🔹 Background Box */}
         <div className="bg-gradient-to-b from-blue-900 to-blue-950 text-white py-12 px-4 sm:px-6 lg:px-8">

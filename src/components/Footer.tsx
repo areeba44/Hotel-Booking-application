@@ -47,10 +47,10 @@ export default function Footer() {
     <div className="w-full bg-white">
 
       {/* 🔹 Container */}
-      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div className="max-w-screen-2xl mx-auto relative w-full ">
 
         {/* 🔹 Footer Box */}
-        <footer className="bg-blue-950 text-white px-6 sm:px-8 py-10 shadow-2xl">
+        <footer className="bg-blue-950 text-white sm:px-8 py-10 shadow-2xl">
 
           {/* TOP SECTION */}
           <div className="grid lg:grid-cols-2 gap-12">

@@ -7,7 +7,7 @@ export default function MostVisited() {
     <section className="w-full bg-white py-12 px-5 sm:px-8">
       
       {/* Container (Thoda chhota parent) */}
-      <div className="max-w-screen-2xl mx-auto lg:px-8">
+    <div className="max-w-screen-2xl mx-auto relative w-full px-4">
 
         {/* Heading */}
         <h2 className="text-2xl sm:text-3xl md:text-3xl font-bold mb-10 px-3 text-gray-900">

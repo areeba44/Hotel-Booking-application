@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Wifi,
   Car,
@@ -30,13 +32,13 @@ const amenities = [
 
 export default function Amenities() {
   return (
-    <div className="w-full bg-white ">
-      
-      {/* 🔹 Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="w-full bg-white">
 
-        {/* 🔹 Background Box (ab container ke andar hai) */}
-        <div className="bg-gradient-to-b from-red-900 to-red-800 text-white py-12 px-4 sm:px-6 lg:px-8">
+      {/* 🔹 Container (FULL WIDTH) */}
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* 🔹 Background Box */}
+        <div className="bg-gradient-to-b from-blue-900 to-blue-950 text-white py-12 px-4 sm:px-6 lg:px-8">
 
           {/* Heading */}
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-center">
@@ -50,16 +52,14 @@ export default function Amenities() {
           </p>
 
           {/* Grid */}
-          <div
-            className="
-              grid 
-              grid-cols-2 
-              sm:grid-cols-3 
-              md:grid-cols-4 
-              lg:grid-cols-6 
-              gap-4 sm:gap-6
-            "
-          >
+          <div className="
+            grid 
+            grid-cols-2 
+            sm:grid-cols-3 
+            md:grid-cols-4 
+            lg:grid-cols-6 
+            gap-4 sm:gap-6
+          ">
             {amenities.map((item, index) => {
               const Icon = item.icon;
 

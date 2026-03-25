@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { IconType } from "react-icons";
 
@@ -33,7 +34,7 @@ interface SocialIconProps {
 
 function SocialIcon({ Icon }: SocialIconProps) {
   return (
-    <div className="w-10 h-10 flex items-center justify-center border border-white rounded-full hover:bg-white hover:text-red-900 transition cursor-pointer">
+    <div className="w-10 h-10 flex items-center justify-center border border-white rounded-full hover:bg-white hover:text-blue-900 transition cursor-pointer">
       <Icon size={14} />
     </div>
   );
@@ -42,21 +43,27 @@ function SocialIcon({ Icon }: SocialIconProps) {
 /* Main Footer Component */
 export default function Footer() {
   return (
-    // 🔹 Outer Parent (NO TOP SPACE)
-    <div className="w-full bg-white ">
+    // 🔹 Outer Parent (Thoda bara container)
+    <div className="w-full bg-white">
 
       {/* 🔹 Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* 🔹 Footer Box */}
-        <footer className="bg-red-900 text-white px-6 sm:px-8 py-10 shadow-2xl">
+        <footer className="bg-blue-950 text-white px-6 sm:px-8 py-10 shadow-2xl">
 
           {/* TOP SECTION */}
           <div className="grid lg:grid-cols-2 gap-12">
             
             {/* LEFT - BRAND */}
             <div>
-              <h2 className="text-3xl font-bold tracking-wide">STAY HAVEN</h2>
+              <Image
+                src="/Rate.png"
+                alt="Logo"
+                width={160}
+                height={80}
+                className="text-red-500 fill-current"
+              />
               <p className="mt-5 max-w-md leading-relaxed text-sm text-gray-200">
                 Discover luxury stays across the world with premium comfort, elegant
                 design, and unforgettable experiences crafted just for you.

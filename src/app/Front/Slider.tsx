@@ -16,9 +16,8 @@ export default function AdvertiserBar() {
     <div className="bg-white">
       
       {/* Parent Container */}
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-screen-2xl mx-auto px-4 mt-10">
         
-
         {/* Slider Wrapper */}
         <div className="relative overflow-hidden">
           

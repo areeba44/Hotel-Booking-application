@@ -9,14 +9,14 @@ export default function GoogleLoginPopup() {
   const [open, setOpen] = useState(true);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="">
       {/* Navbar */}
       <Navbar />
 
       {/* Main Content */}
       <main className="flex-grow">
         {/* Top Section */}
-        <div className="w-full max-w-screen-2xl mx-auto px-6 sm:px-10 xl:px-40 pt-40 pb-20 bg-red-50">
+        <div className="w-full max-w-screen-2xl mx-auto px-6 sm:px-10 xl:px-40 pt-40 pb-20 bg-blue-50">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif">
             Log in or sign up
           </h1>
@@ -26,7 +26,7 @@ export default function GoogleLoginPopup() {
             <div className="w-full max-w-md p-6 bg-white rounded-xl shadow-lg transition duration-300 transform hover:scale-105 hover:shadow-2xl hover:bg-red-50">
               
               {/* Welcome Back Section */}
-              <h2 className="text-3xl font-semibold text-center text-red-900 mb-6">
+              <h2 className="text-3xl font-semibold text-center text-blue-900 mb-6">
                 Welcome Back
               </h2>
 
@@ -47,7 +47,7 @@ export default function GoogleLoginPopup() {
                     id="email"
                     name="email"
                     required
-                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
+                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
                     placeholder="Enter your email"
                   />
                 </div>
@@ -62,7 +62,7 @@ export default function GoogleLoginPopup() {
                     id="password"
                     name="password"
                     required
-                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
+                    className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
                     placeholder="Enter your password"
                   />
                 </div>
@@ -72,11 +72,11 @@ export default function GoogleLoginPopup() {
                   <input
                     type="checkbox"
                     id="terms"
-                    className="h-4 w-4 text-red-600 focus:ring-red-500"
+                    className="h-4 w-4 text-blue-600 focus:ring-blue-500"
                   />
                   <label htmlFor="terms" className="text-sm text-gray-600">
                     I have read and agree to{" "}
-                    <span className="text-red-600">
+                    <span className="text-blue-600">
                       Terms and Conditions
                     </span>
                   </label>
@@ -85,7 +85,7 @@ export default function GoogleLoginPopup() {
                 {/* Login Button */}
                 <button
                   type="submit"
-                  className="w-full py-2 bg-red-900 text-white rounded-md hover:bg-red-700 transition duration-200"
+                  className="w-full py-2 bg-blue-900 text-white rounded-md hover:bg-blue-700 transition duration-200"
                 >
                   Login
                 </button>
@@ -95,7 +95,7 @@ export default function GoogleLoginPopup() {
               <div className="text-center mt-4">
                 <Link
                   href="/forgot-password"
-                  className="text-sm text-red-600 hover:text-red-800"
+                  className="text-sm text-blue-600 hover:text-blue-800"
                 >
                   Forgot password?
                 </Link>
@@ -107,7 +107,7 @@ export default function GoogleLoginPopup() {
                   Don’t have an account yet?{" "}
                   <Link
                     href="/signup"
-                    className="text-red-600 hover:text-red-800"
+                    className="text-blue-600 hover:text-blue-800"
                   >
                     Signup now
                   </Link>

@@ -47,7 +47,7 @@ export default function UserSettings() {
               key={tab}
               className={`cursor-pointer px-3 py-2 rounded-xl w-full capitalize ${
                 activeTab === tab
-                  ? "bg-amber-100 text-red-900 font-semibold"
+                  ? "bg-blue-100 text-blue-900 font-semibold"
                   : "hover:bg-gray-100"
               }`}
               onClick={() => setActiveTab(tab)}
@@ -82,9 +82,9 @@ export default function UserSettings() {
                   alt="Profile Picture"
                   width={120}
                   height={120}
-                  className="rounded-full object-cover border-4 border-red-900"
+                  className="rounded-full object-cover border-4 border-blue-900"
                 />
-                <label className="absolute bottom-0 right-0 bg-red-900 rounded-full p-2 cursor-pointer hover:bg-red-400">
+                <label className="absolute bottom-0 right-0 bg-blue-900 rounded-full p-2 cursor-pointer hover:bg-blue-400">
                   <AiOutlineCamera className="text-white w-5 h-5" />
                   <input
                     type="file"
@@ -106,7 +106,7 @@ export default function UserSettings() {
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className="w-full border rounded-xl px-4 py-2 mt-1 focus:ring-2 focus:ring-red-900 outline-none"
+                  className="w-full border rounded-xl px-4 py-2 mt-1 focus:ring-2 focus:ring-blue-900 outline-none"
                 />
               </div>
               <div>
@@ -114,10 +114,10 @@ export default function UserSettings() {
                 <input
                   type="email"
                   placeholder="Your Email"
-                  className="w-full border rounded-xl px-4 py-2 mt-1 focus:ring-2 focus:ring-red-900 outline-none"
+                  className="w-full border rounded-xl px-4 py-2 mt-1 focus:ring-2 focus:ring-blue-900 outline-none"
                 />
               </div>
-              <button className="bg-red-900 hover:bg-red-400 text-white px-6 py-2 rounded-xl w-full mt-2 shadow-md">
+              <button className="bg-blue-900 hover:bg-blue-400 text-white px-6 py-2 rounded-xl w-full mt-2 shadow-md">
                 Save Changes
               </button>
             </div>
@@ -133,7 +133,7 @@ export default function UserSettings() {
                 <input
                   type="password"
                   placeholder="Current Password"
-                  className="w-full border rounded-xl px-4 py-2 mt-1 focus:ring-2 focus:ring-red-400 outline-none"
+                  className="w-full border rounded-xl px-4 py-2 mt-1 focus:ring-2 focus:ring-blue-400 outline-none"
                 />
               </div>
               <div>
@@ -141,10 +141,10 @@ export default function UserSettings() {
                 <input
                   type="password"
                   placeholder="New Password"
-                  className="w-full border rounded-xl px-4 py-2 mt-1 focus:ring-2 focus:ring-red-400 outline-none"
+                  className="w-full border rounded-xl px-4 py-2 mt-1 focus:ring-2 focus:ring-blue-400 outline-none"
                 />
               </div>
-              <button className="bg-red-900 hover:bg-red-400 text-white px-6 py-2 rounded-xl w-full mt-2 shadow-md">
+              <button className="bg-blue-900 hover:bg-blue-400 text-white px-6 py-2 rounded-xl w-full mt-2 shadow-md">
                 Update Password
               </button>
             </div>
@@ -161,9 +161,9 @@ export default function UserSettings() {
               <input
                 type="email"
                 placeholder="Your Email"
-                className="w-full border rounded-xl px-4 py-2 focus:ring-2 focus:ring-red-400 outline-none"
+                className="w-full border rounded-xl px-4 py-2 focus:ring-2 focus:ring-blue-400 outline-none"
               />
-              <button className="bg-red-900 hover:bg-red-400 text-white px-6 py-2 rounded-xl w-full shadow-md">
+              <button className="bg-blue-900 hover:bg-blue-400 text-white px-6 py-2 rounded-xl w-full shadow-md">
                 Send Reset Link
               </button>
             </div>

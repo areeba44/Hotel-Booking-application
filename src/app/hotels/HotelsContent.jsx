@@ -5,64 +5,39 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { useEffect, useState } from "react";
-import { FaDollarSign } from "react-icons/fa";
-import { Search } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { FaStar, FaBed, FaSnowflake, FaParking, FaSmokingBan, FaConciergeBell, FaUtensils, FaCoffee, FaWheelchair, FaPlaneDeparture, FaWifi, FaCar, } from "react-icons/fa";
+import { FaDollarSign, FaStar, FaBed, FaSnowflake, FaParking, FaSmokingBan, FaConciergeBell, FaUtensils, FaCoffee, FaWheelchair, FaPlaneDeparture, FaWifi, FaCar } from "react-icons/fa";
 import { HiAdjustmentsHorizontal } from "react-icons/hi2";
-import { useParams, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation';
 import axios from "axios";
 
 export default function HotelsContent() {
   const searchParams = useSearchParams()
   const dataParam = searchParams.get('data')
-  const [location, setLocation] = useState("");
-  const [date, setDate] = useState("");
-  const [checkIn] = useState("");
-  const [checkOut] = useState("");
   const [allFiltersOpen, setAllFiltersOpen] = useState(false);
   const [priceOpen, setPriceOpen] = useState(false);
   const [freebiesOpen, setFreebiesOpen] = useState(false);
   const [amenitiesOpen, setAmenitiesOpen] = useState(false);
-  const [open, setOpen] = useState(null);
   const [hotels, setHotels] = useState([])
-  const router = useRouter();
-  // console.log("Chekc slug", dataParam)
 
   useEffect(() => {
     if (dataParam) {
       const parsedData = JSON.parse(decodeURIComponent(dataParam));
-
       if (parsedData) {
-        console.log("Parsed Data:", parsedData);
-
         const fetchHotelsData = async () => {
           try {
-            // const params = {
-            //   country_name: parsedData.country_name,
-            //   country_code: parsedData.country_code,
-            //   city_name: parsedData.city_name,
-            //   city_code: parsedData.city_code,
-            //   hotel_name: parsedData.hotel_name,
-            //   page: 1,
-            // };
-
             const response = await axios.get(`https://hotel-booking-backend-wajid.vercel.app/search-hotels/${parsedData.hotel_name}`);
             setHotels(response.data);
           } catch (error) {
             console.error("Error fetching hotel data:", error);
           }
-        }; fetchHotelsData();
+        };
+        fetchHotelsData();
       }
     }
   }, [dataParam])
 
-  console.log("hotels", hotels)
-
-
-  const allFilters = ["Price", "Freebies", "Amenities", "Stars", "Review score", "Type of stay", "Location", "Hotel chain", "Style", "Property name", "Booking sites",];
+  const allFilters = ["Price", "Freebies", "Amenities", "Stars", "Review score", "Type of stay", "Location", "Hotel chain", "Style", "Property name", "Booking sites"];
   const priceOptions = ["Nightly", "Including fees"];
-
   const amenities = [
     { name: "General", icon: <FaBed /> },
     { name: "Air-conditioned", icon: <FaSnowflake /> },
@@ -86,29 +61,23 @@ export default function HotelsContent() {
     { name: "All-inclusive", icon: <FaUtensils /> },
   ];
 
-
-  const prices = hotels.map((elemItem) => {
-    const prices = elemItem.prices ? JSON.parse(elemItem.prices) : "[]"
-    return prices
-  })
-  console.log(prices)
-  const handleNavigate = (dest) => {
-    const payload = {
-      id: dest.id,
-      name: dest.name,
-    };
+  const handleNavigate = (hotel) => {
+    const payload = { id: hotel.id, name: hotel.name };
     const encoded = encodeURIComponent(JSON.stringify(payload));
-    console.log("called")
-    // Navigate using window.location.href
     window.location.href = `/Front/${encoded}`;
   };
+
   return (
-    <div className="">
+    // 🔹 OUTERMOST PARENT (FULL WIDTH JAISA NAVBAR/FOOTER)
+    <div className="w-full max-w-screen-2xl mx-auto">
+
       {/* NAVBAR */}
       <Navbar />
+
       {/* AVAILABLE HOTELS HEADING */}
-      <div className="max-w-8xl mx-auto mt-7 px-6 font-bold">
-        <h1 className="text-3xl  mb-4 ml-4 font-sans">Available Hotels</h1>
+      <div className="mt-7 px-6 font-bold">
+        <h1 className="text-3xl mb-4 ml-4 font-sans">Available Hotels</h1>
+
         {/* FILTER BUTTONS */}
         <div className="flex flex-wrap gap-3 mb-6">
           {/* All Filters */}
@@ -126,16 +95,13 @@ export default function HotelsContent() {
               <div className="absolute mt-2 bg-white shadow-lg rounded-xl w-60 z-50 border border-gray-200 max-h-72 overflow-y-auto">
                 <ul className="flex flex-col">
                   {allFilters.map((filter, index) => (
-                    <li
-                      key={index}
-                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700 text-sm" >
-                      {filter}
-                    </li>
+                    <li key={index} className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700 text-sm">{filter}</li>
                   ))}
                 </ul>
               </div>
             )}
           </div>
+
           {/* Price */}
           <div className="relative inline-block">
             <button
@@ -149,27 +115,26 @@ export default function HotelsContent() {
               <div className="absolute mt-2 bg-white shadow-lg rounded-xl w-40 z-50 border border-gray-200">
                 <ul className="flex flex-col">
                   {priceOptions.map((item, index) => (
-                    <li
-                      key={index}
-                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700 text-sm flex items-center gap-2"
-                    ><FaDollarSign /> {item}
+                    <li key={index} className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700 text-sm flex items-center gap-2">
+                      <FaDollarSign /> {item}
                     </li>
                   ))}
                 </ul>
               </div>
             )}
           </div>
-          {/* free breakfast */}
-          <button className="bg-white cursor-pointer rounded-lg w-37 h-10 font-bold border-0 shadow px-4 flex items-center justify-between"
-          >Free Breakfast
-          </button>
-          {/* star  */}
-          <button className="bg-white cursor-pointer rounded-lg w-23 h-10 font-bold border-0 shadow px-4 flex items-center justify-between"
-          >Star   4+
-          </button>
-          <button className="bg-white cursor-pointer rounded-lg w-40 h-10 font-bold border-0 shadow px-4 flex items-center justify-between"
-          >8+ review score
-          </button>
+
+          {/* Free Breakfast */}
+          <button className="bg-white cursor-pointer rounded-lg w-37 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
+            Free Breakfast</button>
+
+          {/* Star */}
+          <button className="bg-white cursor-pointer rounded-lg w-23 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
+            Star 4+</button>
+
+          {/* Review Score */}
+          <button className="bg-white cursor-pointer rounded-lg w-40 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
+            8+ review score</button>
 
           {/* Freebies */}
           <div className="relative inline-block">
@@ -184,10 +149,7 @@ export default function HotelsContent() {
               <div className="absolute mt-2 bg-white shadow-lg rounded-xl w-64 z-50 border border-gray-200 max-h-80 overflow-y-auto">
                 <ul className="flex flex-col">
                   {freebies.map((item, index) => (
-                    <li
-                      key={index}
-                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2 text-gray-700 text-sm"
-                    >
+                    <li key={index} className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2 text-gray-700 text-sm">
                       {item.icon} {item.name}
                     </li>
                   ))}
@@ -195,17 +157,16 @@ export default function HotelsContent() {
               </div>
             )}
           </div>
-          <button className="bg-white cursor-pointer rounded-lg w-30 h-10 font-bold border-0 shadow px-4 flex items-center justify-between"
-          >Under $53
-          </button>
-          <button className="bg-white cursor-pointer rounded-lg w-35 h-10 font-bold border-0 shadow px-4 flex items-center justify-between"
-          >Review score
-          </button>
+          {/* Star */}
+          <button className="bg-white cursor-pointer rounded-lg w-32 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
+            Under $45</button>
+
           {/* Amenities */}
           <div className="relative inline-block">
             <button
               onClick={() => setAmenitiesOpen(!amenitiesOpen)}
-              className="bg-white cursor-pointer rounded-lg w-33 h-10 font-bold border-0 shadow px-4 flex items-center justify-between" >
+              className="bg-white cursor-pointer rounded-lg w-33 h-10 font-bold border-0 shadow px-4 flex items-center justify-between"
+            >
               Amenities
               <span className="ml-2 text-gray-500">{amenitiesOpen ? "▲" : "▼"}</span>
             </button>
@@ -213,85 +174,72 @@ export default function HotelsContent() {
               <div className="absolute mt-2 bg-white shadow-lg rounded-xl w-64 z-50 border border-gray-200 max-h-80 overflow-y-auto">
                 <ul className="flex flex-col">
                   {amenities.map((item, index) => (
-                    <li
-                      key={index}
-                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2 text-gray-700 text-sm" >
+                    <li key={index} className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2 text-gray-700 text-sm">
                       {item.icon} {item.name}
                     </li>
                   ))}
                 </ul>
               </div>
             )}
+            
           </div>
+          {/* Star */}
+          <button className="bg-white cursor-pointer rounded-lg w-26 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
+            Class 4+</button>
+             
+              {/* Star */}
+          <button className="bg-white cursor-pointer rounded-lg w-26 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
+            8+ rating</button>
+
         </div>
 
+        {/* HOTEL LIST */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* HOTEL LIST */}
           <div className="lg:col-span-2 space-y-5">
             {hotels.map((hotel) => (
-              <div
-                key={hotel.id}
-                className="bg-white rounded-xl border hover:shadow-lg transition overflow-hidden">
+              <div key={hotel.id} className="bg-white rounded-xl border hover:shadow-lg transition overflow-hidden">
                 <div className="flex flex-col lg:flex-row">
                   {/* IMAGE */}
                   <Link href="#">
                     <div className="relative w-full lg:w-[280px] h-56 flex-shrink-0 overflow-hidden">
                       <img
-                        src={
-                          hotel.images
-                            ? JSON.parse(hotel.images)[0]?.original_image
-                            : ""
-                        }
+                        src={hotel.images ? JSON.parse(hotel.images)[0]?.original_image : ""}
                         alt={hotel.name}
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
-                    </div> </Link>
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      />
+                    </div>
+                  </Link>
 
-                  {/* MIDDLE INFO */}
+                  {/* INFO */}
                   <div className="flex-1 p-4 min-w-0">
                     <h2 className="font-serif text-lg">{hotel.name}</h2>
                     <p className="text-sm text-gray-500">{hotel.address}</p>
-                    {/* STARS */}
                     <div className="flex items-center gap-1 text-orange-500 mt-1">
-                      {[...Array(4)].map((_, i) => (
-                        <FaStar key={i} size={14} />
-                      ))}
+                      {[...Array(4)].map((_, i) => (<FaStar key={i} size={14} />))}
                     </div>
-                    {/* REVIEWS */}
                     <div className="flex items-center gap-2 text-sm mt-1">
-                      <span className="font-bold text-black">
-                        {hotel.overall_rating}
-                      </span>
-                      <span className="text-gray-500">
-                        / {hotel.reviews} reviews
-                      </span>
+                      <span className="font-bold text-black">{hotel.overall_rating}</span>
+                      <span className="text-gray-500">/ {hotel.reviews} reviews</span>
                     </div>
-                    {/* DESCRIPTION */}
                     <div className="text-sm text-gray-500 line-clamp-3 mt-2">
                       <p dangerouslySetInnerHTML={{ __html: hotel.description }} />
                     </div>
                   </div>
-                  {/* RIGHT PRICE BOX */}
+
+                  {/* PRICE BOX */}
                   <div className="w-full lg:w-[260px] bg-gray-50 border-t lg:border-t-0 lg:border-l p-4 flex flex-col justify-between">
                     <div className="text-right">
-                      <p className="text-xs text-red-500">
-                        Cheaper than usual
-                      </p>
+                      <p className="text-xs text-red-500">Cheaper than usual</p>
                       {hotel.prices && (() => {
                         const parsedPrices = JSON.parse(hotel.prices || "[]");
-                        console.log(parsedPrices)
-
                         return (
                           <>
                             <h3 className="text-3xl font-extrabold text-gray-900 leading-tight">
                               ${parsedPrices[0]?.rate_per_night?.extracted_lowest}
                             </h3>
-
-                            <p className="text-xs text-gray-500 mt-1">
-                              per night
-                            </p>
-
+                            <p className="text-xs text-gray-500 mt-1">per night</p>
                             <Link href={parsedPrices[0].link}>
-                              <p className="mt-4 w-full text-center bg-red-900 hover:bg-red-700 text-white py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ease-in-out cursor-pointer shadow-sm hover:shadow-md">
+                              <p className="mt-4 w-full text-center bg-blue-900 hover:bg-blue-700 text-white py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ease-in-out cursor-pointer shadow-sm hover:shadow-md">
                                 {parsedPrices[0].source}
                               </p>
                             </Link>
@@ -299,10 +247,9 @@ export default function HotelsContent() {
                         );
                       })()}
                     </div>
-
                     <button
                       onClick={() => handleNavigate(hotel)}
-                      className="w-full block bg-red-900 text-white py-2 text-sm rounded-md hover:bg-red-800 text-center transition"
+                      className="w-full block bg-blue-900 text-white py-2 text-sm rounded-md hover:bg-blue-800 text-center transition"
                     >
                       More Details
                     </button>
@@ -311,7 +258,8 @@ export default function HotelsContent() {
               </div>
             ))}
           </div>
-          {/* MAP SECTION (if applicable, you can add a map component here) */}
+
+          {/* MAP SECTION */}
           <div className="lg:block hidden bg-gray-200 rounded-xl p-4 h-[600px] md:h-[800px]">
             <iframe
               src={`https://www.google.com/maps?q=${encodeURIComponent(
@@ -326,8 +274,11 @@ export default function HotelsContent() {
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
-        </div></div>
+        </div>
+      </div>
+
+      {/* FOOTER */}
       <Footer />
     </div>
-  )
+  );
 }

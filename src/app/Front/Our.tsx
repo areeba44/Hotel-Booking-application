@@ -1,3 +1,4 @@
+"use client";
 import { FaStar } from "react-icons/fa";
 
 export default function Testimonials() {
@@ -21,11 +22,11 @@ export default function Testimonials() {
   ];
 
   return (
-    // 🔹 Outer Parent
+    // 🔹 Outer Parent (Thoda bara container)
     <div className="w-full bg-white py-12">
 
-      {/* 🔹 Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* 🔹 Container (Bara parent div) */}
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
         {/* Heading */}
         <h2 className="text-2xl md:text-4xl font-bold pt-4">
@@ -45,7 +46,7 @@ export default function Testimonials() {
               <img src={testimonials[0].img} className="w-14 h-14 rounded-full"/>
               <div>
                 <h4 className="font-semibold">{testimonials[0].name}</h4>
-                <div className="flex text-yellow-500">
+                <div className="flex text-yellow-400">
                   <FaStar/><FaStar/><FaStar/><FaStar/><FaStar/>
                 </div>
               </div>
@@ -59,7 +60,7 @@ export default function Testimonials() {
               <img src={testimonials[1].img} className="w-14 h-14 rounded-full"/>
               <div>
                 <h4 className="font-semibold">{testimonials[1].name}</h4>
-                <div className="flex text-yellow-500">
+                <div className="flex text-yellow-400">
                   <FaStar/><FaStar/><FaStar/><FaStar/><FaStar/>
                 </div>
               </div>
@@ -73,7 +74,7 @@ export default function Testimonials() {
               <img src={testimonials[2].img} className="w-14 h-14 rounded-full"/>
               <div>
                 <h4 className="font-semibold">{testimonials[2].name}</h4>
-                <div className="flex text-yellow-500">
+                <div className="flex text-yellow-400">
                   <FaStar/><FaStar/><FaStar/><FaStar/><FaStar/>
                 </div>
               </div>

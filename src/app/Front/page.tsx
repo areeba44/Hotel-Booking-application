@@ -59,7 +59,7 @@ export default function Home() {
       <Navbar />
 
       {/* First Outer Div with Responsive Container */}
-      <div className="max-w-7xl mx-auto relative w-full h-[500px] sm:h-[650px] px-4">
+      <div className="max-w-screen-2xl mx-auto relative w-full h-[500px] sm:h-[650px] px-4">
         
         <div>
           <Image
@@ -85,7 +85,7 @@ export default function Home() {
 
         {/* Search Box */}
         <div className="absolute left-0 w-full px-4 sm:px-6 lg:px-12 -bottom-10 flex justify-center">
-          <div className="w-full max-w-5xl bg-white rounded-xl shadow-lg border border-white p-6">
+          <div className="w-full max-w-6xl bg-white rounded-xl shadow-lg border border-white p-6">
             <div className="grid grid-cols-3 gap-2 items-end">
               
               {/* Hotel Input */}
@@ -95,7 +95,7 @@ export default function Home() {
                   placeholder="Search Hotel"
                   value={hotelName}
                   onChange={(e) => setHotelName(e.target.value)}
-                  className="w-full px-3 py-1.5 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-red-900 focus:outline-none"
+                  className="w-full px-3 py-1.5 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-900 focus:outline-none"
                 />
                 {searchhotel?.length > 0 && hotelName && (
                   <div className="absolute top-full mt-1 w-full bg-white border rounded-md shadow-md max-h-48 overflow-y-auto z-50">
@@ -120,7 +120,7 @@ export default function Home() {
               <div className="flex justify-center">
                 <button
                   onClick={handleSearch}
-                  className="w-[210px] h-[36px] font-serif text-xl text-centeritem-center bg-red-900 hover:bg-red-800 text-white text-base px-4 py-1 rounded-md shadow"
+                  className="w-[210px] h-[36px] font-serif text-xl text-centeritem-center bg-blue-900 hover:bg-blue-800 text-white text-base px-4 py-1 rounded-md shadow"
                 >
                   Search
                 </button>

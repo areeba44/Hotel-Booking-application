@@ -4,7 +4,7 @@ import { BsGeoAlt } from "react-icons/bs";
 
 export default function MostVisited() {
   return (
-    <section className="w-full bg-white py-12 px-5 sm:px-8">
+    <section className="w-full bg-white  px-5 sm:px-8">
       
       {/* Container (Thoda chhota parent) */}
     <div className="max-w-screen-2xl mx-auto relative w-full px-4">

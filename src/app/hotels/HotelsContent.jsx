@@ -187,10 +187,7 @@ export default function HotelsContent() {
           <button className="bg-white cursor-pointer rounded-lg w-26 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
             Class 4+</button>
              
-              {/* Star */}
-          <button className="bg-white cursor-pointer rounded-lg w-26 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
-            8+ rating</button>
-
+              
         </div>
 
         {/* HOTEL LIST */}

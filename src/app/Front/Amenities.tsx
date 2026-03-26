@@ -32,7 +32,7 @@ const amenities = [
 
 export default function Amenities() {
   return (
-    <div className=" bg-white">
+    <div className=" bg-white py-17">
 
       {/* 🔹 Container (FULL WIDTH) */}
       <div className="max-w-screen-2xl mx-auto relative w-full ">

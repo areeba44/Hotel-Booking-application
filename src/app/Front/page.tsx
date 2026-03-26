@@ -6,7 +6,7 @@ import Dis from "@/app/Front/Dis";
 import Slider  from "@/app/Front/Slider"
 import Most from "@/app/Front/Most";
 import Amenities from "./Amenities";
-import Our from "./Our";
+// import Our from "./Our";
 import Ready from "./Ready";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -138,7 +138,7 @@ export default function Home() {
         <Slider />
         <Most />
         <Amenities />
-        <Our />
+        {/* <Our /> */}
         <Ready /> 
       </div>
 

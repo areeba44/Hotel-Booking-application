@@ -1,13 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   reactCompiler: true,
-  images: {
-    domains: ["imgcy.trivago.com"],
-  }
-};
 
- 
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "imgcy.trivago.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.pixabay.com",
+      },
+    ],
+  },
+};
 
 export default nextConfig;

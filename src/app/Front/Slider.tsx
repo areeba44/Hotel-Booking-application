@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function AdvertiserBar() {
   const logos = [
-    "/booking.png",
+    "/booking.com.png",
     "/agoda1.png",
     "/exp.png",
     "/price.png",
@@ -13,7 +13,7 @@ export default function AdvertiserBar() {
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-white ">
       
       {/* Parent Container */}
       <div className="max-w-screen-2xl mx-auto">

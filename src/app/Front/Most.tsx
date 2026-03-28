@@ -4,13 +4,13 @@ import { BsGeoAlt } from "react-icons/bs";
 
 export default function MostVisited() {
   return (
-    <section className="w-full bg-white  px-5 sm:px-8">
+    <section className="w-full bg-white sm:px-8 bottom-10 relative">
       
       {/* Container (Thoda chhota parent) */}
-    <div className="max-w-screen-2xl mx-auto relative w-full px-4">
+    <div className="max-w-screen-2xl mx-auto relative w-full ">
 
         {/* Heading */}
-        <h2 className="text-2xl sm:text-3xl md:text-3xl font-bold mb-10 px-3 text-gray-900">
+<h2 className="text-2xl sm:text-3xl md:text-3xl font-bold mb-6 px-3 text-gray-900">
           Most Visited Hotels of 2025
         </h2>
 

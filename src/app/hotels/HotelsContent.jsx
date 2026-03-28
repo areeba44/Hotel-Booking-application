@@ -181,13 +181,13 @@ export default function HotelsContent() {
                 </ul>
               </div>
             )}
-            
+
           </div>
           {/* Star */}
           <button className="bg-white cursor-pointer rounded-lg w-26 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
             Class 4+</button>
-             
-              
+
+
         </div>
 
         {/* HOTEL LIST */}
@@ -234,7 +234,11 @@ export default function HotelsContent() {
                             <h3 className="text-3xl font-extrabold text-gray-900 leading-tight">
                               ${parsedPrices[0]?.rate_per_night?.extracted_lowest}
                             </h3>
-                            <p className="text-xs text-gray-500 mt-1">per night</p>
+
+                            <p className="text-xs text-gray-500 mt-1">
+                              price per night
+                            </p>
+
                             <Link href={parsedPrices[0].link}>
                               <p className="mt-4 w-full text-center bg-blue-900 hover:bg-blue-700 text-white py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ease-in-out cursor-pointer shadow-sm hover:shadow-md">
                                 {parsedPrices[0].source}

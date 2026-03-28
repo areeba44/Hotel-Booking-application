@@ -32,7 +32,7 @@ const amenities = [
 
 export default function Amenities() {
   return (
-    <div className=" bg-white py-17">
+    <div className=" bg-white">
 
       {/* 🔹 Container (FULL WIDTH) */}
       <div className="max-w-screen-2xl mx-auto relative w-full ">
@@ -52,42 +52,17 @@ export default function Amenities() {
           </p>
 
           {/* Grid */}
-          <div className="
-            grid 
-            grid-cols-2 
-            sm:grid-cols-3 
-            md:grid-cols-4 
-            lg:grid-cols-6 
-            gap-4 sm:gap-6
-          ">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 ">
             {amenities.map((item, index) => {
               const Icon = item.icon;
 
               return (
                 <div
                   key={index}
-                  className="
-                    group
-                    bg-white/10 
-                    backdrop-blur-md
-                    border border-white/20
-                    rounded-xl 
-                    p-4 sm:p-5
-                    flex flex-col items-center justify-center
-                    text-center
-                    transition-all duration-300 ease-in-out
-                    hover:bg-white hover:text-red-900
-                    hover:shadow-xl hover:scale-105
-                    cursor-pointer
-                  "
-                >
+                  className=" group bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 sm:p-5 flex flex-col items-center justify-center text-center transition-all duration-300 ease-in-out hover:bg-white hover:text-red-900 hover:shadow-xl hover:scale-105 cursor-pointer">
                   <Icon
                     size={26}
-                    className="
-                      mb-2
-                      transition-transform duration-300
-                      group-hover:scale-110
-                    "
+                    className=" mb-2 transition-transform duration-300 group-hover:scale-110"
                   />
 
                   <p className="text-xs sm:text-sm font-medium tracking-wide">

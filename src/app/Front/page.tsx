@@ -3,15 +3,13 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Dis from "@/app/Front/Dis";
-import Slider  from "@/app/Front/Slider"
 import Most from "@/app/Front/Most";
+import Slider from "@/app/Front/Slider";
 import Amenities from "./Amenities";
-// import Our from "./Our";
 import Ready from "./Ready";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-
 
 export default function Home() {
   const [hotelName, setHotelName] = useState("");
@@ -27,7 +25,7 @@ export default function Home() {
 
   useEffect(() => {
     if (hotelName.length < 3) {
-      setSearchHotel([]); 
+      setSearchHotel([]);
       return;
     }
 
@@ -48,7 +46,6 @@ export default function Home() {
 
     const delay = setTimeout(() => {
       if (hotelName.length >= 3) FetchData();
-      else setSearchHotel([]);
     }, 500);
 
     return () => clearTimeout(delay);
@@ -58,103 +55,117 @@ export default function Home() {
     <>
       <Navbar />
 
-      {/* First Outer Div with Responsive Container */}
-      <div className="max-w-screen-2xl mx-auto relative w-full h-[500px] sm:h-[650px] px-4">
-        
-        <div>
-          <Image
-            src="/img1.png"
-            alt="room"
-            fill
-            priority
-            className="object-cover brightness-75"
-          />
-          {/* Text */}
-          <div className="absolute inset-0 flex items-center justify-start px-6 pb-29 sm:px-12 lg:px-24">
-            <div className="text-white max-w-xl">
-              <h1 className="text-3xl md:text-5xl font-bold font-family:'Inter', sans-serif leading-tight">
-                Find Your Perfect Stay <br /> With Stay Haven
-              </h1>
-              <p className="mt-4 text-gray-200">
-                Discover hotels, resorts, and guest houses at the best prices —
-                with flexible booking options and verified reviews.
-              </p>
-            </div>
-          </div>
-        </div>
+      {/* Parent Container for Hero Section */}
+      <div className="w-full flex justify-center ">
+        <div className="w-full max-w-screen-2xl relative">
 
-        {/* Search Box */}
-        <div className="absolute left-0 w-full px-4 sm:px-6 lg:px-12 -bottom-10 flex justify-center">
-          <div className="w-full max-w-6xl bg-white rounded-xl shadow-lg border border-white p-6">
-            <div className="grid grid-cols-3 gap-2 items-end">
-              
-              {/* Hotel Input */}
-              <div className="relative col-span-2">
-                <input
-                  type="text"
-                  placeholder="Search Hotel"
-                  value={hotelName}
-                  onChange={(e) => setHotelName(e.target.value)}
-                  className="w-full px-3 py-1.5 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-900 focus:outline-none"
-                />
-                {searchhotel?.length > 0 && hotelName && (
-                  <div className="absolute top-full mt-1 w-full bg-white border rounded-md shadow-md max-h-48 overflow-y-auto z-50">
-                    {searchhotel
-                      .filter((hotel: any) =>
-                        hotel.name.toLowerCase().includes(hotelName.toLowerCase())
-                      )
-                      .map((hotel: any, index: number) => (
-                        <div
-                          key={index}
-                          onClick={() => setHotelName(hotel.name)}
-                          className="px-3 py-2 cursor-pointer hover:bg-gray-100"
-                        >
-                          <div className="font-medium text-sm">{hotel.name}</div>
-                        </div>
-                      ))}
+          {/* Hero Section */}
+          <div className="relative w-full h-[420px] sm:h-[500px] md:h-[550px] px-4">
+
+            {/* Hero Image */}
+            <Image
+              src="/img1.png"
+              alt="room"
+              fill
+              priority
+              className="object-cover brightness-75"
+            />
+
+            {/* Text */}
+            <div className="absolute inset-0 flex items-center px-6 sm:px-12 lg:px-24">
+              <div className="text-white max-w-xl">
+                <h1 className="text-2xl md:text-4xl font-bold leading-tight">
+                  Find Your Perfect Stay <br /> With Stay Haven
+                </h1>
+                <p className="mt-4 text-gray-200">
+                  Discover hotels, resorts, and guest houses at the best prices —
+                  with flexible booking options and verified reviews.
+                </p>
+              </div>
+            </div>
+
+            {/* Modern Search Box */}
+            <div className="absolute left-0 w-full px-4 sm:px-6 lg:px-12 -bottom-12 flex justify-center">
+              <div className="w-full max-w-5xl bg-white/90 backdrop-blur-lg rounded-2xl shadow-2xl border border-gray-200 p-5 transition-all duration-300">
+                <div className="grid grid-cols-3 gap-4 items-end">
+
+                  {/* Input */}
+                  <div className="relative col-span-2">
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                      🔍
+                    </span>
+                    <input
+                      type="text"
+                      placeholder="Search hotels, resorts..."
+                      value={hotelName}
+                      onChange={(e) => setHotelName(e.target.value)}
+                      className="w-full pl-10 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 focus:border-blue-900 outline-none transition"
+                    />
+
+                    {/* Loading */}
+                    {loading && (
+                      <div className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-400">
+                        Loading...
+                      </div>
+                    )}
+
+                    {/* Dropdown */}
+                    {searchhotel?.length > 0 && hotelName && (
+                      <div className="absolute top-full mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg max-h-52 overflow-y-auto z-50 animate-fadeIn">
+                        {searchhotel
+                          .filter((hotel: any) =>
+                            hotel.name
+                              .toLowerCase()
+                              .includes(hotelName.toLowerCase())
+                          )
+                          .map((hotel: any, index: number) => (
+                            <div
+                              key={index}
+                              onClick={() => setHotelName(hotel.name)}
+                              className="px-4 py-2 cursor-pointer hover:bg-blue-50 transition"
+                            >
+                              <div className="font-medium text-sm text-gray-700">
+                                {hotel.name}
+                              </div>
+                            </div>
+                          ))}
+                      </div>
+                    )}
                   </div>
-                )}
-              </div>
 
-              {/* Search Button */}
-              <div className="flex justify-center">
-                <button
-                  onClick={handleSearch}
-                  className="w-[210px] h-[36px] font-serif text-xl text-centeritem-center bg-blue-900 hover:bg-blue-800 text-white text-base px-4 py-1 rounded-md shadow"
-                >
-                  Search
-                </button>
-              </div>
+                  {/* Button */}
+                  <div className="flex justify-center">
+                    <button
+                      onClick={handleSearch}
+                      className="w-full h-[40px] bg-gradient-to-r from-blue-900 to-blue-700 hover:from-blue-800 hover:to-blue-600 text-white font-serif rounded-lg shadow-md transition-all duration-300 hover:scale-[1.05]"
+                    >
+                      Search
+                    </button>
+                  </div>
 
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
-
       </div>
 
-      {/* Rest of the page */}
+      {/* Rest of Page */}
       <div>
+      
         <Dis />
-        <Slider />
+       
         <Most />
+        <Slider />
         <Amenities />
-        {/* <Our /> */}
-        <Ready /> 
+        <Ready />
       </div>
 
       <Footer />
     </>
   );
 }
-
-
-
-
-
-
-
-
-
 
 
 

@@ -50,7 +50,7 @@ export default function Footer() {
      <div className="max-w-screen-2xl mx-auto relative w-full ">
 
         {/* 🔹 Footer Box */}
-        <footer className="bg-blue-950 text-white sm:px-8 py-10 shadow-2xl">
+        <footer className="bg-blue-950 text-white sm:px-8 py-5 shadow-2xl">
 
           {/* TOP SECTION */}
           <div className="grid lg:grid-cols-2 gap-12">

@@ -23,7 +23,6 @@ export default function UserSettings() {
     setProfilePic(previewUrl);
   };
 
-  // Cleanup object URL to avoid memory leaks
   useEffect(() => {
     return () => {
       if (preview) URL.revokeObjectURL(preview);
@@ -31,161 +30,168 @@ export default function UserSettings() {
   }, [preview]);
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col md:flex-row">
-      {/* Sidebar */}
-      <div className="w-full md:w-64 bg-white shadow-md p-6 flex flex-col items-start">
-        <h2 className="text-2xl font-bold mb-6">Settings</h2>
-        <ul className="space-y-4 w-full">
-          {[
-            "profile",
-            "password",
-            "forgot",
-            "notifications",
-            "privacy",
-          ].map((tab) => (
-            <li
-              key={tab}
-              className={`cursor-pointer px-3 py-2 rounded-xl w-full capitalize ${
-                activeTab === tab
-                  ? "bg-blue-100 text-blue-900 font-semibold"
-                  : "hover:bg-gray-100"
-              }`}
-              onClick={() => setActiveTab(tab)}
-            >
-              {tab === "profile"
-                ? "Profile"
-                : tab === "password"
-                ? "Change Password"
-                : tab === "forgot"
-                ? "Forgot Password"
-                : tab === "notifications"
-                ? "Notifications"
-                : "Privacy"}
-            </li>
-          ))}
-        </ul>
-      </div>
+    <div className="w-full"> {/* ✅ Parent Div */}
 
-      {/* Main Content */}
-      <div className="flex-1 p-8 flex flex-col items-center">
-        {activeTab === "profile" && (
-          <div className="bg-white rounded-2xl shadow-md p-6 max-w-xl w-full">
-            <h3 className="text-2xl font-bold mb-6 text-center">
-              Profile Information
-            </h3>
+      <div className="min-h-screen bg-gray-100 flex flex-col md:flex-row">
+        
+        {/* Sidebar */}
+        <div className="w-full md:w-64 bg-white shadow-md p-6 flex flex-col items-start">
+          <h2 className="text-2xl font-bold mb-6">Settings</h2>
+          <ul className="space-y-4 w-full">
+            {[
+              "profile",
+              "password",
+              "forgot",
+              "notifications",
+              "privacy",
+            ].map((tab) => (
+              <li
+                key={tab}
+                className={`cursor-pointer px-3 py-2 rounded-xl w-full capitalize ${
+                  activeTab === tab
+                    ? "bg-blue-100 text-blue-900 font-semibold"
+                    : "hover:bg-gray-100"
+                }`}
+                onClick={() => setActiveTab(tab)}
+              >
+                {tab === "profile"
+                  ? "Profile"
+                  : tab === "password"
+                  ? "Change Password"
+                  : tab === "forgot"
+                  ? "Forgot Password"
+                  : tab === "notifications"
+                  ? "Notifications"
+                  : "Privacy"}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-            {/* Profile Picture */}
-            <div className="flex flex-col items-center mb-6">
-              <div className="relative">
-                <Image
-                  src={preview || profilePic}
-                  alt="Profile Picture"
-                  width={120}
-                  height={120}
-                  className="rounded-full object-cover border-4 border-blue-900"
-                />
-                <label className="absolute bottom-0 right-0 bg-blue-900 rounded-full p-2 cursor-pointer hover:bg-blue-400">
-                  <AiOutlineCamera className="text-white w-5 h-5" />
-                  <input
-                    type="file"
-                    className="hidden"
-                    accept="image/*"
-                    onChange={handleImageChange}
+        {/* Main Content */}
+        <div className="flex-1 p-8 flex flex-col items-center">
+          
+          {activeTab === "profile" && (
+            <div className="bg-white rounded-2xl shadow-md p-6 max-w-xl w-full">
+              <h3 className="text-2xl font-bold mb-6 text-center">
+                Profile Information
+              </h3>
+
+              {/* Profile Picture */}
+              <div className="flex flex-col items-center mb-6">
+                <div className="relative">
+                  <Image
+                    src={preview || profilePic}
+                    alt="Profile Picture"
+                    width={120}
+                    height={120}
+                    className="rounded-full object-cover border-4 border-blue-900"
                   />
-                </label>
+                  <label className="absolute bottom-0 right-0 bg-blue-900 rounded-full p-2 cursor-pointer hover:bg-blue-400">
+                    <AiOutlineCamera className="text-white w-5 h-5" />
+                    <input
+                      type="file"
+                      className="hidden"
+                      accept="image/*"
+                      onChange={handleImageChange}
+                    />
+                  </label>
+                </div>
+                <span className="text-gray-500 mt-2 text-sm">
+                  Click camera to upload
+                </span>
               </div>
-              <span className="text-gray-500 mt-2 text-sm">
-                Click camera to upload
-              </span>
-            </div>
 
-            {/* Profile Form */}
-            <div className="space-y-4">
-              <div>
-                <label className="block text-gray-700 font-medium">Name</label>
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  className="w-full border rounded-xl px-4 py-2 mt-1 focus:ring-2 focus:ring-blue-900 outline-none"
-                />
+              {/* Profile Form */}
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-gray-700 font-medium">Name</label>
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    className="w-full border rounded-xl px-4 py-2 mt-1 focus:ring-2 focus:ring-blue-900 outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-700 font-medium">Email</label>
+                  <input
+                    type="email"
+                    placeholder="Your Email"
+                    className="w-full border rounded-xl px-4 py-2 mt-1 focus:ring-2 focus:ring-blue-900 outline-none"
+                  />
+                </div>
+                <button className="bg-blue-900 hover:bg-blue-400 text-white px-6 py-2 rounded-xl w-full mt-2 shadow-md">
+                  Save Changes
+                </button>
               </div>
-              <div>
-                <label className="block text-gray-700 font-medium">Email</label>
+            </div>
+          )}
+
+          {activeTab === "password" && (
+            <div className="bg-white rounded-2xl shadow-md p-6 max-w-xl w-full">
+              <h3 className="text-2xl font-bold mb-4">Change Password</h3>
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-gray-700">Current Password</label>
+                  <input
+                    type="password"
+                    placeholder="Current Password"
+                    className="w-full border rounded-xl px-4 py-2 mt-1 focus:ring-2 focus:ring-blue-400 outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-700">New Password</label>
+                  <input
+                    type="password"
+                    placeholder="New Password"
+                    className="w-full border rounded-xl px-4 py-2 mt-1 focus:ring-2 focus:ring-blue-400 outline-none"
+                  />
+                </div>
+                <button className="bg-blue-900 hover:bg-blue-400 text-white px-6 py-2 rounded-xl w-full mt-2 shadow-md">
+                  Update Password
+                </button>
+              </div>
+            </div>
+          )}
+
+          {activeTab === "forgot" && (
+            <div className="bg-white rounded-2xl shadow-md p-6 max-w-xl w-full">
+              <h3 className="text-2xl font-bold mb-4">Forgot Password</h3>
+              <p className="text-gray-700 mb-4">
+                Enter your email to reset your password:
+              </p>
+              <div className="flex flex-col space-y-3">
                 <input
                   type="email"
                   placeholder="Your Email"
-                  className="w-full border rounded-xl px-4 py-2 mt-1 focus:ring-2 focus:ring-blue-900 outline-none"
+                  className="w-full border rounded-xl px-4 py-2 focus:ring-2 focus:ring-blue-400 outline-none"
                 />
+                <button className="bg-blue-900 hover:bg-blue-400 text-white px-6 py-2 rounded-xl w-full shadow-md">
+                  Send Reset Link
+                </button>
               </div>
-              <button className="bg-blue-900 hover:bg-blue-400 text-white px-6 py-2 rounded-xl w-full mt-2 shadow-md">
-                Save Changes
-              </button>
             </div>
-          </div>
-        )}
+          )}
 
-        {activeTab === "password" && (
-          <div className="bg-white rounded-2xl shadow-md p-6 max-w-xl w-full">
-            <h3 className="text-2xl font-bold mb-4">Change Password</h3>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-gray-700">Current Password</label>
-                <input
-                  type="password"
-                  placeholder="Current Password"
-                  className="w-full border rounded-xl px-4 py-2 mt-1 focus:ring-2 focus:ring-blue-400 outline-none"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700">New Password</label>
-                <input
-                  type="password"
-                  placeholder="New Password"
-                  className="w-full border rounded-xl px-4 py-2 mt-1 focus:ring-2 focus:ring-blue-400 outline-none"
-                />
-              </div>
-              <button className="bg-blue-900 hover:bg-blue-400 text-white px-6 py-2 rounded-xl w-full mt-2 shadow-md">
-                Update Password
-              </button>
+          {activeTab === "notifications" && (
+            <div className="bg-white rounded-2xl shadow-md p-6 max-w-xl w-full">
+              <h3 className="text-2xl font-bold mb-4">Notifications</h3>
+              <p className="text-gray-700">
+                Manage your hotel notification preferences here.
+              </p>
             </div>
-          </div>
-        )}
+          )}
 
-        {activeTab === "forgot" && (
-          <div className="bg-white rounded-2xl shadow-md p-6 max-w-xl w-full">
-            <h3 className="text-2xl font-bold mb-4">Forgot Password</h3>
-            <p className="text-gray-700 mb-4">
-              Enter your email to reset your password:
-            </p>
-            <div className="flex flex-col space-y-3">
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="w-full border rounded-xl px-4 py-2 focus:ring-2 focus:ring-blue-400 outline-none"
-              />
-              <button className="bg-blue-900 hover:bg-blue-400 text-white px-6 py-2 rounded-xl w-full shadow-md">
-                Send Reset Link
-              </button>
+          {activeTab === "privacy" && (
+            <div className="bg-white rounded-2xl shadow-md p-6 max-w-xl w-full">
+              <h3 className="text-2xl font-bold mb-4">Privacy</h3>
+              <p className="text-gray-700">Manage your privacy settings here.</p>
             </div>
-          </div>
-        )}
+          )}
 
-        {activeTab === "notifications" && (
-          <div className="bg-white rounded-2xl shadow-md p-6 max-w-xl w-full">
-            <h3 className="text-2xl font-bold mb-4">Notifications</h3>
-            <p className="text-gray-700">
-              Manage your hotel notification preferences here.
-            </p>
-          </div>
-        )}
-
-        {activeTab === "privacy" && (
-          <div className="bg-white rounded-2xl shadow-md p-6 max-w-xl w-full">
-            <h3 className="text-2xl font-bold mb-4">Privacy</h3>
-            <p className="text-gray-700">Manage your privacy settings here.</p>
-          </div>
-        )}
+        </div>
       </div>
+
     </div>
   );
 }

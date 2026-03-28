@@ -14,7 +14,9 @@ export default function Destinations() {
         const res = await axios.get(
           "https://hotel-booking-backend-wajid.vercel.app/hotels/random"
         );
-        setRandomHotel(res.data);
+        if (res) {
+          setRandomHotel(res.data);
+        }
       } catch (error) {
         console.log(error);
       }
@@ -51,7 +53,7 @@ export default function Destinations() {
                 transform: `translateX(-${index * (100 / cardsToShow)}%)`,
               }}
             >
-              {randomHotels.map((dest, i) => {
+              {randomHotels.length > 0 && randomHotels.map((dest, i) => {
 
                 const handleNavigate = () => {
                   const payload = {
@@ -154,20 +156,10 @@ export default function Destinations() {
                           )}
 
                           <p className="text-gray-700 text-sm mt-2">
-                            {dest.description.length > 90
+                            {dest.description && dest.description.length > 90
                               ? dest.description.slice(0, 90) + "..."
                               : dest.description}
                           </p>
-                        </div>
-
-                        {/* Check-in / Check-out Flex */}
-                        <div className="flex justify-between text-gray-600 text-xs mt-3">
-                          {dest.check_in_time && (
-                            <p>Check-in: {dest.check_in_time}</p>
-                          )}
-                          {dest.check_out_time && (
-                            <p>Check-out: {dest.check_out_time}</p>
-                          )}
                         </div>
 
                         <button

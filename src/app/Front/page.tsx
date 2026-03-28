@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import Navbar from "@/components/Navbar";
+
 import Footer from "@/components/Footer";
 import Dis from "@/app/Front/Dis";
 import Most from "@/app/Front/Most";
@@ -53,7 +53,7 @@ export default function Home() {
 
   return (
     <>
-      <Navbar />
+      
 
       {/* Parent Container for Hero Section */}
       <div className="w-full flex justify-center ">
@@ -162,7 +162,7 @@ export default function Home() {
         <Ready />
       </div>
 
-      <Footer />
+ 
     </>
   );
 }

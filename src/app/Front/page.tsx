@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-
+import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Dis from "@/app/Front/Dis";
 import Most from "@/app/Front/Most";
@@ -54,7 +54,7 @@ export default function Home() {
   return (
     <>
       
-
+<Navbar/>
       {/* Parent Container for Hero Section */}
       <div className="w-full flex justify-center ">
         <div className="w-full max-w-screen-2xl relative">
@@ -63,6 +63,7 @@ export default function Home() {
           <div className="relative w-full h-[420px] sm:h-[500px] md:h-[550px] px-4">
 
             {/* Hero Image */}
+            
             <Image
               src="/img1.png"
               alt="room"
@@ -137,7 +138,7 @@ export default function Home() {
                   <div className="flex justify-center">
                     <button
                       onClick={handleSearch}
-                      className="w-full h-[40px] bg-gradient-to-r from-blue-900 to-blue-700 hover:from-blue-800 hover:to-blue-600 text-white font-serif rounded-lg shadow-md transition-all duration-300 hover:scale-[1.05]"
+                      className="w-full  text-[20px] h-[40px] bg-gradient-to-r bg-blue-900/100 text-white font-serif rounded-lg shadow-md transition-all duration-300 hover:scale-[1.05]"
                     >
                       Search
                     </button>
@@ -162,7 +163,7 @@ export default function Home() {
         <Ready />
       </div>
 
- 
+ <Footer/>
     </>
   );
 }

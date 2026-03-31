@@ -18,7 +18,7 @@ export default function HotelsContent() {
   const [freebiesOpen, setFreebiesOpen] = useState(false);
   const [amenitiesOpen, setAmenitiesOpen] = useState(false);
   const [hotels, setHotels] = useState([])
-
+ 
   useEffect(() => {
     if (dataParam) {
       const parsedData = JSON.parse(decodeURIComponent(dataParam));
@@ -79,116 +79,130 @@ export default function HotelsContent() {
         <h1 className="text-3xl mb-4 ml-4 font-sans">Available Hotels</h1>
 
         {/* FILTER BUTTONS */}
-        <div className="flex flex-wrap gap-3 mb-6">
-          {/* All Filters */}
-          <div className="relative inline-block">
-            <button
-              onClick={() => setAllFiltersOpen(!allFiltersOpen)}
-              className="bg-white cursor-pointer rounded-lg w-39 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <HiAdjustmentsHorizontal className="w-5 h-5" />
-                All filters
-              </div>
-              <span className="ml-2 text-gray-500">{allFiltersOpen ? "▲" : "▼"}</span>
-            </button>
-            {allFiltersOpen && (
-              <div className="absolute mt-2 bg-white shadow-lg rounded-xl w-60 z-50 border border-gray-200 max-h-72 overflow-y-auto">
-                <ul className="flex flex-col">
-                  {allFilters.map((filter, index) => (
-                    <li key={index} className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700 text-sm">{filter}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
+<div className="w-full">
+  <div className="flex flex-wrap gap-3 mb-6 w-full overflow-x-auto md:overflow-visible">
 
-          {/* Price */}
-          <div className="relative inline-block">
-            <button
-              onClick={() => setPriceOpen(!priceOpen)}
-              className="bg-white cursor-pointer rounded-lg w-26 h-10 font-bold border-0 shadow px-4 flex items-center justify-between"
-            >
-              Price
-              <span className="ml-2 text-gray-500">{priceOpen ? "▲" : "▼"}</span>
-            </button>
-            {priceOpen && (
-              <div className="absolute mt-2 bg-white shadow-lg rounded-xl w-40 z-50 border border-gray-200">
-                <ul className="flex flex-col">
-                  {priceOptions.map((item, index) => (
-                    <li key={index} className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700 text-sm flex items-center gap-2">
-                      <FaDollarSign /> {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-
-          {/* Free Breakfast */}
-          <button className="bg-white cursor-pointer rounded-lg w-37 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
-            Free Breakfast</button>
-
-          {/* Star */}
-          <button className="bg-white cursor-pointer rounded-lg w-23 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
-            Star 4+</button>
-
-          {/* Review Score */}
-          <button className="bg-white cursor-pointer rounded-lg w-40 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
-            8+ review score</button>
-
-          {/* Freebies */}
-          <div className="relative inline-block">
-            <button
-              onClick={() => setFreebiesOpen(!freebiesOpen)}
-              className="bg-white cursor-pointer rounded-lg w-30 h-10 font-bold border-0 shadow px-4 flex items-center justify-between"
-            >
-              Freebies
-              <span className="ml-2 text-gray-500">{freebiesOpen ? "▲" : "▼"}</span>
-            </button>
-            {freebiesOpen && (
-              <div className="absolute mt-2 bg-white shadow-lg rounded-xl w-64 z-50 border border-gray-200 max-h-80 overflow-y-auto">
-                <ul className="flex flex-col">
-                  {freebies.map((item, index) => (
-                    <li key={index} className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2 text-gray-700 text-sm">
-                      {item.icon} {item.name}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-          {/* Star */}
-          <button className="bg-white cursor-pointer rounded-lg w-32 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
-            Under $45</button>
-
-          {/* Amenities */}
-          <div className="relative inline-block">
-            <button
-              onClick={() => setAmenitiesOpen(!amenitiesOpen)}
-              className="bg-white cursor-pointer rounded-lg w-33 h-10 font-bold border-0 shadow px-4 flex items-center justify-between"
-            >
-              Amenities
-              <span className="ml-2 text-gray-500">{amenitiesOpen ? "▲" : "▼"}</span>
-            </button>
-            {amenitiesOpen && (
-              <div className="absolute mt-2 bg-white shadow-lg rounded-xl w-64 z-50 border border-gray-200 max-h-80 overflow-y-auto">
-                <ul className="flex flex-col">
-                  {amenities.map((item, index) => (
-                    <li key={index} className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2 text-gray-700 text-sm">
-                      {item.icon} {item.name}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-          </div>
-          {/* Star */}
-          <button className="bg-white cursor-pointer rounded-lg w-26 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
-            Class 4+</button>
-
-
+    {/* All Filters */}
+    <div className="relative inline-block">
+      <button
+        onClick={() => setAllFiltersOpen(!allFiltersOpen)}
+        className="bg-white cursor-pointer rounded-lg w-39 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <HiAdjustmentsHorizontal className="w-5 h-5" />
+          All filters
         </div>
+        <span className="ml-2 text-gray-500">{allFiltersOpen ? "▲" : "▼"}</span>
+      </button>
+
+      {allFiltersOpen && (
+        <div className="absolute mt-2 bg-white shadow-lg rounded-xl w-60 z-50 border border-gray-200 max-h-72 overflow-y-auto">
+          <ul className="flex flex-col">
+            {allFilters.map((filter, index) => (
+              <li key={index} className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700 text-sm">
+                {filter}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+
+    {/* Price */}
+    <div className="relative inline-block">
+      <button
+        onClick={() => setPriceOpen(!priceOpen)}
+        className="bg-white cursor-pointer rounded-lg w-26 h-10 font-bold border-0 shadow px-4 flex items-center justify-between"
+      >
+        Price
+        <span className="ml-2 text-gray-500">{priceOpen ? "▲" : "▼"}</span>
+      </button>
+
+      {priceOpen && (
+        <div className="absolute mt-2 bg-white shadow-lg rounded-xl w-40 z-50 border border-gray-200">
+          <ul className="flex flex-col">
+            {priceOptions.map((item, index) => (
+              <li key={index} className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700 text-sm flex items-center gap-2">
+                <FaDollarSign /> {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+
+    {/* Free Breakfast */}
+    <button className="bg-white cursor-pointer rounded-lg w-37 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
+      Free Breakfast
+    </button>
+
+    {/* Star */}
+    <button className="bg-white cursor-pointer rounded-lg w-23 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
+      Star 4+
+    </button>
+
+    {/* Review Score */}
+    <button className="bg-white cursor-pointer rounded-lg w-40 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
+      8+ review score
+    </button>
+
+    {/* Freebies */}
+    <div className="relative inline-block">
+      <button
+        onClick={() => setFreebiesOpen(!freebiesOpen)}
+        className="bg-white cursor-pointer rounded-lg w-30 h-10 font-bold border-0 shadow px-4 flex items-center justify-between"
+      >
+        Freebies
+        <span className="ml-2 text-gray-500">{freebiesOpen ? "▲" : "▼"}</span>
+      </button>
+
+      {freebiesOpen && (
+        <div className="absolute mt-2 bg-white shadow-lg rounded-xl w-64 z-50 border border-gray-200 max-h-80 overflow-y-auto">
+          <ul className="flex flex-col">
+            {freebies.map((item, index) => (
+              <li key={index} className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2 text-gray-700 text-sm">
+                {item.icon} {item.name}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+
+    {/* Under price */}
+    <button className="bg-white cursor-pointer rounded-lg w-32 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
+      Under $45
+    </button>
+
+    {/* Amenities */}
+    <div className="relative inline-block">
+      <button
+        onClick={() => setAmenitiesOpen(!amenitiesOpen)}
+        className="bg-white cursor-pointer rounded-lg w-33 h-10 font-bold border-0 shadow px-4 flex items-center justify-between"
+      >
+        Amenities
+        <span className="ml-2 text-gray-500">{amenitiesOpen ? "▲" : "▼"}</span>
+      </button>
+
+      {amenitiesOpen && (
+        <div className="absolute mt-2 bg-white shadow-lg rounded-xl w-64 z-50 border border-gray-200 max-h-80 overflow-y-auto">
+          <ul className="flex flex-col">
+            {amenities.map((item, index) => (
+              <li key={index} className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2 text-gray-700 text-sm">
+                {item.icon} {item.name}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+
+    {/* Class */}
+    <button className="bg-white cursor-pointer rounded-lg w-26 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
+      Class 4+
+    </button>
+
+  </div>
+</div>
 
         {/* HOTEL LIST */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

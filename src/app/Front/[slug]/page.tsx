@@ -93,20 +93,19 @@ export default function Detail() {
     "shower": <FaShower />,
     "pet-friendly": <FaConciergeBell />,
     "internet": <IoWifi />,
-  "food & drink": <MdRestaurant />,
-  "services": <FaConciergeBell />,
-  "children": <MdFreeBreakfast />,
-  "wellness": <MdFitnessCenter />,
-  "parking & transportation": <FaParking />,
-  "business & events": <FaBriefcase />,
-  "accessibility": <FaWheelchair />,
-  "rooms": <FaBed />,
-  "pets": <FaDog />,
-   bar: <FaCoffee />,
-  "room service": <FaConciergeBell />,
- 
-  "breakfast buffet": <MdRestaurant />,
-};
+    "food & drink": <MdRestaurant />,
+    "services": <FaConciergeBell />,
+    "children": <MdFreeBreakfast />,
+    "wellness": <MdFitnessCenter />,
+    "parking & transportation": <FaParking />,
+    "business & events": <FaBriefcase />,
+    "accessibility": <FaWheelchair />,
+    "rooms": <FaBed />,
+    "pets": <FaDog />,
+    "bar": <FaCoffee />,
+    "room service": <FaConciergeBell />,
+    "breakfast buffet": <MdRestaurant />,
+  };
 
   type IconKey = keyof typeof iconMap;
 
@@ -257,7 +256,7 @@ export default function Detail() {
           <h3 className="text-3xl font-medium mt-9">Available deals</h3>
 
           <div className="bg-white rounded-2xl shadow-xl w-full ">
-            
+
             {/* Only show first 4 providers initially */}
             {prices?.slice(0, showAllProviders ? prices.length : 4)?.map((item: any, i: number) => (
               <div
@@ -277,8 +276,7 @@ export default function Detail() {
                     href={item.link}
                     target="_blank"
                     className="text-[13px] w-25 h-9 text-center font-medium bg-blue-900/100 text-white px-3 py-2 rounded-md hover:bg-blue-800 transition"
-                  >
-                    View Details
+                  >  View Details
                   </a>
                 </div>
               </div>
@@ -302,106 +300,104 @@ export default function Detail() {
           <div className="flex flex-wrap gap-6 bg-gray-50 p-6 rounded-2xl">
             {amenities.slice(0, 6).map((item: any, i: number) => (<div key={i} className="w-40 h-40 p-4 flex flex-col items-center justify-center bg-white rounded-xl hover:shadow-md hover:bg-gray-200 transition cursor-pointer" >
               {/* Icon */} <div className="text-3xl text-black font-bold mb-3"> {getIcon(item)} </div>
-
-
               {/* Text */} <p className="text-sm text-black font-medium text-center"> {item} </p> </div>))}
           </div> </div>)}
 
-         {/* AMENITIES DETAILED */}
-{hotel?.amenities_detailed && (() => {
-  try {
-    const details = JSON.parse(hotel.amenities_detailed);
-    const groups = Array.isArray(details?.groups) ? details.groups : [];
-    console.log(groups, "groups")
-    const popular = Array.isArray(details?.popular) ? details.popular : [];
+          {/* AMENITIES DETAILED */}
+          {hotel?.amenities_detailed && (() => {
+            try {
+              const details = JSON.parse(hotel.amenities_detailed);
+              const groups = Array.isArray(details?.groups) ? details.groups : [];
+              console.log(groups, "groups")
+              const popular = Array.isArray(details?.popular) ? details.popular : [];
 
-    const renderCard = (item: any, i: number, type: "groups" | "popular") => (
-      <div
-        key={i}
-        className="group bg-white border border-gray-100 rounded-lg p-3 flex flex-col items-center text-center
+              const renderCard = (item: any, i: number, type: "groups" | "popular") => (
+                <div
+                  key={i}
+                  className="group bg-white border border-gray-100 rounded-lg p-3 flex flex-col items-center text-center
                    shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
-      >
-        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-50 text-black mb-2
+                >
+                  <div className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-50 text-black mb-2
                         group-hover:bg-blue-100 transition">
-          {getIcon(item.title)}
-        </div>
+                    {getIcon(item.title)}
+                  </div>
 
-        <p className="text-xs font-semibold text-gray-700 leading-tight">
-          {item.title}
-        </p>
+                  <p className="text-xs font-semibold text-gray-700 leading-tight">
+                    {item.title}
+                  </p>
 
-        {type === "popular" && item.available && (
-          <span className="mt-2 text-[10px] px-2 py-[1px] rounded-full bg-green-100 text-green-700">
-            Available
-          </span>
-        )}
-      </div>
-    );
+                  {type === "popular" && item.available && (
+                    <span className="mt-2 text-[10px] px-2 py-[1px] rounded-full bg-green-100 text-green-700">
+                      Available
+                    </span>
+                  )}
+                </div>
+              );
 
-    return (
-      <div className="space-y-10">
+              return (
+                <div className="space-y-10">
 
-        {/* HOTEL FEATURES */}
-        {groups.length > 0 && (
-          <div>
-            <h3 className="text-xl font-bold text-gray-800 mb-4">
-               Hotel Features
-            </h3>
+                  {/* HOTEL FEATURES */}
+                  {groups.length > 0 && (
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-800 mb-4">
+                        Hotel Features
+                      </h3>
 
-          <div className="grid grid-cols-5 gap-3">
-              {(showAll ? groups : groups.slice(0, 5)).map((item: any, i: number) =>
-                renderCard(item, i, "groups")
-              )}
-            </div>
+                      <div className="grid grid-cols-5 gap-3">
+                        {(showAll ? groups : groups.slice(0, 5)).map((item: any, i: number) =>
+                          renderCard(item, i, "groups")
+                        )}
+                      </div>
 
-            {groups.length > 5 && (
-              <div className="text-center mt-4">
-                <button
-                  onClick={() => setShowAll(!showAll)}
-                  className="px-4 py-1 text-sm border border-blue-900/100 text-blue-900/100 rounded-full
+                      {groups.length > 5 && (
+                        <div className="text-center mt-4">
+                          <button
+                            onClick={() => setShowAll(!showAll)}
+                            className="px-4 py-1 text-sm border border-blue-900/100 text-blue-900/100 rounded-full
                              hover:bg-blue-600 hover:text-white transition"
-                >
-                  {showAll ? "Show Less" : "Show More"}
-                </button>
-              </div>
-            )}
-          </div>
-        )}
+                          >
+                            {showAll ? "Show Less" : "Show More"}
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  )}
 
-        {/* POPULAR AMENITIES */}
-        {popular.length > 0 && (
-          <div>
-            <h3 className="text-xl font-bold text-gray-800 mb-4">
-               Popular Amenities
-            </h3>
+                  {/* POPULAR AMENITIES */}
+                  {popular.length > 0 && (
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-800 mb-4">
+                        Popular Amenities
+                      </h3>
 
-            <div className="grid grid-cols-5 gap-3">
-              {(showAll ? popular : popular.slice(0, 5)).map((item: any, i: number) =>
-                renderCard(item, i, "popular")
-              )}
-            </div>
+                      <div className="grid grid-cols-5 gap-3">
+                        {(showAll ? popular : popular.slice(0, 5)).map((item: any, i: number) =>
+                          renderCard(item, i, "popular")
+                        )}
+                      </div>
 
-            {popular.length > 5 && (
-              <div className="text-center mt-4">
-                <button
-                  onClick={() => setShowAll(!showAll)}
-                  className="px-4 py-1 text-sm border border-blue-500 text-blue-600 rounded-full
+                      {popular.length > 5 && (
+                        <div className="text-center mt-4">
+                          <button
+                            onClick={() => setShowAll(!showAll)}
+                            className="px-4 py-1 text-sm border border-blue-500 text-blue-600 rounded-full
                              hover:bg-blue-600 hover:text-white transition"
-                >
-                  {showAll ? "Show Less" : "Show More"}
-                </button>
-              </div>
-            )}
-          </div>
-        )}
+                          >
+                            {showAll ? "Show Less" : "Show More"}
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  )}
 
-      </div>
-    );
-  } catch (err) {
-    console.error("Error parsing amenities_detailed:", err);
-    return null;
-  }
-})()}</div></div>
+                </div>
+              );
+            } catch (err) {
+              console.error("Error parsing amenities_detailed:", err);
+              return null;
+            }
+          })()}</div></div>
       <div className="w-full flex justify-center">
         <div className="w-full max-w-screen-2xl">
 
@@ -427,7 +423,7 @@ export default function Detail() {
         </div>
       </div>
 
- <Slider />
+      <Slider />
       <div className="w-full flex justify-center">
         <div className="w-full max-w-screen-2xl">
 
@@ -460,7 +456,7 @@ export default function Detail() {
 
         </div>
       </div>
-     
+
       {loading && (
         <div className="text-center py-20">
           Loading hotel details...

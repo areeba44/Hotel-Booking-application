@@ -14,7 +14,10 @@ function FooterCol({ title, links }: { title: string; links: string[] }) {
       <ul className="space-y-2 text-sm text-white">
         {links.map((item) => (
           <li key={item}>
-            <Link href="/" className="hover:text-gray-200 transition">
+            <Link
+              href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
+              className="hover:text-gray-200 transition"
+            >
               {item}
             </Link>
           </li>
@@ -136,14 +139,45 @@ export default function Footer() {
                 </div>
               </div>
 
-              {/* RIGHT */}
-              <div className="relative px-20 mt-6 font-serif">
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
-                  <FooterCol title="Company" links={["About", "Careers", "Blog", "Press"]} />
-                  <FooterCol title="Explore" links={["Rooms", "Destinations", "Offers", "Gallery"]} />
-                  <FooterCol title="Support" links={["Help Center", "Contact", "Privacy", "Terms"]} />
-                </div>
-              </div>
+             {/* RIGHT */}
+<div className="relative px-20 mt-6 font-serif">
+  <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
+
+    {/* COMPANY */}
+    <div>
+      <h3 className="text-sm font-semibold mb-4 text-white">Company</h3>
+      <ul className="space-y-2 text-sm text-white">
+        <li><Link href="/About" className="hover:text-gray-300">About</Link></li>
+        <li><Link href="/careers" className="hover:text-gray-300">Careers</Link></li>
+        <li><Link href="/blog" className="hover:text-gray-300">Blog</Link></li>
+        <li><Link href="/press" className="hover:text-gray-300">Press</Link></li>
+      </ul>
+    </div>
+
+    {/* EXPLORE */}
+    <div>
+      <h3 className="text-sm font-semibold mb-4 text-white">Explore</h3>
+      <ul className="space-y-2 text-sm text-white">
+        <li><Link href="/rooms" className="hover:text-gray-300">Rooms</Link></li>
+        <li><Link href="/destinations" className="hover:text-gray-300">Destinations</Link></li>
+        <li><Link href="/offers" className="hover:text-gray-300">Offers</Link></li>
+        <li><Link href="/gallery" className="hover:text-gray-300">Gallery</Link></li>
+      </ul>
+    </div>
+
+    {/* SUPPORT */}
+    <div>
+      <h3 className="text-sm font-semibold mb-4 text-white">Support</h3>
+      <ul className="space-y-2 text-sm text-white">
+        <li><Link href="/help-center" className="hover:text-gray-300">Help Center</Link></li>
+        <li><Link href="/contact" className="hover:text-gray-300">Contact</Link></li>
+        <li><Link href="/Privacy" className="hover:text-gray-300">Privacy</Link></li>
+        <li><Link href="/Terms" className="hover:text-gray-300">Terms</Link></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
 
             </div>
 
@@ -151,16 +185,18 @@ export default function Footer() {
             <div className="border-t border-white/30 mt-10"></div>
 
             {/* BOTTOM */}
-            <div className="flex flex-col md:flex-row ml-8  font-serif justify-between items-center gap-4 text-sm text-gray-200">
+            <div className="flex flex-col md:flex-row ml-8 font-serif justify-between items-center gap-4 text-sm text-gray-200">
               <p>© 2026 Stay Haven. All rights reserved.</p>
 
               <div className="flex gap-6 mr-10 mt-7 font-serif">
-                <Link href="/" className="hover:text-white transition">Privacy</Link>
-                <Link href="/" className="hover:text-white transition">Terms</Link>
-                <Link href="/" className="hover:text-white transition">Cookies</Link>
+                <div className="flex gap-6 mr-10 mt-7 font-serif">
+                   <Link href="/About" className="hover:text-white transition">About</Link>
+                  <Link href="/Privacy" className="hover:text-white transition">Privacy</Link>
+                  <Link href="/Terms" className="hover:text-white transition">Terms</Link>
+                    <Link href="/cookies" className="hover:text-white transition">Cookies</Link>
+                </div>
               </div>
-            </div>
-
+</div>
           </footer>
         )}
 

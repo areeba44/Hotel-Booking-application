@@ -2,115 +2,105 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { FaStar } from "react-icons/fa"; // ✅ Import FaStar
 
 export default function TermsPage() {
-  return (
-    <div className="w-full bg-gradient-to-b from-gray-50 to-white">
+  const sections = [
+    {
+      title: "Our Terms and Conditions",
+      color: "bg-blue-500",    
+      text: `RateCompares is a hotel search platform that helps users explore and compare accommodations,
+      travel locations, and experiences. By using this website, you confirm that you have read and accepted
+      these terms, including our privacy policy and cookie usage.`,
+    },
+    {
+      title: "Services and Contract",
+      color: "bg-green-500",
+      text: `RateCompares allows users to compare third-party services but does not provide those services directly.
+      Any agreement is strictly between the user and the external service provider.`,
+    },
+    {
+      title: "Privacy and Email Advertisements",
+      color: "bg-purple-500",
+      text: `We collect and process user data only when necessary and with proper consent. Users can unsubscribe from promotional emails anytime.`,
+    },
+    {
+      title: "User Obligations",
+      color: "bg-yellow-500",
+      text: `Users are responsible for the content they upload. Uploading harmful software, spam, or illegal content is strictly prohibited.`,
+    },
+    {
+      title: "Termination",
+      color: "bg-red-500",
+      text: `RateCompares reserves the right to terminate user access at any time if misuse or violations are reported.`,
+    },
+    {
+      title: "Liability",
+      color: "bg-indigo-500",
+      text: `RateCompares is not responsible for third-party content accuracy. All contracts or bookings are between the user and external providers.`,
+    },
+    {
+      title: "Changes to Terms",
+      color: "bg-pink-500",
+      text: `We may update these terms from time to time and notify users via email when changes occur.`,
+    },
+  ];
 
+  return (
+    <div className="w-full bg-gray-50">
       <Navbar />
 
-      <div className="max-w-screen-lg mx-auto px-4 py-12">
-
-        {/* HEADER */}
-        <div className="bg-white shadow-xl rounded-2xl p-8 mb-10 border border-gray-100">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
-            Terms & Conditions
-          </h1>
-          <p className="text-gray-600 leading-relaxed">
-            Please read these terms carefully before using our platform.
-            By accessing our website, you agree to comply with these terms.
-          </p>
+      {/* Hero Section */}
+      <div className="relative w-full h-[400px] md:h-[450px] flex items-center justify-center overflow-hidden">
+        <img
+          src="about.avif"
+          alt="Travel"
+          className="absolute inset-0 w-full h-full object-cover opacity-50"
+        />
+        <div className="absolute inset-0 flex justify-center items-center text-center z-10">
+          <div className="max-w-3xl mx-auto px-4 py-16">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
+              Terms & Conditions
+            </h1>
+            <p className="text-gray-200 text-lg md:text-xl">
+              Read these terms carefully before using our platform. By accessing our website, you agree to comply with these terms.
+            </p>
+          </div>
         </div>
+      </div>
 
-        {/* SECTION CARD */}
-        {[
-          {
-            title: "Our Terms and Conditions",
-            icon: "📄",
-            text: `RateCompares is a hotel search platform that helps users explore and compare accommodations,
-            travel locations, and experiences. By using this website, you confirm that you have read and accepted
-            these terms, including our privacy policy and cookie usage. These terms apply to all services provided
-            through our website, email, phone, or internet and may be updated from time to time.`,
-          },
-          {
-            title: "Services and Contract",
-            icon: "🧾",
-            text: `RateCompares allows users to compare third-party services but does not provide those services directly.
-            No booking or travel contract is made through our website. Any agreement is strictly between the user
-            and the external service provider.`,
-          },
-          {
-            title: "Privacy and Email Advertisements",
-            icon: "🔐",
-            text: `We collect and process user data only when necessary and with proper consent or legal basis.
-            We ensure your data is protected and handled securely. Users who opt in may receive emails about
-            offers and updates, and they can unsubscribe anytime.`,
-          },
-          {
-            title: "User Obligations",
-            icon: "⚠️",
-            text: `Users are responsible for the content they upload, including text, images, and reviews.
-            Content must not be false, offensive, illegal, or violate copyrights. Uploading harmful software,
-            spam, or collecting personal data from other users is strictly prohibited.`,
-          },
-          {
-            title: "Termination",
-            icon: "⛔",
-            text: `RateCompares reserves the right to terminate user access at any time.
-            Accounts may be removed if misuse or violation of terms is reported.`,
-          },
-          {
-            title: "Liability",
-            icon: "📌",
-            text: `RateCompares is not responsible for the accuracy or reliability of third-party content.
-            We do not provide booking services, and any agreement is between users and external providers.
-            We are not liable for disputes or claims arising from such contracts.`,
-          },
-          {
-            title: "Changes to Terms",
-            icon: "🔄",
-            text: `We may update these terms from time to time and will notify users via email when changes occur.`,
-          },
-        ].map((section, index) => (
+      {/* Sections */}
+      <div className="max-w-screen-lg mx-auto px-4 py-12">
+        {sections.map((section, index) => (
           <div
             key={index}
-            className="bg-white rounded-xl shadow-md p-6 mb-6 border border-gray-100 hover:shadow-lg transition"
+            className="bg-white p-6 mb-8  shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1"
           >
-            <h2 className="text-xl font-semibold mb-3 text-gray-800 flex items-center gap-2">
-              <span className="text-2xl">{section.icon}</span>
-              {section.title}
-            </h2>
-
-            <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-              {section.text}
-            </p>
+            {/* Content */}
+            <div>
+              {/* Align star icon with title */}
+              <div className="flex items-center mb-2">
+                <FaStar className="text-black text-[12px] mr-2" />
+                <h2 className="text-xl font-semibold text-gray-900">{section.title}</h2>
+              </div>
+              <p className="text-gray-700 leading-relaxed">{section.text}</p>
+            </div>
           </div>
         ))}
 
-        {/* CONTACT BOX */}
-        <div className="bg-gradient-to-r from-blue-900 to-blue-800 text-white rounded-2xl p-8 shadow-2xl mt-10">
-
-          <h2 className="text-2xl font-bold mb-6 text-center">
-            Need Help?
-          </h2>
-
-          <p className="text-center text-gray-200 mb-6">
-            If you have any questions regarding our Terms & Conditions,
-            feel free to contact our support team.
+        {/* Contact Box */}
+        <div className="bg-blue-900/100 text-white rounded-3xl p-12 shadow-xl mt-12 text-center">
+          <h2 className="text-3xl font-bold mb-4">Need Help?</h2>
+          <p className="mb-6 text-gray-200 text-lg">
+            If you have any questions regarding our Terms & Conditions, feel free to contact our support team.
           </p>
-
-          <div className="flex justify-center">
-            <button className="bg-white text-blue-900 px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition">
-              Contact Support
-            </button>
-          </div>
-
+          <button className="bg-white text-blue-800 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
+            Contact Support
+          </button>
         </div>
-
       </div>
 
       <Footer />
-
     </div>
   );
 }

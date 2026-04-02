@@ -47,9 +47,9 @@ export default function MostVisited() {
       className="w-full bg-white sm:px-8  relative bottom-10 "
     >
       {/* Container */}
-      <div className="max-w-screen-2xl mx-auto relative w-full px-9">
+      <div className="max-w-screen-2xl mx-auto relative w-full px-10">
         {/* Heading */}
-        <h2 className="text-2xl sm:text-3xl  md:text-3xl font-bold mb-6 px-3 text-gray-900">
+        <h2 className="text-2xl sm:text-3xl right-2 relative md:text-3xl font-bold mb-5 px-2  text-gray-900">
           Most Visited Hotels of 2025
         </h2>
 
@@ -57,8 +57,8 @@ export default function MostVisited() {
         <div className="grid md:grid-cols-3 gap-6">
           {/* Big Card */}
           {dataLoaded ? (
-            <div className="relative md:col-span-2 rounded-2xl overflow-hidden h-[300px] sm:h-[380px] md:h-[420px]">
-              <Image src="/buliding.png" alt="hotel" fill className="object-cover" />
+            <div className="relative md:col-span-2  overflow-hidden h-[300px] sm:h-[380px] md:h-[420px]">
+              <Image src="/buliding.png" alt="hotel" fill className="object-cover " />
               <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-6 text-white">
                 <h3 className="text-xl sm:text-2xl font-semibold">The Grand Luxe</h3>
                 <div className="flex items-center gap-2 text-sm mt-1">
@@ -79,7 +79,7 @@ export default function MostVisited() {
 
           {/* Small Card */}
           {dataLoaded ? (
-            <div className="relative rounded-2xl overflow-hidden h-[300px] sm:h-[380px] md:h-[420px]">
+            <div className="relative overflow-hidden h-[300px] sm:h-[380px] md:h-[420px]">
               <Image src="/bul2.png" alt="hotel" fill className="object-cover" />
               <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-6 text-white">
                 <h3 className="text-lg sm:text-xl font-semibold">Mountain Lodge</h3>

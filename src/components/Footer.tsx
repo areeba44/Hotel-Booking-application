@@ -124,7 +124,7 @@ export default function Footer() {
                   alt="Logo"
                   width={90}
                   height={80}
-                  className="w-65 h-10 px-10 mt-5"
+                  className="w-75 h-13 px-10 mt-5"
                 />
 
                 <p className="px-10 max-w-md leading-relaxed text-sm text-gray-200 font-serif">

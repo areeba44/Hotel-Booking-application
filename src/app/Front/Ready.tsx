@@ -57,22 +57,22 @@ export default function Ready() {
 
             {/* Overlay */}
             <div className="absolute inset-0 flex items-center justify-center px-4">
-              <div className="bg-blue-900/80 text-white rounded-2xl p-6 sm:p-8 md:p-10 max-w-xl w-full text-center shadow-xl">
+              <div className="bg-blue-900/80 text-white  p-6 sm:p-8 md:p-10 max-w-xl w-full text-center shadow-xl">
 
-                <h2 className="text-2xl sm:text-3xl font-bold mb-3">
+                <h2 className="text-2xl sm:text-3xl font-serif mb-3">
                   Ready to book your next stay?
                 </h2>
 
-                <p className="text-sm sm:text-lg mb-6 text-gray-200">
+                <p className="text-sm sm:text-lg mb-6 text-gray-200 font-serif">
                   Find exclusive deals on hotels, resorts, and guest houses worldwide.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button className="border border-white px-6 py-2 rounded-full hover:bg-white hover:text-blue-700 transition">
+                  <button className="border border-white  font-bold  cursor-pointer px-6 py-2 hover:bg-white hover:text-blue-700 transition">
                     View Detail
                   </button>
 
-                  <button className="bg-white text-blue-700 px-6 py-2 rounded-full hover:bg-gray-200 transition">
+                  <button className="bg-white font-bold cursor-pointer text-blue-900/100 px-6 py-2  hover:bg-gray-200 transition">
                     Search Hotels
                   </button>
                 </div>

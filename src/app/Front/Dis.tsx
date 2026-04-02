@@ -64,7 +64,7 @@ export default function Destinations() {
   return (
     <section className="py-16 px-12 bg-white">
       <div className="max-w-screen-2xl mx-auto px-6">
-        <h2 className="text-3xl font-bold mb-10 text-gray-800">
+        <h2 className="text-3xl font-bold mb-5 text-gray-800">
           Discover Popular Destinations
         </h2>
 
@@ -125,72 +125,65 @@ export default function Destinations() {
                             />
                           </div>
                         )}
-
-                        {/* Heart Icon */}
-                        <div className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center bg-white rounded-full shadow cursor-pointer hover:bg-red-100 transition">
-                          <HiOutlineHeart className="text-gray-500 w-5 h-5" />
+                        {/* Hotel Name with Slug Link */}
+                        <div className="flex justify-between items-start">
+                          <a
+                            href={`/Front/${encodeURIComponent(JSON.stringify({
+                              id: isBase64(dest?.id) ? atob(dest.id) : dest?.id,
+                              name: slugify(dest?.name),
+                            }))}`}
+                            className="text-[20px] ml-2 font-bold text-gray-900 hover:text-blue-900 transition"
+                          >
+                            {displayName}
+                          </a>
                         </div>
 
-                        {/* Content */}
-                        <div className="p-2 flex flex-col justify-between flex-grow">
-                          <div>
-                            {/* Hotel Name with Slug Link */}
-                            <div className="flex justify-between items-start cursor-pointer">
-                              <h3
-                                onClick={() => handleNavigate(dest)} // Now using the correct function and passing dest
-                                className="text-base cursor-pointer font-bold hover:text-blue-900 transition"
-                              >
-                                {displayName}
-                              </h3>
-                            </div>
+                        {/* Address */}
+                        <p className="text-xs ml-2 text-gray-700 mt-2 h-[32px] overflow-hidden">
+                          {dest.address && dest.address.length > 70
+                            ? dest.address.slice(0, 70) + "..."
+                            : dest.address}
+                        </p>
 
-                            {/* Address */}
-                            <p className="text-xs text-gray-700 mt-2 h-[32px] overflow-hidden">
-                              {dest.address && dest.address.length > 70
-                                ? dest.address.slice(0, 70) + "..."
-                                : dest.address}
-                            </p>
-
-                            {/* Stars + Reviews */}
-                            <div className="mt-2 flex flex-col">
-                              <div className="flex items-center space-x-2">
-                                <span className="bg-blue-900 text-white text-sm font-medium px-3 py-[4px] rounded">
-                                  {dest.location_rating}
-                                </span>
-                                <span className="text-blue-900 text-[12px] font-bold">⭐⭐⭐⭐</span>
-                              </div>
-
-                              {dest.reviews && (
-                                <div className="mt-2 flex items-center space-x-2 max-h-12 overflow-hidden">
-                                  {/* Star Icon */}
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    className="w-4 h-4 text-yellow-500"
-                                  >
-                                    <path
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                      strokeWidth="2"
-                                      d="M12 17.4l4.2 2.2-1.6-5.4 4.4-3.6h-5.4L12 5l-2.6 5.6H4l4.4 3.6-1.6 5.4L12 17.4z"
-                                    />
-                                  </svg>
-
-                                  {/* Reviews Text */}
-                                  <p className="text-sm text-gray-600 font-medium">
-                                    <span className="font-bold text-gray-900">({dest.reviews})</span> Reviews
-                                  </p>
-                                </div>
-                              )}
-                            </div>
-
+                        {/* Stars + Reviews */}
+                        <div className="mt-2 flex flex-col">
+                          <div className="flex items-center space-x-2 ml-2">
+                            <span className="bg-blue-900 text-white text-sm font-medium px-3 py-[4px] rounded">
+                              {dest.location_rating}
+                            </span>
+                            <span className="text-blue-900 text-[12px] font-bold">⭐⭐⭐⭐</span>
                           </div>
+
+                          {dest.reviews && (
+                            <div className="mt-2 ml-2 flex items-center space-x-2 max-h-12 overflow-hidden">
+                              {/* Star Icon */}
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                className="w-4 h-4 text-yellow-500"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="M12 17.4l4.2 2.2-1.6-5.4 4.4-3.6h-5.4L12 5l-2.6 5.6H4l4.4 3.6-1.6 5.4L12 17.4z"
+                                />
+                              </svg>
+
+                              {/* Reviews Text */}
+                              <p className="text-sm text-gray-600 font-medium">
+                                <span className="font-bold text-gray-900">({dest.reviews})</span> Reviews
+                              </p>
+                            </div>
+                          )}
                         </div>
 
                       </div>
                     </div>
+
+
                   );
                 })}
             </div>
@@ -227,8 +220,8 @@ export default function Destinations() {
             </div>
           </div>
 
-        </div>
-      </div>
+        </div> </div>
     </section>
+
   );
 }

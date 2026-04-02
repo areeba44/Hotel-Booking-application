@@ -55,14 +55,14 @@ export default function FAQSection() {
         <img
           src="about.avif"
           alt="Travel"
-          className="absolute inset-0 w-full h-full object-cover opacity-60"
+          className="absolute inset-0 w-full h-full object-cover brightness-65"
         />
           <div className="absolute inset-0  bg-opacity-50"></div>
         </div>
 
         {/* FAQ Text Centered Over the Image */}
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center max-w-3xl mx-auto z-10">
-          <h2 className="text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Frequently Asked Questions</h2>
           <p className="text-gray-200 text-lg md:text-xl mb-10">
             Find answers to common questions.
           </p>
@@ -70,7 +70,7 @@ export default function FAQSection() {
       </div>
 
      {/* FAQ Items */}
-<div className="max-w-4xl mx-auto space-y-4 py-8"> {/* Reduced padding here */}
+<div className="max-w-7xl mx-auto space-y-4 py-8"> {/* Reduced padding here */}
   {faqs.map((faq, index) => (
     <div key={index} className="bg-white rounded-xl shadow-md p-4 border border-gray-100 hover:shadow-lg transition transform hover:-translate-y-1"> {/* Reduced padding here */}
       {/* Question */}
@@ -91,8 +91,6 @@ export default function FAQSection() {
     </div>
   ))}
 </div>
-
-
       {/* TAGLINE SECTION */}
       <section className="w-full px-60 py-16">
         <div className="bg-blue-900/100 text-white rounded-3xl p-12 shadow-2xl text-center transform hover:scale-105 transition">

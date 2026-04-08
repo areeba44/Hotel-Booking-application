@@ -44,14 +44,14 @@ export default function Amenities() {
   }, []);
 
   const SkeletonCard = () => (
-    <div className="bg-white/10 border border-white/20 rounded-xl p-5 flex flex-col items-center animate-pulse">
+    <div className="bg-white/10 border border-white/20 rounded-xl p-5  flex flex-col items-center animate-pulse">
       <div className="w-7 h-7 bg-white/30 rounded-full mb-3"></div>
       <div className="w-16 h-3 bg-white/30 rounded"></div>
     </div>
   );
 
   return (
-    <div className="bg-white bottom-1 relative">
+    <div className="bg-white bottom-1 relative mt-10">
 
       <div className="max-w-screen-2xl mx-auto relative w-full">
 

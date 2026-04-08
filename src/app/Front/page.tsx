@@ -70,8 +70,8 @@ export default function Home() {
         </div>
         <div className="absolute inset-0 flex items-center justify-center text-center bg-black/40">
           <div className="text-white max-w-4xl px-6 sm:px-12">
-            <h1 className="text-3xl sm:text-4xl md:text-[43px] font-bold leading-tight tracking-wide animate__animated animate__fadeIn animate__delay-1s -mt-22">
-              Find Your Perfect Stay  RateCompares
+            <h1 className="text-2xl sm:text-2xl md:text-[42px] font-bold leading-tight tracking-wide animate__animated animate__fadeIn animate__delay-1s -mt-22">
+                <span className="">Find Your Perfect Stay  RateCompares</span>
             </h1>
             <p className="mt-4 text-lg sm:text-xl md:text-xl font-serif text-gray-200 animate__animated animate__fadeIn animate__delay-2s">
             Find hotels, resorts, and guest houses with great prices and verified reviews.

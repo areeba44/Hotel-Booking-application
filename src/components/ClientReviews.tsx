@@ -34,8 +34,8 @@ export default function ReviewsSection({
   reviews = [],
 }: ReviewsSectionProps) {
 
-  console.log("ratingData", ratingData )
-  console.log("reviews", reviews )
+  console.log("ratingData", ratingData)
+  console.log("reviews", reviews)
 
   let totalReviews = 0;
   let totalScore = 0;
@@ -55,11 +55,11 @@ export default function ReviewsSection({
   const overallRating =
     reviews.length > 0
       ? (
-          reviews.reduce(
-            (acc, r) => acc + (r.user_review?.rating.score || 0),
-            0
-          ) / reviews.length
-        ).toFixed(1)
+        reviews.reduce(
+          (acc, r) => acc + (r.user_review?.rating.score || 0),
+          0
+        ) / reviews.length
+      ).toFixed(1)
       : "0";
 
   return (
@@ -93,35 +93,35 @@ export default function ReviewsSection({
           </p>
         </div>
 
-     <div className="flex-1 space-y-3">
-  {[5, 4, 3, 2, 1].map((star) => {
-    // Star rating wale reviews ki count nikalain
-    const count = reviews.filter(r => r.user_review?.rating.score === star).length;
+        <div className="flex-1 space-y-3">
+          {[5, 4, 3, 2, 1].map((star) => {
+            // Star rating wale reviews ki count nikalain
+            const count = reviews.filter(r => r.user_review?.rating.score === star).length;
 
-    // Total reviews count
-    const total = reviews.length;
+            // Total reviews count
+            const total = reviews.length;
 
-    // Percentage calculate karo
-    const percent = total ? Math.round((count / total) * 100) : 0;
+            // Percentage calculate karo
+            const percent = total ? Math.round((count / total) * 100) : 0;
 
-    return (
-      <div key={star} className="flex items-center gap-3">
-        <span className="w-16 text-sm">{star} stars</span>
+            return (
+              <div key={star} className="flex items-center gap-3">
+                <span className="w-16 text-sm">{star} stars</span>
 
-        <div className="flex-1 h-2 bg-gray-300 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-yellow-500"
-            style={{ width: `${percent}%` }}
-          />
+                <div className="flex-1 h-2 bg-gray-300 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-yellow-500"
+                    style={{ width: `${percent}%` }}
+                  />
+                </div>
+
+                <span className="w-10 text-sm text-gray-600">
+                  {percent}%
+                </span>
+              </div>
+            );
+          })}
         </div>
-
-        <span className="w-10 text-sm text-gray-600">
-          {percent}%
-        </span>
-      </div>
-    );
-  })}
-</div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
@@ -147,7 +147,12 @@ export default function ReviewsSection({
             </div>
 
             <div className="flex gap-1 mb-2">
-              {[...Array(review.user_review?.rating.score || 0)].map((_, i) => (
+              {[...Array(
+                Math.max(
+                  0,
+                  Math.min(5, Math.floor(review?.user_review?.rating.score || 0))
+                )
+              )].map((_, i) => (
                 <FaStar key={i} className="text-yellow-500 text-xs" />
               ))}
             </div>

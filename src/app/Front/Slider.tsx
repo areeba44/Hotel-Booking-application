@@ -13,7 +13,7 @@ export default function AdvertiserBar() {
   ];
 
   return (
-    <div className="bg-white bottom-10 relative ">
+  <div className="bg-gray-100 border:bg-gray-200 bottom-2 relative max-w-screen-2xl mx-auto px-6">
       
       {/* Parent Container */}
       <div className="max-w-screen-2xl mx-auto">

@@ -212,7 +212,7 @@ export default function HotelsContent() {
                 <div className="flex flex-col lg:flex-row">
                   {/* IMAGE */}
                   <Link href="#">
-                    <div className="relative w-full lg:w-[280px] h-56 flex-shrink-0 overflow-hidden">
+                    <div className="relative w-full lg:w-[280px] h-51 flex-shrink-0 overflow-hidden">
                       <img
                         src={hotel.images ? JSON.parse(hotel.images)[0]?.original_image : ""}
                         alt={hotel.name}
@@ -232,7 +232,7 @@ export default function HotelsContent() {
                       <span className="font-bold text-black">{hotel.overall_rating}</span>
                       <span className="text-gray-500">/ {hotel.reviews} reviews</span>
                     </div>
-                    <div className="text-sm text-gray-500 line-clamp-3 mt-2">
+                    <div className="text-sm text-gray-900 font-light line-clamp-3 mt-2">
                       <p dangerouslySetInnerHTML={{ __html: hotel.description }} />
                     </div>
                   </div>
@@ -254,7 +254,7 @@ export default function HotelsContent() {
                             </p>
 
                             <Link href={parsedPrices[0].link}>
-                              <p className="mt-4 w-full text-center bg-blue-900 hover:bg-blue-700 text-white py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ease-in-out cursor-pointer shadow-sm hover:shadow-md">
+                              <p className="mt-4 mb-2 w-full text-center bg-blue-900 hover:bg-blue-700 text-white py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ease-in-out cursor-pointer shadow-sm hover:shadow-md">
                                 {parsedPrices[0].source}
                               </p>
                             </Link>

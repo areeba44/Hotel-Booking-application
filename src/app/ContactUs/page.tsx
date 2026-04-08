@@ -11,7 +11,7 @@ export default function ContactPage() {
       <Navbar />
 
       {/* HERO SECTION */}
-      <div className="relative w-full h-[400px] md:h-[450px] flex items-center justify-center overflow-hidden text-center">
+      <div className="relative  max-w-screen-2xl mx-auto  w-full h-[400px] md:h-[450px] flex items-center justify-center overflow-hidden text-center">
 
         {/* Background Image */}
         <img

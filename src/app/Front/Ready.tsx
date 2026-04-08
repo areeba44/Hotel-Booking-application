@@ -7,7 +7,6 @@ export default function Ready() {
   const [loading, setLoading] = useState(true);
   const sectionRef = useRef(null);
 
-  // 👇 Scroll trigger (only load when section comes in view)
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -37,7 +36,7 @@ export default function Ready() {
   );
 
   return (
-    <div ref={sectionRef} className="w-full bg-white pt-4">
+    <div ref={sectionRef} className="w-full bg-white mt-10 relative">
 
       <div className="max-w-screen-2xl mx-auto relative w-full">
 
@@ -57,7 +56,7 @@ export default function Ready() {
 
             {/* Overlay */}
             <div className="absolute inset-0 flex items-center justify-center px-4">
-              <div className="bg-blue-900/80 text-white  p-6 sm:p-8 md:p-10 max-w-xl w-full text-center shadow-xl">
+              <div className="bg-blue-900/80 rounded-md text-white  p-6 sm:p-8 md:p-10 max-w-xl w-full text-center shadow-xl">
 
                 <h2 className="text-2xl sm:text-3xl font-serif mb-3">
                   Ready to book your next stay?

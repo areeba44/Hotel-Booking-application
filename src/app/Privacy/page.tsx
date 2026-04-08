@@ -6,7 +6,7 @@ import { FaEnvelope, FaGlobe, FaLock } from "react-icons/fa";
 
 export default function PrivacyPolicy() {
   return (
-    <div className="w-full bg-gradient-to-b from-gray-50 to-white">
+    <div className="max-w-screen-2xl mx-auto  w-full bg-gradient-to-b from-gray-50 to-white">
 
       <Navbar />
 

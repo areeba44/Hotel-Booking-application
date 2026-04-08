@@ -1,206 +1,108 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
-import { IconType } from "react-icons";
-
-/* Footer Column Component */
-function FooterCol({ title, links }: { title: string; links: string[] }) {
-  return (
-    <div>
-      <h3 className="text-sm font-semibold mb-4 text-white">{title}</h3>
-      <ul className="space-y-2 text-sm text-white">
-        {links.map((item) => (
-          <li key={item}>
-            <Link
-              href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
-              className="hover:text-gray-200 transition"
-            >
-              {item}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-/* Social Icon */
-function SocialIcon({ Icon }: { Icon: IconType }) {
-  return (
-    <div className="w-10 h-10 flex items-center justify-center border border-white rounded-full hover:bg-white hover:text-blue-900 transition cursor-pointer">
-      <Icon size={14} />
-    </div>
-  );
-}
 
 export default function Footer() {
-  const [loading, setLoading] = useState(true);
-  const footerRef = useRef(null);
-
-  // 🔥 Scroll trigger loading
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => setLoading(false), 1000);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (footerRef.current) observer.observe(footerRef.current);
-
-    return () => {
-      if (footerRef.current) observer.unobserve(footerRef.current);
-    };
-  }, []);
-
-  // 🔹 Skeleton UI
-  const Skeleton = () => (
-    <div className="w-full bg-blue-950 py-10 px-6 animate-pulse">
-      <div className="max-w-screen-2xl mx-auto grid lg:grid-cols-2 gap-10">
-
-        {/* Left */}
-        <div>
-          <div className="w-40 h-10 bg-white/20 rounded mb-4"></div>
-          <div className="space-y-2">
-            <div className="w-3/4 h-3 bg-white/20 rounded"></div>
-            <div className="w-2/3 h-3 bg-white/20 rounded"></div>
-            <div className="w-1/2 h-3 bg-white/20 rounded"></div>
-          </div>
-          <div className="flex gap-3 mt-6">
-            <div className="w-10 h-10 rounded-full bg-white/20"></div>
-            <div className="w-10 h-10 rounded-full bg-white/20"></div>
-            <div className="w-10 h-10 rounded-full bg-white/20"></div>
-          </div>
-        </div>
-
-        {/* Right */}
-        <div className="grid grid-cols-3 gap-6">
-          <div className="space-y-2">
-            <div className="w-20 h-4 bg-white/20 rounded"></div>
-            <div className="w-16 h-3 bg-white/20 rounded"></div>
-            <div className="w-16 h-3 bg-white/20 rounded"></div>
-          </div>
-
-          <div className="space-y-2">
-            <div className="w-20 h-4 bg-white/20 rounded"></div>
-            <div className="w-16 h-3 bg-white/20 rounded"></div>
-            <div className="w-16 h-3 bg-white/20 rounded"></div>
-          </div>
-
-          <div className="space-y-2">
-            <div className="w-20 h-4 bg-white/20 rounded"></div>
-            <div className="w-16 h-3 bg-white/20 rounded"></div>
-            <div className="w-16 h-3 bg-white/20 rounded"></div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  );
-
   return (
-    <div ref={footerRef} className="w-full bg-white">
+    <footer className=" max-w-screen-2xl mx-auto w-full bg-[#162E5C] text-white px-5 sm:px-8 md:px-12 lg:px-20 py-12">
 
-      <div className="max-w-screen-2xl mx-auto w-full">
+      <div className="max-w-screen-2xl mx-auto">
 
-        {/* ================= LOADING ================= */}
-        {loading ? (
-          <Skeleton />
-        ) : (
-          <footer className="bg-blue-950 text-white sm:px-8 py-5 shadow-2xl">
+        {/* TOP GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
-            {/* TOP SECTION */}
-            <div className="grid lg:grid-cols-2 gap-12">
+          {/* LEFT */}
+          <div>
+            <Image
+              src="/Rate.png"
+              alt="logo"
+              width={190}
+              height={90}
+              className="mb-4"
+            />
 
-              {/* LEFT */}
-              <div>
-                <Image
-                  src="/Rate.png"
-                  alt="Logo"
-                  width={90}
-                  height={80}
-                  className="w-75 h-13 px-10 mt-5"
-                />
+            <p className="text-sm text-gray-300 leading-relaxed max-w-sm">
+              Your trusted partner for luxury hotel bookings worldwide.
+              Discover comfort, elegance, and exceptional service.
+            </p>
 
-                <p className="px-10 max-w-md leading-relaxed text-sm text-gray-200 font-serif">
-                  Discover luxury stays across the world with premium comfort,
-                  elegant design, and unforgettable experiences.
-                </p>
-
-                <div className="flex gap-4 mt-6 ml-9">
-                  <SocialIcon Icon={FaFacebookF} />
-                  <SocialIcon Icon={FaInstagram} />
-                  <SocialIcon Icon={FaTwitter} />
+            {/* SOCIAL */}
+            <div className="flex gap-3 mt-6">
+              {[FaFacebookF, FaTwitter, FaInstagram].map((Icon, i) => (
+                <div
+                  key={i}
+                  className="w-9 h-9 border text-center rounded-full flex items-center justify-center hover:bg-white hover:text-[#162E5C] transition"
+                >
+                  <Icon size={14} />
                 </div>
-              </div>
+              ))}
+            </div>
+          </div>
 
-             {/* RIGHT */}
-<div className="relative px-20 mt-6 font-serif">
-  <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
+          {/* COMPANY */}
+          <div>
+            <h3 className="font-semibold mb-4">COMPANY</h3>
+            <ul className="space-y-2 text-sm text-gray-300">
+              <li><Link href="/About">About-Us</Link></li>
+              <li><Link href="/careers">Careers</Link></li>
+              <li><Link href="/Blog">Blog</Link></li>
+              <li><Link href="/How">How we work</Link></li>
+              <li><Link href="/Press">Press</Link></li>
+            </ul>
+          </div>
 
-    {/* COMPANY */}
-    <div>
-      <h3 className="text-sm font-semibold mb-4 text-white">Company</h3>
-      <ul className="space-y-2 text-sm text-white">
-        <li><Link href="/About" className="hover:text-gray-300">About</Link></li>
-        <li><Link href="/careers" className="hover:text-gray-300">Careers</Link></li>
-        <li><Link href="/blog" className="hover:text-gray-300">Blog</Link></li>
-        <li><Link href="/press" className="hover:text-gray-300">Press</Link></li>
-      </ul>
-    </div>
+          {/* SUPPORT */}
+          <div>
+            <h3 className="font-semibold mb-4">SUPPORT</h3>
+            <ul className="space-y-2 text-sm text-gray-300">
+              <li><Link href="/F&Q">Frequently Asked Questions</Link></li>
+              <li><Link href="#">Safety Information</Link></li>
+              <li><Link href="#">Cancellation Options</Link></li>
+              <li><Link href="ContactUs">Contact Us</Link></li>
+            </ul>
+          </div>
 
-    {/* EXPLORE */}
-    <div>
-      <h3 className="text-sm font-semibold mb-4 text-white">Explore</h3>
-      <ul className="space-y-2 text-sm text-white">
-        <li><Link href="/rooms" className="hover:text-gray-300">Rooms</Link></li>
-        <li><Link href="/destinations" className="hover:text-gray-300">Destinations</Link></li>
-        <li><Link href="/offers" className="hover:text-gray-300">Offers</Link></li>
-        <li><Link href="/gallery" className="hover:text-gray-300">Gallery</Link></li>
-      </ul>
-    </div>
+          {/* NEWSLETTER */}
+          <div>
+            <h3 className="font-bold text-lg mb-2">
+              Save Time, Save Money!
+            </h3>
 
-    {/* SUPPORT */}
-    <div>
-      <h3 className="text-sm font-semibold mb-4 text-white">Support</h3>
-      <ul className="space-y-2 text-sm text-white">
-        <li><Link href="/ContactUs" className="hover:text-gray-300">ContactUs</Link></li>
-        <li><Link href="/Privacy" className="hover:text-gray-300">Privacy</Link></li>
-        <li><Link href="/F&Q" className="hover:text-gray-300">F&Q</Link></li>
-        <li><Link href="/Terms" className="hover:text-gray-300">Terms</Link></li>
-      </ul>
-    </div>
+            <p className="text-sm text-gray-300 mb-4">
+              Sign up and get the best travel deals.
+            </p>
 
-  </div>
-</div>
-
+            {/* INPUT */}
+            <div className="flex flex-col sm:flex-row w-full sm:w-[290px] h-auto sm:h-[40px] bg-white rounded-full overflow-hidden">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 px-4 py-3 sm:py-2 text-sm text-black outline-none"
+              />
+              <button className="bg-gray-200 px-1  py-2 text-sm  text-blue-900 font-bold">
+                Subscribe
+              </button>
             </div>
 
-            {/* DIVIDER */}
-            <div className="border-t border-white/30 mt-10"></div>
+            </div></div>
 
-            {/* BOTTOM */}
-            <div className="flex flex-col md:flex-row ml-8 font-serif justify-between items-center gap-4 text-sm text-gray-200">
-              <p>© 2026 Stay Haven. All rights reserved.</p>
+        {/* BOTTOM */}
+        <div className="border-t border-white/20 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center text-sm text-gray-300 gap-4">
 
-              <div className="flex gap-6 mr-10 mt-7 font-serif">
-                <div className="flex gap-6 mr-10 mt-7 font-serif">
-                   <Link href="/About" className="hover:text-white transition">About</Link>
-                  <Link href="/Privacy" className="hover:text-white transition">Privacy</Link>
-                  <Link href="/Terms" className="hover:text-white transition">Terms</Link>
-                    <Link href="/cookies" className="hover:text-white transition">Cookies</Link>
-                </div>
-              </div>
-</div>
-          </footer>
-        )}
+          <p className="text-center sm:text-left font-bold">
+            © 2026 Stay Haven. All rights reserved.
+          </p>
 
+          <div className="flex flex-wrap justify-center font-bold gap-4 sm:gap-6">
+            <Link href="/Privacy">Privacy Policy</Link>
+            <Link href="/Terms">Terms & Conditions</Link>
+            <Link href="/Cookie">Cookie Policy</Link>
+          </div>
+
+        </div>
       </div>
-    </div>
+    </footer>
   );
 }

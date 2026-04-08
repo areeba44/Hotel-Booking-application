@@ -47,7 +47,7 @@ export default function FAQSection() {
       <Navbar />
 
       {/* FAQ Background Section */}
-      <div className="relative w-full bg-gray-100 ">
+      <div className="relative max-w-screen-2xl mx-auto  w-full bg-gray-100 ">
         {/* Adjusted Image */}
         {/* HERO SECTION */}
       <div className="relative w-full h-[400px] md:h-[450px] flex items-center justify-center overflow-hidden">
@@ -92,7 +92,7 @@ export default function FAQSection() {
   ))}
 </div>
       {/* TAGLINE SECTION */}
-      <section className="w-full px-60 py-16">
+      <section className="max-w-screen-2xl mx-auto  w-full px-60 py-16">
         <div className="bg-blue-900/100 text-white rounded-3xl p-12 shadow-2xl text-center transform hover:scale-105 transition">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">You Plan It, We Cover It!</h2>
           <p className="text-lg md:text-xl text-gray-200">

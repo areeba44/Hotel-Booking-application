@@ -51,7 +51,7 @@ export default function Amenities() {
   );
 
   return (
-    <div className="bg-white bottom-10 relative">
+    <div className="bg-white bottom-1 relative">
 
       <div className="max-w-screen-2xl mx-auto relative w-full">
 

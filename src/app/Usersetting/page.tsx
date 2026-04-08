@@ -30,7 +30,7 @@ export default function UserSettings() {
   }, [preview]);
 
   return (
-    <div className="w-full"> {/* ✅ Parent Div */}
+    <div className="w-full w-max-screen-2xl max-auto"> {/* ✅ Parent Div */}
 
       <div className="min-h-screen bg-gray-100 flex flex-col md:flex-row">
         

@@ -1,9 +1,9 @@
 @import "tailwindcss";
-@import "tailwindcss";
+/* @import "tailwindcss"; */
 
 
 /* Gambarino Font */
-@font-face {
+/* @font-face {
   font-family: "Gambarino";
   src: url("/fonts/Gambarino-Regular.woff2") format("woff2");
   font-weight: 400;
@@ -17,7 +17,7 @@
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-}
+} */
 :root {
   --background: #ffffff;
   --foreground: #171717;

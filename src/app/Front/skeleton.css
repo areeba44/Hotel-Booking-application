@@ -1,0 +1,758 @@
+
+import React from "react";
+import { useState } from "react";
+import { IoStar, IoChevronBack, IoChevronForward } from 'react-icons/io5'
+
+
+import { IoMdStar } from "react-icons/io";
+
+
+
+import { IoIosClose } from 'react-icons/io';
+
+import { LuExternalLink } from "react-icons/lu";
+
+import Carousel from "react-multi-carousel";
+
+
+
+import {
+
+    MdOutlineCleanHands,
+
+    MdSupportAgent,
+
+    MdApartment,
+
+    MdCleaningServices,
+
+    MdRestaurant,
+
+    MdFitnessCenter,
+
+    MdWbSunny,
+
+    MdFreeBreakfast,
+
+    MdBathtub,
+
+    MdLocationOn,
+
+    MdPool,
+
+    MdBed,
+
+    MdHotel,
+
+    MdLocalBar,
+
+    MdFamilyRestroom,
+
+    MdSecurity,
+
+    MdBusinessCenter,
+
+    MdDirectionsBus,
+
+    MdLocalParking,
+
+    MdAccessible,
+
+    MdNightlife,
+
+    MdPark,
+
+    MdTv,
+
+    MdWifi,
+
+    MdAcUnit,
+
+    MdKitchen,
+
+    MdHelpOutline
+
+} from "react-icons/md";
+
+
+
+
+
+const CustomLeftArrow = ({ onClick }) => (
+
+    <button onClick={onClick} className="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow p-2 rounded-full z-10">
+
+        <IoChevronBack size={20} />
+
+    </button>
+
+);
+
+
+
+const CustomRightArrow = ({ onClick }) => (
+
+    <button onClick={onClick} className="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow p-2 rounded-full z-10">
+
+        <IoChevronForward size={20} />
+
+    </button>
+
+);
+
+
+
+const CustomerReviews = ({ reviews, Reviews, openAllReviews, setOpenAllReviews }) => {
+
+    const [selectedReview, setSelectedReview] = useState(null);
+
+
+
+    if (selectedReview || openAllReviews) {
+
+        document.body.style.overflow = 'hidden';
+
+    } else {
+
+        document.body.style.overflow = "auto";
+
+    }
+
+    const responsive = {
+
+        desktop: { breakpoint: { max: 3000, min: 1100 }, items: 3 },
+
+        laptop: { breakpoint: { max: 1100, min: 750 }, items: 2 },
+
+        mobile: { breakpoint: { max: 750, min: 0 }, items: 1 },
+
+    };
+
+
+
+    const categoryIcons = {
+
+        Service: MdSupportAgent,
+
+        Property: MdApartment,
+
+        Cleanliness: MdCleaningServices,
+
+        Dining: MdRestaurant,
+
+        Fitness: MdFitnessCenter,
+
+        Atmosphere: MdWbSunny,
+
+        Breakfast: MdFreeBreakfast,
+
+        Bathroom: MdBathtub,
+
+        Location: MdLocationOn,
+
+        Pool: MdPool,
+
+        Gym: MdFitnessCenter,
+
+        Sleep: MdBed,
+
+        Restaurant: MdRestaurant,
+
+        Room: MdHotel,
+
+        Bar: MdLocalBar,
+
+        Family: MdFamilyRestroom,
+
+        Safety: MdSecurity,
+
+        Business: MdBusinessCenter,
+
+        Transit: MdDirectionsBus,
+
+        Parking: MdLocalParking,
+
+        Accessibility: MdAccessible,
+
+        Nightlife: MdNightlife,
+
+        Nature: MdPark,
+
+        TV: MdTv,
+
+        "Wi-Fi": MdWifi,
+
+        "Air Conditioning": MdAcUnit,
+
+        Kitchen: MdKitchen
+
+    };
+
+
+
+    const limit = openAllReviews ? Reviews.length : 8
+
+
+
+    const formattedData = Reviews?.slice(0, limit).map((item, index) => {
+
+        const total = item.positive + item.negative + item.neutral;
+
+        const rating =
+
+            total === 0 ? 0 : ((item.positive / total) * 5).toFixed(1);
+
+        return {
+
+            id: index + 1,
+
+            name: item.name,
+
+            icon: <MdOutlineCleanHands />,
+
+            rating,
+
+        }; 
+
+    });
+    
+
+
+
+    return (
+
+        <>
+
+            <div className='w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2'>
+
+                {reviews.slice(0, 3).map((elemItem) => {
+
+                    const firstLetter = elemItem?.user_review?.username
+
+                        ? elemItem.user_review.username.charAt(0).toUpperCase()
+
+                        : "?";
+
+                    return (
+
+                        <div
+
+                            key={elemItem.id}
+
+                            style={{ fontFamily: "'Roboto', sans-serif" }}
+
+                            className='w-full h-52 rounded-xl flex flex-col items-start gap-2 py-4 px-4 bg-white border border-gray-200'
+
+                        >
+
+                            <div className='flex items-center gap-2'>
+
+                                <span className='w-10 flex items-center justify-center text-xl h-10 rounded-full bg-[var(--primary-color)] text-white shrink-0'>
+
+                                    {firstLetter}
+
+                                </span>
+
+                                <div className='flex items-start flex-col'>
+
+                                    <h1 className='text-sm text-[var(--primary-color)] font-semibold'>{elemItem?.user_review?.username}</h1>
+
+                                    <div className='flex items-center gap-2'>
+
+                                        <p className='text-xs font-normal text-gray-600'>{elemItem?.user_review?.date}</p>
+
+                                        <a
+
+                                            href={elemItem?.user_review?.link}
+
+                                            target="_blank"
+
+                                            rel="noopener noreferrer"
+
+                                            className={`flex items-center gap-1 ${elemItem?.user_review?.link ? "" : "pointer-events-none"}`}
+
+                                        >
+
+                                            <span className='w-4 h-4 rounded-full overflow-hidden'>
+
+                                                <img src={elemItem?.source_icon} className='w-full h-full object-cover' alt="" />
+
+                                            </span>
+
+                                            <p className='text-xs flex items-center gap-1 font-normal text-gray-600'>
+
+                                                {elemItem?.source}
+
+                                                {elemItem?.user_review?.link && <LuExternalLink size={12} />}
+
+                                            </p>
+
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div className='flex items-center gap-2'>
+
+                                <IoMdStar item={elemItem?.user_review?.rating?.score} />
+
+                                <p className='text-xs font-normal text-gray-600'>
+
+                                    ({elemItem?.reviews?.toLocaleString()} reviews)
+
+                                </p>
+
+                            </div>
+
+
+
+                            <div className='flex items-start gap-1 flex-col flex-1 min-h-0'>
+
+                                <p className='text-sm line-clamp-3 text-gray-600'>
+
+                                    {elemItem?.user_review?.comment}
+
+                                </p>
+
+                                {elemItem?.user_review?.comment?.length > 100 && (
+
+                                    <button
+
+                                        onClick={() => setSelectedReview(elemItem)}
+
+                                        className='text-xs font-semibold text-[var(--primary-color)] underline'
+
+                                    >
+
+                                        Show more
+
+                                    </button>
+
+                                )}
+
+                            </div>
+
+                        </div>
+
+                    );
+
+                })}
+
+            </div>
+
+
+
+            {reviews.length > 3 && (
+
+                <div className='flex items-start justify-start w-full'>
+
+                    <button
+
+                        onClick={() => setOpenAllReviews(true)}
+
+                        className="text-sm py-2 px-6 border border-[var(--primary-color)] text-[var(--primary-color)] font-semibold rounded-full hover:bg-gray-100 transition-all duration-200"
+
+                    >
+
+                        Show all {reviews.length} reviews
+
+                    </button>
+
+                </div>
+
+            )}
+
+
+
+            {selectedReview && (
+
+                <div
+
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4"
+
+                    onClick={() => setSelectedReview(null)}
+
+                >
+
+                    <div
+
+                        onClick={(e) => e.stopPropagation()}
+
+                        className="bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden"
+
+                        style={{ fontFamily: "'Roboto', sans-serif" }}
+
+                    >
+
+                        <div className='flex items-center justify-between px-5 py-4 border-b border-gray-100'>
+
+                            <div className='flex items-center gap-3'>
+
+                                <span className='w-10 h-10 flex items-center justify-center text-lg rounded-full bg-[var(--primary-color)] text-white shrink-0'>
+
+                                    {selectedReview?.user_review?.username?.charAt(0).toUpperCase() || "?"}
+
+                                </span>
+
+                                <div className='flex flex-col'>
+
+                                    <h2 className='text-sm font-semibold text-[var(--primary-color)]'>
+
+                                        {selectedReview?.user_review?.username}
+
+                                    </h2>
+
+                                    <div className='flex items-center gap-2'>
+
+                                        <p className='text-xs text-gray-400'>{selectedReview?.user_review?.date}</p>
+
+                                        <a
+
+                                            href={selectedReview?.user_review?.link}
+
+                                            target="_blank"
+
+                                            rel="noopener noreferrer"
+
+                                            className={`flex items-center gap-1 ${selectedReview?.user_review?.link ? "" : "pointer-events-none"}`}
+
+                                        >
+
+                                            <span className='w-4 h-4 rounded-full overflow-hidden'>
+
+                                                <img src={selectedReview?.source_icon} className='w-full h-full object-cover' alt="" />
+
+                                            </span>
+
+                                            <p className='text-xs text-gray-400 flex items-center gap-1'>
+
+                                                {selectedReview?.source}
+
+                                                {selectedReview?.user_review?.link && <LuExternalLink size={12} />}
+
+                                            </p>
+
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <button
+
+                                onClick={() => setSelectedReview(null)}
+
+                                className='w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors'
+
+                            >
+
+                                <IoIosClose size={20} />
+
+                            </button>
+
+                        </div>
+
+
+
+                        <div className='flex items-center gap-2 px-5 py-2'>
+
+                            < IoMdStar item={selectedReview?.user_review?.rating?.score} />
+
+                            <p className='text-xs text-gray-400'>
+
+                                ({selectedReview?.reviews?.toLocaleString()} reviews)
+
+                            </p>
+
+                        </div>
+
+
+
+                        <div className='px-5 py-4 max-h-60 overflow-y-auto'>
+
+                            <p className='text-sm text-gray-700 leading-relaxed'>
+
+                                {selectedReview?.user_review?.comment}
+
+                            </p>
+
+                        </div>
+
+
+
+                        <div className='px-5 py-4 border-t border-gray-100 flex items-center justify-between'>
+
+                            <p className='text-xs text-gray-400'>
+
+                                Reviewed on {selectedReview?.source}
+
+                            </p>
+
+                            <button
+
+                                onClick={() => setSelectedReview(null)}
+
+                                className='py-2 px-6 bg-[var(--primary-color)] text-white text-sm font-semibold rounded-full hover:opacity-90 transition-opacity'
+
+                            >
+
+                                Close
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            )}
+
+
+
+            <div
+
+                className={`fixed right-0 top-0 inset-0 z-50 flex items-center justify-end
+
+    bg-black/50 backdrop-blur-sm transition-all duration-500
+
+    ${openAllReviews ? "opacity-100 visible" : "opacity-0 invisible"}`}
+
+                onClick={() => setOpenAllReviews(false)}
+
+            >
+
+                <div
+
+                    onClick={(e) => e.stopPropagation()}
+
+                    className={`bg-white flex flex-col w-full md:w-[600px] lg:w-[850px] h-screen
+
+        rounded-l-md shadow-2xl border border-gray-200
+
+        transform transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]
+
+        ${openAllReviews ? "translate-x-0 scale-100 opacity-100" : "translate-x-10 scale-95 opacity-0"}
+
+        `}
+
+                >
+
+
+
+                    <div className="flex items-center justify-between px-5 py-4 border-b border-gray-200 sticky top-0 bg-white z-10 rounded-t-2xl">
+
+                        <h2 className="text-lg font-semibold">All Reviews</h2>
+
+
+
+                        <button
+
+                            onClick={() => setOpenAllReviews(false)}
+
+                            className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition"
+
+                        >
+
+                            <IoIosClose size={24} />
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div className="overflow-y-auto overflow_scrollbar px-4 py-4 flex flex-col gap-4">
+
+
+
+                        <RatingData openReviewsDetails={openAllReviews} Reviews={Reviews} setOpenAllReviews={setOpenAllReviews} />
+
+
+
+                        <div>
+
+                            <Carousel
+
+                                responsive={responsive}
+
+                                key={openAllReviews}
+
+                                infinite={false}
+
+                                arrows
+
+                                customLeftArrow={<CustomLeftArrow />}
+
+                                customRightArrow={<CustomRightArrow />}
+
+                                containerClass="py-2"
+
+                                itemClass="px-2"
+
+                            >
+
+                                {formattedData?.map((elemItem) => {
+
+                                    const Icon = categoryIcons[elemItem.name] || MdHelpOutline;
+
+                                    return <div
+
+                                        key={elemItem.id}
+
+                                        className="flex py-3 px-4 border border-gray-300 rounded-lg gap-4"
+
+                                    >
+
+                                        <div className="flex flex-col items-start">
+
+                                            <h1 className="text-lg font-semibold">
+
+                                                {elemItem.name}
+
+                                            </h1>
+
+                                            <span className="text-lg font-normal text-gray-600">
+
+                                                {elemItem.rating}
+
+                                            </span>
+
+                                        </div>
+
+                                        <span className="text-2xl"><Icon /></span>
+
+                                    </div>
+
+                                })}
+
+                            </Carousel>
+
+                        </div>
+
+                        {reviews.map((elemItem) => {
+
+                            const firstLetter = elemItem?.user_review?.username
+
+                                ? elemItem.user_review.username.charAt(0).toUpperCase()
+
+                                : "?";
+
+
+
+                            return (
+
+                                <div
+
+                                    key={elemItem.id}
+
+                                    style={{ fontFamily: "'Roboto', sans-serif" }}
+
+                                    className='w-full flex flex-col gap-3 p-4 rounded-xl border border-gray-100 transition'
+
+                                >
+
+                                    <div className='flex items-center gap-3'>
+
+                                        <span className='w-11 h-11 flex items-center justify-center text-lg rounded-full bg-[var(--primary-color)] text-white'>
+
+                                            {firstLetter}
+
+                                        </span>
+
+
+
+                                        <div>
+
+                                            <h1 className='text-sm font-semibold'>
+
+                                                {elemItem?.user_review?.username}
+
+                                            </h1>
+
+                                            <p className='text-xs text-gray-600'>
+
+                                                {elemItem?.user_review?.date}
+
+                                            </p>
+
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div className='flex flex-wrap items-center gap-3'>
+
+                                        <RatingStar item={elemItem?.user_review?.rating?.score} />
+
+
+
+                                        <a
+
+                                            href={elemItem?.user_review?.link}
+
+                                            target="_blank"
+
+                                            rel="noopener noreferrer"
+
+                                            className={`flex items-center gap-1 text-sm text-gray-600 hover:text-black
+
+                                ${elemItem?.user_review?.link ? "" : "pointer-events-none"}`}
+
+                                        >
+
+                                            <img
+
+                                                src={elemItem?.source_icon}
+
+                                                className='w-4 h-4 rounded-full'
+
+                                                alt=""
+
+                                            />
+
+                                            {elemItem?.source}
+
+                                            {elemItem?.user_review?.link && <LuExternalLink size={14} />}
+
+                                        </a>
+
+                                    </div>
+
+
+
+                                    <p className='text-sm text-gray-800 leading-relaxed'>
+
+                                        {elemItem?.user_review?.comment}
+
+                                    </p>
+
+                                </div>
+
+                            );
+
+                        })}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </>
+
+    )
+
+}
+
+
+
+export default CustomerReviews

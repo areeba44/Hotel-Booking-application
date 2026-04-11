@@ -53,15 +53,13 @@ export default function Destinations() {
   const handleNavigate = (dest: any) => {
     let decodedId = dest?.id;
     const slug = slugify(dest?.name);
-    // console.log(decodedId, typeof(decodedId))
     router.push(`/Front/${btoa(btoa(decodedId))}/${slug}`);
   };
 
-
   return (
-    <section className="py-16 px-12 bg-white">
+    <section className="py-2 px-12 bg-white mt-10">
       <div className="max-w-screen-2xl mx-auto px-6">
-        <h2 className="text-4xl font-bold mb-5 text-blue-950">
+        <h2 className="text-4xl font-bold mb-5 ml-2 text-blue-950">
           Discover Popular Destinations
         </h2>
 
@@ -74,117 +72,112 @@ export default function Destinations() {
             >
               {randomHotels.length === 0
                 ? Array.from({ length: 4 }).map((_, i) => (
-                  <div key={i} className="flex-shrink-0 basis-1/4 max-w-[25%] px-3 h-[420px]">
-                    <div className="bg-white shadow-md h-[340px] animate-pulse overflow-hidden">
-                      <div className="h-36 bg-gray-300"></div>
-                      <div className="p-6 space-y-3">
-                        <div className="h-4 bg-gray-300 rounded w-3/4"></div>
-                        <div className="h-3 bg-gray-200 rounded w-1/2"></div>
-                        <div className="h-3 bg-gray-200 rounded w-2/3"></div>
-                        <div className="h-9 bg-gray-300 rounded mt-4"></div>
+                    <div key={i} className="flex-shrink-0 basis-1/4 max-w-[25%] px-3 h-[420px]">
+                      <div className="bg-white shadow-md h-[340px] animate-pulse overflow-hidden">
+                        <div className="h-36 bg-gray-300"></div>
+                        <div className="p-6 space-y-3">
+                          <div className="h-4 bg-gray-300 rounded w-3/4"></div>
+                          <div className="h-3 bg-gray-200 rounded w-1/2"></div>
+                          <div className="h-3 bg-gray-200 rounded w-2/3"></div>
+                          <div className="h-9 bg-gray-300 rounded mt-4"></div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))
+                  ))
                 : randomHotels.map((dest, i) => {
-                  let images: any[] = [];
-                  let ratingImg: any = null;
-                  try {
-                    images = dest.images ? JSON.parse(dest.images) : [];
-                  } catch { }
-                  try {
-                    ratingImg = dest.ratings ? JSON.parse(dest.ratings) : null;
-                  } catch { }
+                    let images: any[] = [];
+                    let ratingImg: any = null;
+                    try {
+                      images = dest.images ? JSON.parse(dest.images) : [];
+                    } catch {}
+                    try {
+                      ratingImg = dest.ratings ? JSON.parse(dest.ratings) : null;
+                    } catch {}
 
-                  const displayName =
-                    dest.name.length > 22 ? dest.name.slice(0, 22) + "..." : dest.name;
+                    const displayName =
+                      dest.name.length > 22 ? dest.name.slice(0, 22) + "..." : dest.name;
 
-                  // Decode ID if Base64
-                  const decodedId = isBase64(dest.id) ? atob(dest.id) : dest.id;
-                  const slug = slugify(dest.name);
-                  return (
-                    <div
-                      key={i}
-                      className="flex-shrink-0 basis-1/4 max-w-[25%] px-3 h-[330px]"
-                    >
+                    // Decode ID if Base64
+                    const decodedId = isBase64(dest.id) ? atob(dest.id) : dest.id;
+                    const slug = slugify(dest.name);
+
+                    return (
                       <div
-                        className="bg-white shadow-md hover:shadow-lg rounded-md transition duration-300 flex flex-col relative overflow-hidden cursor-pointer h-[280px]"
-                        onClick={() => handleNavigate(dest)}
+                        key={i}
+                        className="flex-shrink-0 basis-1/4 max-w-[25%] px-3 h-[390px]"
                       >
-                        {images[0]?.thumbnail && (
-                          <div className="h-36 overflow-hidden">
-                            <img
-                              // src={images[0].thumbnail || ""}
-                              src={"I1.PNG"}   
-                              alt={dest.name}
-                              className="w-full h-full object-cover hover:scale-105 transition"
-                            />
-                          </div>
-                        )}
-
-                        {ratingImg?.thumbnail && (
-                          <div className="absolute top-3 left-3 w-12 h-12">
-                            <img
-
-                              src={ratingImg.thumbnail}
-                              alt="Rating"
-                              className="w-full h-full shadow"
-                            />
-                          </div>
-                        )}
-
-                        {/* Hotel Name */}
-                        <div className="flex justify-between items-start mt-2 ml-2">
-                          <Link href={`/Front/${btoa(btoa(decodedId))}/${slug}`}>
-                            <span className="text-[16px]  relative font-bold text-blue-950 hover:text-blue-900 transition">
-                              {displayName}
-                            </span>
-                          </Link>
-                        </div>
-
-                        {/* Address */}
-                        <p className="text-xs ml-2 text-gray-700 mt-1 h-[32px] overflow-hidden">
-                          {dest.address?.length > 70
-                            ? dest.address.slice(0, 70) + "..."
-                            : dest.address}
-                        </p>
-
-                        {/* Stars + Reviews */}
-                        <div className="mt-2 flex flex-col ml-2">
-                          <div className="flex items-center space-x-2">
-                            <span className="bg-blue-900 text-white text-sm font-medium px-3 py-[4px] rounded">
-                              {dest.location_rating}
-                            </span>
-                            <span className="text-blue-900 text-[10px] ">⭐⭐⭐⭐</span>
-                          </div>
-
-                          {dest.reviews && (
-                            <div className="mt-1 flex items-center space-x-2 max-h-12 overflow-hidden">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                className="w-4 h-4 text-yellow-500"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth="2"
-                                  d="M12 17.4l4.2 2.2-1.6-5.4 4.4-3.6h-5.4L12 5l-2.6 5.6H4l4.4 3.6-1.6 5.4L12 17.4z"
-                                />
-                              </svg>
-                              <p className="text-sm text-gray-600 font-medium">
-                                <span className="font-bold text-gray-900">({dest.reviews})</span>{" "}
-                                Reviews
-                              </p>
+                        <div
+                          className="bg-white shadow-md hover:shadow-lg rounded-md transition duration-300 flex flex-col relative overflow-hidden cursor-pointer h-[280px]"
+                          onClick={() => handleNavigate(dest)}
+                        >
+                          {images[0]?.thumbnail && (
+                            <div className="h-36 overflow-hidden">
+                              <img
+                                src={"I1.PNG"}
+                                alt={dest.name}
+                                className="w-full h-full object-cover hover:scale-105 transition"
+                              />
                             </div>
                           )}
+
+                          {ratingImg?.thumbnail && (
+                            <div className="absolute top-3 left-3 w-12 h-12">
+                              <img
+                                src={ratingImg.thumbnail}
+                                alt="Rating"
+                                className="w-full h-full shadow"
+                              />
+                            </div>
+                          )}
+
+                          {/* Hotel Name */}
+                          <div className="flex justify-between items-start mt-2 ml-2">
+                            <Link href={`/Front/${btoa(btoa(decodedId))}/${slug}`}>
+                              <span className="text-[16px] relative font-bold text-blue-950 hover:text-blue-900 transition">
+                                {displayName}
+                              </span>
+                            </Link>
+                          </div>
+
+                          {/* Address */}
+                          <p className="text-xs ml-2 text-gray-700 mt-1 h-[32px] overflow-hidden">
+                            {dest.address?.length > 70
+                              ? dest.address.slice(0, 70) + "..."
+                              : dest.address}
+                          </p>
+
+                          {/* Stars + Reviews - Single Line Flex */}
+                          <div className="mt-2 flex items-center ml-2 space-x-2">
+                            <span className="bg-blue-900 text-white rounded-es-md text-sm font-medium px-3 py-[4px] rounded">
+                              {dest.location_rating}
+                            </span>
+                            <span className="flex text-[10px]">
+                              {[...Array(5)].map((_, i) => (
+                                <svg
+                                  key={i}
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 24 24"
+                                  className="w-4 h-4 text-yellow-500"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth={2}
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                >
+                                  <path d="M12 17.4l4.2 2.2-1.6-5.4 4.4-3.6h-5.4L12 5l-2.6 5.6H4l4.4 3.6-1.6 5.4L12 17.4z" />
+                                </svg>
+                              ))}
+                            </span>
+                            {dest.reviews && (
+                              <p className="text-sm text-gray-600 font-medium">
+                                reviews <span className="text-gray-900">({dest.reviews})</span>
+                              </p>
+                            )}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
             </div>
           </div>
 

@@ -63,9 +63,9 @@ export default function ReviewsSection({
       : "0";
 
   return (
-    <div className="max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-20 ">
+    <div className="max-w-screen-2xl mx-auto w-full  px-4 md:px-8 lg:px-20 relative bottom-20">
 
-      <div className="flex items-center gap-2 text-lg font-semibold mb-2">
+      <div className="flex items-center gap-2 text-lg font-semibold mb-2 ">
         <FaStar className="text-black" />
         <span>
           {overallRating} · {reviews.length} reviews
@@ -95,13 +95,14 @@ export default function ReviewsSection({
 
         <div className="flex-1 space-y-3">
           {[5, 4, 3, 2, 1].map((star) => {
-            // Star rating wale reviews ki count nikalain
+           
             const count = reviews.filter(r => r.user_review?.rating.score === star).length;
 
-            // Total reviews count
+           
             const total = reviews.length;
 
-            // Percentage calculate karo
+        
+
             const percent = total ? Math.round((count / total) * 100) : 0;
 
             return (
@@ -123,8 +124,15 @@ export default function ReviewsSection({
           })}
         </div>
       </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+<div
+  className={`grid gap-6 mt-6 ${
+    reviews.length === 1
+      ? "grid-cols-1"
+      : reviews.length === 2
+      ? "grid-cols-1 md:grid-cols-2"
+      : "grid-cols-1 md:grid-cols-3"
+  }`}
+>
         {reviews.slice(0, 3).map((review, i) => (
           <div
             key={i}
@@ -132,13 +140,11 @@ export default function ReviewsSection({
           >
             <div className="flex flex-col items-start gap-3 mb-2">
 
-              <div className="w-10 h-10 bg-blue-900 text-white flex items-center justify-center rounded-full">
+              <div className="w-10 h-10 bg-blue-950 text-white flex items-center justify-center rounded-full">
                 {review.user_review?.rating.score ?? "U"}
               </div>
               <div>
-                {/* <p className="text-sm font-semibold line-clamp-2">
-                  {review.user_review?.comment ?? "No comment"}
-                </p> */}
+              
                 <p className="text-xs text-gray-500">
                   {review.user_review?.username || "Anonymous"} ·{" "}
                   {review.user_review?.date || ""}

@@ -112,15 +112,15 @@ export default function MostVisited() {
 
                 {/* ✅ Separate buttons */}
                 {index === 0 && (
-                  <button className="bg-white text-black px-5 py-2 rounded-full mt-3 text-sm  hover:bg-gray-200 transition">
-                    <Link href="http://localhost:3000/Front/T1RJPQ==/grand-hyatt-kuala-lumpur">
+                  <button className="bg-white text-blue-950 font-bold text-[15px]  px-5 py-2 rounded-full mt-3 text-sm  hover:bg-gray-200 transition">
+                    <Link href="http://localhost:3000/Front/TVRFeQ==/zedwell-greenwich">
                       View Details
                     </Link>
                   </button>
                 )}
 
                 {index === 1 && (
-                  <button className="bg-white text-black px-5 py-2 rounded-full mt-3 text-sm w-[350px] hover:bg-gray-200 transition">
+                  <button className="bg-white text-blue-950 font-bold text-[15px] px-5 py-2 rounded-full mt-3 text-sm w-[350px] hover:bg-gray-200 transition">
                     <Link href="http://localhost:3000/Front/TVRFNA==/nox-kensington---twin-studio">
                       View Details
                     </Link>
@@ -143,4 +143,5 @@ export default function MostVisited() {
             ))}
     </div>
   </div>
-</section>)}
+</section>
+)}

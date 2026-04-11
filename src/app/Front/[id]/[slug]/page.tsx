@@ -14,7 +14,9 @@ import { FiShare2 } from "react-icons/fi";
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 import { FaMapMarkerAlt, FaUtensils, FaPlane } from "react-icons/fa";
 import { FaPhoneAlt, FaGlobe, FaDirections } from "react-icons/fa";
-
+import { MdHotel } from "react-icons/md";
+import { FiUser, FiCoffee } from "react-icons/fi";
+import { FaHome, FaCar, FaWifi } from "react-icons/fa";
 import axios from "axios";
 import {
   IoWifi
@@ -481,100 +483,102 @@ export default function Detail() {
 
 
       {/* MAIN CONTAINER */}
-      <div className="px-4 md:px-8 lg:px-20">
-        <div className="bg-white  max-w-screen-2xl mx-auto  w-full  rounded-2xl border-gray-100  mt-4 ">
-          <div className="mt-3">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+<div className="px-4 md:px-8 lg:px-20">
+  <div className="max-w-screen-2xl mx-auto w-full mt-4">
+    
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-              {/* POINTS OF INTEREST */}
-              <div className="p-1 transition">
-                <div className="flex justify-between items-center mb-3">
-                  <h2 className="flex items-center gap-2 font-semibold text-lg">
-                    <FaMapMarkerAlt /> Points of Interest
-                  </h2>
-                  <span className="text-sm text-gray-500">{points.length}</span>
-                </div>
+      {/* CARD */}
+      {/* POINTS OF INTEREST */}
+      <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-4">
+        <div className="flex justify-between items-center mb-3">
+          <h2 className="flex items-center gap-2 font-semibold  text-gray-800 text-lg">
+            <FaMapMarkerAlt /> Points of Interest
+          </h2>
+          <span className="text-sm text-gray-500">{points.length}</span>
+        </div>
 
-                {points.slice(0, 4).map((item: any, i: number) => (
-                  <div key={i} className="flex justify-between py-1.5 items-center">
-                    <div className="flex items-center gap-2 text-sm text-gray-700">
-                      <FaMapMarkerAlt className="text-gray-400 text-xs" />
-                      <span>{item?.name}</span>
-                    </div>
-                    <span className="text-xs text-gray-400">{item?.distance} km</span>
-                  </div>
-                ))}
-
-                {points.length > 4 && (
-                  <p
-                    onClick={() => setShowPointsPopup(true)}
-                    className="text-blue-600 text-sm mt-2 cursor-pointer"
-                  >
-                    Show more
-                  </p>
-                )}
-              </div>
-
-              {/* RESTAURANTS */}
-              <div className="p-1 transition">
-                <div className="flex justify-between items-center mb-3">
-                  <h2 className="flex items-center gap-2 font-semibold text-lg">
-                    <FaUtensils /> Restaurants
-                  </h2>
-                  <span className="text-sm text-gray-500">{restaurants.length}</span>
-                </div>
-
-                {restaurants.slice(0, 4).map((item: any, i: number) => (
-                  <div key={i} className="flex justify-between py-1.5 items-center">
-                    <div className="flex items-center gap-2 text-sm text-gray-700">
-                      <FaUtensils className="text-gray-400 text-xs" />
-                      <span>{item?.name}</span>
-                    </div>
-                    <span className="text-xs text-gray-400">{item?.distance} km</span>
-                  </div>
-                ))}
-
-                {restaurants.length > 4 && (
-                  <p
-                    onClick={() => setShowRestaurantsPopup(true)}
-                    className="text-blue-600 text-sm mt-2 cursor-pointer"
-                  >
-                    Show more
-                  </p>
-                )}
-              </div>
-
-              {/* AIRPORTS */}
-              <div className="p-1 transition">
-                <div className="flex justify-between items-center mb-3">
-                  <h2 className="flex items-center gap-2 font-semibold text-lg">
-                    <FaPlane /> Airports
-                  </h2>
-                  <span className="text-sm text-gray-500">{airports.length}</span>
-                </div>
-
-                {airports.slice(0, 4).map((item: any, i: number) => (
-                  <div key={i} className="flex justify-between py-1.5 items-center">
-                    <div className="flex items-center gap-2 text-sm text-gray-700">
-                      <FaPlane className="text-gray-400 text-xs" />
-                      <span>{item?.name}</span>
-                    </div>
-                    <span className="text-xs text-gray-400">{item?.distance} km</span>
-                  </div>
-                ))}
-
-                {airports.length > 4 && (
-                  <p
-                    onClick={() => setShowAirportsPopup(true)}
-                    className="text-blue-600 text-sm mt-2 cursor-pointer"
-                  >
-                    Show more
-                  </p>
-                )}
-              </div>
-
+        {points.slice(0, 4).map((item: any, i: number) => (
+          <div key={i} className="flex justify-between py-1.5 items-center">
+            <div className="flex items-center gap-2 text-sm text-gray-700">
+              <FaMapMarkerAlt className="text-gray-400 text-xs" />
+              <span>{item?.name}</span>
             </div>
-          </div></div>
+            <span className="text-xs text-gray-400">{item?.distance} km</span>
+          </div>
+        ))}
+
+        {points.length > 4 && (
+          <p
+            onClick={() => setShowPointsPopup(true)}
+            className="text-blue-600 text-sm mt-2 cursor-pointer"
+          >
+            Show more
+          </p>
+        )}
+      </div>
+
+      {/* RESTAURANTS */}
+      <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-4">
+        <div className="flex justify-between items-center mb-3">
+          <h2 className="flex items-center gap-2 font-semibold text-gray-800  text-lg">
+            <FaUtensils /> Restaurants
+          </h2>
+          <span className="text-sm text-gray-500">{restaurants.length}</span>
+        </div>
+
+        {restaurants.slice(0, 4).map((item: any, i: number) => (
+          <div key={i} className="flex justify-between py-1.5 items-center">
+            <div className="flex items-center gap-2 text-sm text-gray-700">
+              <FaUtensils className="text-gray-400 text-xs" />
+              <span>{item?.name}</span>
+            </div>
+            <span className="text-xs text-gray-400">{item?.distance} km</span>
+          </div>
+        ))}
+
+        {restaurants.length > 4 && (
+          <p
+            onClick={() => setShowRestaurantsPopup(true)}
+            className="text-blue-600 text-sm mt-2 cursor-pointer"
+          >
+            Show more
+          </p>
+        )}
+      </div>
+
+      {/* AIRPORTS */}
+      <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-4">
+        <div className="flex justify-between items-center mb-3">
+          <h2 className="flex items-center gap-2 font-semibold text-gray-800 text-lg">
+            <FaPlane /> Airports
+          </h2>
+          <span className="text-sm text-gray-500">{airports.length}</span>
+        </div>
+
+        {airports.slice(0, 4).map((item: any, i: number) => (
+          <div key={i} className="flex justify-between py-1.5 items-center">
+            <div className="flex items-center gap-2 text-sm text-gray-700">
+              <FaPlane className="text-gray-400 text-xs" />
+              <span>{item?.name}</span>
+            </div>
+            <span className="text-xs text-gray-400">{item?.distance} km</span>
+          </div>
+        ))}
+
+        {airports.length > 4 && (
+          <p
+            onClick={() => setShowAirportsPopup(true)}
+            className="text-blue-600 text-sm mt-2 cursor-pointer"
+          >
+            Show more
+          </p>
+        )}
+      </div>
+
+    </div>
+  </div>
+
 
         {/* POPUPS */}
 
@@ -649,51 +653,28 @@ export default function Detail() {
 
       </div>
       {/* About Section */}
-      <div className="px-4 md:px-8 lg:px-20 mt-5">
-        <div className="max-w-screen-2xl mx-auto w-full">
+<div className="px-4 md:px-8 lg:px-20 mt-5">
+  <div className="max-w-screen-2xl mx-auto w-full">
 
-          <div className="space-y-4">
+    <div className="space-y-4">
 
-            {/* ABOUT */}
-            <h2 className="text-2xl font-bold text-blue-950">
-              About the Hotel
-            </h2>
+      {/* ABOUT */}
+      <h2 className="text-2xl font-bold text-blue-950">
+        About the Hotel
+      </h2>
 
-            <p className="text-blue-950 leading-relaxed text-sm ">
-              {hotel?.description || "No description available."}
-            </p>
+      {/* Flex container */}
+      <div className="flex flex-col md:flex-row items-start gap-6">
 
-            {/* ADDRESS */}
-            <div className="space-y-2 pt-2">
-              <h3 className="text-base font-bold text-blue-950">
-                Address & contact information
-              </h3>
+        {/* LEFT SIDE */}
+        <div className="flex-1 space-y-4">
 
-              <div className="flex items-start gap-2 text-sm text-blue-950">
-                <FaMapMarkerAlt className="text-gray-500 mt-1" />
-                <span>{hotel?.address || "Address not available"}</span>
-              </div>
+          {/* DESCRIPTION */}
+          <p className="text-blue-950 leading-relaxed text-sm">
+            {hotel?.description || "No description available."}
+          </p>
 
-              <div className="flex items-center gap-2 text-sm text-gray-700">
-                <FaPhoneAlt className="text-gray-500" />
-                <span>{hotel?.phone || "Phone not available"}</span>
-              </div>
-
-              {/* BUTTONS */}
-              <div className="flex flex-wrap gap-3 pt-1">
-                <button className="flex items-center gap-2 text-sm text-blue-700 hover:underline">
-                  <FaGlobe />
-                  Website
-                </button>
-
-                <button className="flex items-center gap-2 text-sm text-blue-700 hover:underline">
-                  <FaDirections />
-                  Directions
-                </button>
-              </div>
-            </div>
-
-            {/* TIMING */}
+          {/* TIMING */}
             <div className="pt-2 space-y-1">
               <p className="text-sm text-blue-950">
                 <span className="font-bold">Check-In-Time:</span>{" "}
@@ -706,11 +687,46 @@ export default function Detail() {
               </p>
             </div>
 
-          </div>
         </div>
+
+        {/* RIGHT - ADDRESS CARD */}
+        <div className="w-full md:w-[350px] bottom-[50px] relative bg-white p-5 space-y-3 self-start">
+
+          <h3 className="text-lg font-bold text-blue-950">
+            Address & contact information
+          </h3>
+
+          <div className="flex items-start gap-2 text-sm text-blue-950">
+            <FaMapMarkerAlt className="text-gray-500 mt-1" />
+            <span>{hotel?.address || "Address not available"}</span>
+          </div>
+
+          <div className="flex items-center gap-2 text-sm text-gray-700">
+            <FaPhoneAlt className="text-gray-500" />
+            <span>{hotel?.phone || "Phone not available"}</span>
+          </div>
+
+          {/* BUTTONS */}
+          <div className="flex flex-wrap gap-3 pt-2">
+            <button className="flex items-center gap-2 text-sm text-blue-700 hover:underline">
+              <FaGlobe />
+              Website
+            </button>
+
+            <button className="flex items-center gap-2 text-sm text-blue-700 hover:underline">
+              <FaDirections />
+              Directions
+            </button>
+          </div>
+
+        </div>
+
       </div>
+    </div>
+  </div>
+</div>
       {amenities && amenities.length > 0 && (
-        <div className=" px-4 md:px-8 lg:px-20 py-11 pt-[25px]">
+        <div className=" px-4 md:px-8 lg:px-20 py-11 bottom-20 relative">
           <div className="max-w-screen-2xl mx-auto ">
 
             <h2 className="text-2xl sm:text-2xl font-bold text-blue-950 mb-6">

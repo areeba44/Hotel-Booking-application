@@ -2,58 +2,16 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
-const blogs = [
-  {
-    title: "The ultimate guide to visiting an onsen in Japan.",
-    desc: "Discover the best onsen in Japan, including historic ryokans...",
-    author: "Chloe Gunning",
-    time: "3 min read",
-    img: "/b1.webp",
-  },
-  {
-    title: "How to find luxury hotels at budget prices.",
-    desc: "Learn smart comparison techniques and hidden booking tips...",
-    author: "John Carter",
-    time: "5 min read",
-    img: "/b2.webp",
-  },
-  {
-    title: "Best family-friendly hotels worldwide.",
-    desc: "Explore hotels offering kids activities and relaxing stays...",
-    author: "Emily Watson",
-    time: "4 min read",
-    img: "/b3.jpg",
-  },
-  {
-    title: "When is the best time to book hotels?",
-    desc: "Understand seasonal hotel pricing trends and save more...",
-    author: "Michael Brown",
-    time: "6 min read",
-    img: "/b1.webp",
-  },
-  {
-    title: "Top luxury hotels you must experience once.",
-    desc: "From villas to sky-high penthouses, explore luxury stays...",
-    author: "Sophia Miller",
-    time: "4 min read",
-    img: "/b2.webp",
-  },
-  {
-    title: "How hotel comparison sites save your money.",
-    desc: "Learn how platforms help travelers compare prices...",
-    author: "Daniel Cooper",
-    time: "5 min read",
-    img: "/b3.jpg",
-  },
-];
+import { BlogData } from "@/Data/Blogdata";
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function TravelUI() {
+  const [blogs, setBlogs] = useState(BlogData)
   return (
     <div>
       <Navbar />
-
-      {/* HERO */}
       <section className="relative h-[420px]  max-w-screen-2xl mx-auto w-full">
         <img
           src="/blogimage.jpg"
@@ -78,40 +36,55 @@ export default function TravelUI() {
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-3 sm:grid-cols-2 gap-6">
 
           {blogs.map((item, index) => (
-            <div
+            <Link
+              href={`/Blog/${item.slug}`}
               key={index}
-              className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition"
+              className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition h-[355px]"
             >
-              <img
-                src={item.img}
-                className="h-44 w-full object-cover"
-              />
+              <div className="relative w-full h-44">
+                <Image
+                  src={item.images1}
+                  alt={item.title}
+                  fill
+                  className="object-cover rounded-md"
+                />
+              </div>
 
               <div className="p-4">
-                <p className="text-xs text-gray-400 mb-1">
-                  All about hotels
-                </p>
 
-                <h3 className="font-semibold text-sm mb-2">
+                <h3 className="font-light text-gray-950 text-md ">
+                  Poste Date:  {item.date}
+                </h3>
+                <h3 className="font-bold text-black text-md mb-2">
                   {item.title}
                 </h3>
 
-                <p className="text-xs text-gray-600 mb-3">
-                  {item.desc}
+                <p className="text-xs line-clamp-2 text-gray-600 mb-3">
+                  {item.shortdesc}
                 </p>
 
                 <div className="flex items-center gap-2 text-xs text-gray-500">
-                  <div className="w-6 h-6 rounded-full bg-gray-300" />
-                  {item.author} • {item.time}
-                </div>
-              </div>
-            </div>
+
+                  <div className="w-8 h-8 rounded-full overflow-hidden bg-gray-300">
+                    <Image
+                      src={item.authorImages}
+                      alt={item.author}
+                      width={100}
+                      height={100}
+                      className="h-full w-full object-cover rounded-full"
+                    />
+                  </div>
+
+                  <span>{item.author}</span>
+
+                </div></div>
+            </Link>
           ))}
 
         </div>
       </section>
 
-     
+
 
       <Footer />
     </div>

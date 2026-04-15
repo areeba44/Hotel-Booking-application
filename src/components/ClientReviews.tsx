@@ -13,6 +13,7 @@ type UserReview = {
   rating: {
     score: number;
     max_score: number;
+
   };
 };
 
@@ -21,9 +22,16 @@ type Review = {
   source_rating?: {
     score: number;
     max_score: number;
+    source?: {
+      name?: string;
+      icon?: string;
+    };
+
   };
 };
-
+type Props = {
+  review: Review;
+};
 interface ReviewsSectionProps {
   ratingData?: Rating[];
   reviews?: Review[];
@@ -61,9 +69,11 @@ export default function ReviewsSection({
         ) / reviews.length
       ).toFixed(1)
       : "0";
+ 
 
+       
   return (
-    <div className="max-w-screen-2xl mx-auto w-full  px-4 md:px-8 lg:px-20 relative bottom-20">
+    <div className="max-w-screen-2xl mx-auto w-full  px-4 md:px-8 lg:px-20 relative bottom-2">
 
       <div className="flex items-center gap-2 text-lg font-semibold mb-2 ">
         <FaStar className="text-black" />
@@ -95,13 +105,13 @@ export default function ReviewsSection({
 
         <div className="flex-1 space-y-3">
           {[5, 4, 3, 2, 1].map((star) => {
-           
+
             const count = reviews.filter(r => r.user_review?.rating.score === star).length;
 
-           
+
             const total = reviews.length;
 
-        
+
 
             const percent = total ? Math.round((count / total) * 100) : 0;
 
@@ -124,15 +134,14 @@ export default function ReviewsSection({
           })}
         </div>
       </div>
-<div
-  className={`grid gap-6 mt-6 ${
-    reviews.length === 1
-      ? "grid-cols-1"
-      : reviews.length === 2
-      ? "grid-cols-1 md:grid-cols-2"
-      : "grid-cols-1 md:grid-cols-3"
-  }`}
->
+      <div
+        className={`grid gap-6 mt-6 ${reviews.length === 1
+            ? "grid-cols-1"
+            : reviews.length === 2
+              ? "grid-cols-1 md:grid-cols-2"
+              : "grid-cols-1 md:grid-cols-3"
+          }`}
+      >
         {reviews.slice(0, 3).map((review, i) => (
           <div
             key={i}
@@ -144,7 +153,7 @@ export default function ReviewsSection({
                 {review.user_review?.rating.score ?? "U"}
               </div>
               <div>
-              
+
                 <p className="text-xs text-gray-500">
                   {review.user_review?.username || "Anonymous"} ·{" "}
                   {review.user_review?.date || ""}
@@ -152,7 +161,7 @@ export default function ReviewsSection({
               </div>
             </div>
 
-            <div className="flex gap-1 mb-2">
+        <div className="flex gap-1 mb-2">
               {[...Array(
                 Math.max(
                   0,

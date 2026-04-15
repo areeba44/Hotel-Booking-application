@@ -38,11 +38,11 @@ export default function ManageHotelsRow() {
   const [hotels, setHotels] = useState(initialHotels);
 
   return (
-    <div className="flex min-h-screen bg-gray-50 font-sans">
+    <div className="w-full max-w-screen-2xl mx-auto flex min-h-screen bg-gray-50 font-sans">
       {/* Sidebar */}
       <aside className="w-72 bg-white shadow-lg border-r border-gray-200 flex flex-col">
         <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-          <h1 className="text-2xl font-extrabold text-red-900">Admin Panel</h1>
+          <h1 className="text-2xl font-extrabold text-blue-950">Admin Panel</h1>
         </div>
 
         <nav className="flex-1 p-4 space-y-2">
@@ -83,7 +83,7 @@ export default function ManageHotelsRow() {
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-gray-800">Manage Hotel Listings</h1>
-          <button className="flex items-center gap-2 px-3 py-2 bg-red-900 text-white rounded-xl hover:bg-red-400 transition text-sm">
+          <button className="flex items-center gap-2 px-3 py-2 bg-blue-900 text-white rounded-xl hover:bg-blue-900 transition text-sm">
             <Plus className="w-4 h-4" /> Add New Hotel
           </button>
         </div>
@@ -107,8 +107,8 @@ export default function ManageHotelsRow() {
                   <span
                     className={`text-xs font-medium px-2 py-0.5 rounded-full ${
                       hotel.status === "Active"
-                        ? "bg-green-100 text-green-700"
-                        : "bg-red-100 text-red-700"
+                        ? "bg-green-100 text-blue-700"
+                        : "bg-red-100 text-blue-700"
                     }`}
                   >
                     {hotel.status}
@@ -123,10 +123,10 @@ export default function ManageHotelsRow() {
 
                 {/* Actions */}
                 <div className="flex gap-1 mt-2">
-                  <button className="flex-1 flex items-center justify-center gap-1 px-2 py-1 bg-amber-500 text-white rounded-lg text-xs hover:bg-amber-600 transition">
+                  <button className="flex-1 flex items-center justify-center gap-1 px-2 py-1 bg-blue-900 text-white rounded-lg text-xs hover:bg-blue-800 transition">
                     <Pencil className="w-3 h-3" /> Edit
                   </button>
-                  <button className="flex-1 flex items-center justify-center gap-1 px-2 py-1 bg-red-500 text-white rounded-lg text-xs hover:bg-red-600 transition">
+                  <button className="flex-1 flex items-center justify-center gap-1 px-2 py-1 bg-blue-900 text-white rounded-lg text-xs hover:bg-blue-800 transition">
                     <Trash2 className="w-3 h-3" /> Delete
                   </button>
                 </div>

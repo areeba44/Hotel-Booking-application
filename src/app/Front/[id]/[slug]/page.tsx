@@ -40,7 +40,10 @@ import {
   MdKitchen,
   MdLocalLaundryService,
   MdAlarm,
+
 } from "react-icons/md";
+import { Baby } from "lucide-react";
+import { FaBaby } from "react-icons/fa";
 
 import {
   FaWheelchair,
@@ -121,6 +124,7 @@ export default function Detail() {
     "bar": <FaCoffee />,
     "room service": <FaConciergeBell />,
     "breakfast buffet": <MdRestaurant />,
+
   };
   type IconKey = keyof typeof iconMap;
   const getIcon = (title: string) => {
@@ -726,7 +730,7 @@ export default function Detail() {
   </div>
 </div>
       {amenities && amenities.length > 0 && (
-        <div className=" px-4 md:px-8 lg:px-20 py-11 bottom-20 relative">
+        <div className=" px-4 md:px-8 lg:px-20 py-11 bottom-2 relative">
           <div className="max-w-screen-2xl mx-auto ">
 
             <h2 className="text-2xl sm:text-2xl font-bold text-blue-950 mb-6">

@@ -34,11 +34,11 @@ export default function AffiliateCommissions() {
   const [affiliates, setAffiliates] = useState(initialAffiliates);
 
   return (
-    <div className="flex min-h-screen bg-gray-50 font-sans">
+    <div className="flex w-full max-w-screen-2xl mx-auto   bg-gray-50 font-sans">
       {/* Sidebar */}
       <aside className="w-72 bg-white shadow-lg border-r border-gray-200 flex flex-col">
         <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-          <h1 className="text-2xl font-extrabold text-amber-600">Admin Panel</h1>
+          <h1 className="text-2xl font-extrabold text-blue-900">Admin Panel</h1>
         </div>
 
         <nav className="flex-1 p-4 space-y-2">
@@ -78,7 +78,7 @@ export default function AffiliateCommissions() {
       <main className="flex-1 p-8">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-gray-800">Affiliate Commissions</h1>
-          <button className="flex items-center gap-2 px-3 py-2 bg-amber-500 text-white rounded-xl hover:bg-amber-600 transition text-sm">
+          <button className="flex items-center gap-2 px-3 py-2 bg-blue-900 text-white rounded-xl hover:bg-blue-800 transition text-sm">
             Add New Affiliate
           </button>
         </div>
@@ -105,17 +105,17 @@ export default function AffiliateCommissions() {
                   <td className="px-4 py-2">
                     <span
                       className={`px-2 py-0.5 rounded-full text-xs font-medium ${
-                        affiliate.status === "Active" ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
+                        affiliate.status === "Active" ? "bg-green-100 text-blue-900" : "bg-blue-100 text-blue-900"
                       }`}
                     >
                       {affiliate.status}
                     </span>
                   </td>
                   <td className="px-4 py-2 flex gap-2">
-                    <button className="px-3 py-1 bg-amber-600 text-white rounded-md hover:bg-amber-500">
+                    <button className="px-3 py-1 bg-blue-900 text-white rounded-md hover:bg-blue-900">
                       Edit
                     </button>
-                    <button className="px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600">
+                    <button className="px-3 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600">
                       Delete
                     </button>
                   </td>

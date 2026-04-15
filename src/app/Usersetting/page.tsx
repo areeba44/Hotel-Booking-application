@@ -30,12 +30,12 @@ export default function UserSettings() {
   }, [preview]);
 
   return (
-    <div className="w-full w-max-screen-2xl max-auto"> {/* ✅ Parent Div */}
+    <div className=""> {/* ✅ Parent Div */}
 
-      <div className="min-h-screen bg-gray-100 flex flex-col md:flex-row">
+      <div className="w-full w-max-screen-2xl max-auto bg-gray-100 flex flex-col md:flex-row">
         
         {/* Sidebar */}
-        <div className="w-full md:w-64 bg-white shadow-md p-6 flex flex-col items-start">
+        <div className=" w-full w-max-screen-2xl max-auto md:w-64 bg-white shadow-md p-6 flex flex-col items-start">
           <h2 className="text-2xl font-bold mb-6">Settings</h2>
           <ul className="space-y-4 w-full">
             {[

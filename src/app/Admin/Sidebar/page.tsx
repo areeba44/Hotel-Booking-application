@@ -26,11 +26,11 @@ const menuItems = [
 
 export default function AdminDashboard() {
   return (
-    <div className="flex min-h-screen bg-gray-50 font-sans">
+    <div className=" w-full max-w-screen-2xl mx-auto flex min-h-screen bg-gray-50 font-sans">
       {/* Sidebar */}
       <aside className="w-72 bg-white shadow-lg border-r border-gray-200 flex flex-col">
         <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-          <h1 className="text-2xl font-extrabold text-red-900">Admin Panel</h1>
+          <h1 className="text-2xl font-extrabold text-blue-950">Admin Panel</h1>
         </div>
 
         <nav className="flex-1 p-4 space-y-2">

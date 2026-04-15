@@ -13,7 +13,7 @@ export default function Navbar() {
   useEffect(() => {
     setMounted(true);
 
-    // simulate lazy load on scroll/page load
+    
     const timer = setTimeout(() => {
       setLoading(false);
     }, 800);
@@ -45,7 +45,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex gap-4 font-serif items-center">
+          <div className="hidden md:flex gap-3 font-serif items-center">
             <Link href="/Login">
               <button className="cursor-pointer border-2 border-white px-5 py-2 rounded-lg text-white font-medium hover:bg-blue-900 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md flex items-center gap-2">
                 <HiOutlineLogin className="text-white" />

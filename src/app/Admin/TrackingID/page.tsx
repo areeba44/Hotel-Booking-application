@@ -35,7 +35,7 @@ export default function CommissionTracking() {
   const [tracking, setTracking] = useState(initialTracking);
 
   return (
-    <div className="flex min-h-screen bg-gray-50 font-sans">
+    <div className="w-full max-w-screen-2xl mx-auto flex min-h-screen bg-gray-50 font-sans">
       {/* Sidebar */}
       <aside className="w-72 bg-white shadow-lg border-r border-gray-200 flex flex-col">
         <div className="p-6 border-b border-gray-200 flex items-center justify-between">

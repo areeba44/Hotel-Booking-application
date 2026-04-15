@@ -21,7 +21,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-opacity-30"></div>
 
         <div className="relative z-10 text-center max-w-3xl px-4">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Discover RateCompares
           </h1>
           <p className="text-gray-200 text-lg md:text-xl mb-4">

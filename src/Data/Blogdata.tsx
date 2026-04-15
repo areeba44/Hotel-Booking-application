@@ -571,7 +571,7 @@ export const BlogData = [
 
         date: "June 4, 2018",
 
-        images1: "/blog5.jpg",
+        images1: "/bb5.jpg",
 
         shortdesc: "So you’ve just broken up. Go and have a drink. Or just sit around your dog and shed tears. Remove all the photos from Facebook and Instagram. Watch something embarrassing on Netflix. Do what you’ve gotta do in order to cope with the distress first- after this, when you are ready, begin the whole process of rebuilding. Sages say that you need to travel alone at least one time in your life. The fact is, when you are wandering the world single you become familiar with yourself a lot. The only real schedule you need to pursue is your own, and it is refreshing and relaxing to get satisfied in your loneliness. Being recently single means finding your inner compass again, and trying to navigate this factor known as life. It isn’t always likely to be easy; however, with some adventure, you’ll surely find your way back. Perform some soul-searching, pack your favorite sweater inside your suitcase, and look for one of these fabulous five spots. You are feeling fun and even just a little flirty. Funnel all that passion directly into your passport. When your flight is delayed — or worse, cancelled — do you simply accept it, Claiming For A Jet2 Late Flight or do you seek compensation? If you replied the latter, you’re going to love this guide. After reading it, claiming a cancelled or delayed flight compensation will have no secret for you.",
 
@@ -657,7 +657,7 @@ export const BlogData = [
 
         date: "May 30, 2018",
 
-        images1: "/blog6.webp",
+        images1: "/blog3.jpg",
 
         shortdesc: "If you are hunting to find the best free things you can do in Venice, stop it right there! We have a list of top free sights in Venice encompasses culture, background, and modern existence. Venice is really expensive but also a spectacular destination for any season, however, it doesn’t need to be costly with careful planning.Spread over 118 small islands inside a sparkling emerald- eco - friendly lagoon within the Adriatic Ocean, Venice is among the most fascinating and unforgettable metropolitan cities.Its regal canals are lined with marble palazzi and beautiful basilicas, and also the narrow alleyways – full of wonderful boutiques and galleries – open out into charming, secret squares.",
 
@@ -791,7 +791,7 @@ export const BlogData = [
 
         date: "April 19, 2018",
 
-        images1: "/blog7.jpg",
+        images1: "/bb7.jpg",
 
         shortdesc: "If you are tired of work, exams and routine chores then Australia can work magic to relax. We have spotted some  amazing and exciting attractions in Australia for you to get a life changing experience either solo or with your partner.Sydney Opera House, the opera house is said to be the modern-day architectural masterpiece, the masterpiece was designed by the famous architect Jorn Utzon reflecting an image of a sailing ship. It can accommodate more than 1000 performances per year and it is surrounded by Sydney’s beautiful gardens and harbor, it is Sydney’s famous landmark.",
 

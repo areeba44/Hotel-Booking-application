@@ -34,11 +34,11 @@ export default function ManageUser() {
   const [users, setUsers] = useState(initialUsers);
 
   return (
-    <div className="flex min-h-screen bg-gray-50 font-sans">
+    <div className=" w-full max-w-screen-2xl mx-auto flex min-h-screen bg-gray-50 font-sans">
       {/* Sidebar */}
       <aside className="w-72 bg-white shadow-lg border-r border-gray-200 flex flex-col">
         <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-          <h1 className="text-2xl font-extrabold text-red-900">Admin Panel</h1>
+          <h1 className="text-2xl font-extrabold text-blue-950">Admin Panel</h1>
         </div>
 
         <nav className="flex-1 p-4 space-y-2">
@@ -99,10 +99,10 @@ export default function ManageUser() {
                   <td className="px-4 py-2">{user.role}</td>
                   <td className="px-4 py-2">{user.status}</td>
                   <td className="px-4 py-2 flex gap-2">
-                    <button className="px-3 py-1 bg-red-400 text-white rounded-md hover:bg-red-700">
+                    <button className="px-3 py-1 bg-blue-900 text-white rounded-md hover:bg-blue-800">
                       Edit
                     </button>
-                    <button className="px-3 py-1 bg-red-900 text-white rounded-md hover:bg-red-700">
+                    <button className="px-3 py-1 bg-blue-900 text-white rounded-md hover:bg-blue-800">
                       Delete
                     </button>
                   </td>

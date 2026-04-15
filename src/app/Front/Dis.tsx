@@ -148,7 +148,7 @@ export default function Destinations() {
 
                           {/* Stars + Reviews - Single Line Flex */}
                           <div className="mt-2 flex items-center ml-2 space-x-2">
-                            <span className="bg-blue-900 text-white rounded-es-md text-sm font-medium px-3 py-[4px] rounded">
+                            <span className="bg-blue-950 text-white rounded-es-md text-sm font-medium px-3 py-[4px] rounded">
                               {dest.location_rating}
                             </span>
                             <span className="flex text-[10px]">

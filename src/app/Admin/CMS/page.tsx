@@ -36,9 +36,9 @@ export default function SidebarCMS() {
   ];
 
   return (
-    <aside className="w-72 bg-white shadow-lg border-r border-gray-200 flex flex-col">
+    <aside className="w-full max-w-screen-2xl mx-auto w-72 bg-white shadow-lg border-r border-gray-200 flex flex-col">
       <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-        <h1 className="text-2xl font-extrabold text-red-900">Admin Panel</h1>
+        <h1 className="text-2xl font-extrabold text-blue-950">Admin Panel</h1>
       </div>
 
       <nav className="flex-1 p-4 space-y-2">

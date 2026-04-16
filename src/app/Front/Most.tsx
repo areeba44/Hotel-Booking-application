@@ -77,7 +77,7 @@ export default function MostVisited() {
       <div className="max-w-screen-2xl mx-auto w-full px-4 md:px-10">
         {/* Heading */}
         <h2 className="text-3xl md:text-4xl font-bold mb-3 text-blue-950 tracking-tight">
-          Most Visited Hotels of 2025
+              Explore Hotel Features
         </h2>
 
         <div className="grid md:grid-cols-3 gap-6">

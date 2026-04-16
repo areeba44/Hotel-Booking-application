@@ -34,7 +34,7 @@ const amenities = [
 export default function Amenities() {
   const [loading, setLoading] = useState(true);
 
-  // simulate loading when scroll comes into view
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
@@ -55,7 +55,7 @@ export default function Amenities() {
 
       <div className="max-w-screen-2xl mx-auto relative w-full">
 
-        <div className="bg-gradient-to-b from-blue-900/100 to-blue-950/100 text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-b from-blue-950 to-blue-950/100 text-white py-12 px-4 sm:px-6 lg:px-8">
 
           {/* Heading */}
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-center">
@@ -80,7 +80,7 @@ export default function Amenities() {
                   return (
                     <div
                       key={index}
-                      className="group bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 sm:p-5 flex flex-col items-center justify-center text-center transition-all duration-300 hover:bg-white hover:text-red-900 hover:shadow-xl hover:scale-105 cursor-pointer"
+                      className="group bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 sm:p-5 flex flex-col items-center justify-center text-center transition-all duration-300 hover:bg-white hover:text-blue-950 hover:shadow-xl hover:scale-105 cursor-pointer"
                     >
                       <Icon
                         size={26}

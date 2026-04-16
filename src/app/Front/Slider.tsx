@@ -10,19 +10,21 @@ export default function AdvertiserBar() {
     "/price.png",
     "/hot.png",
     "/trip.png",
+    "/Hotwire.svg",
+    "/Kayak-logo.svg"
   ];
 
   return (
-  <div className="bg-gray-100 border:bg-gray-200 bottom-2 relative max-w-screen-2xl mx-auto px-6">
+    <div className="w-full bg-gray-100 border-b border-gray-200 py-6">
       
-      {/* Parent Container */}
-      <div className="max-w-screen-2xl mx-auto">
+      {/* CENTER WRAPPER (like navbar style) */}
+      <div className="max-w-screen-2xl mx-auto px-6">
         
         {/* Slider Wrapper */}
         <div className="relative overflow-hidden">
           
           {/* Sliding Track */}
-          <div className="flex w-max animate-slide gap-12">
+          <div className="flex w-max animate-slide gap-12 items-center">
             
             {/* Loop 1 */}
             {logos.map((logo, index) => (
@@ -49,6 +51,7 @@ export default function AdvertiserBar() {
             ))}
 
           </div>
+
         </div>
 
       </div>

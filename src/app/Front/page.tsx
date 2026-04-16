@@ -54,18 +54,19 @@ export default function Home() {
   }, [hotelName]);
 
   return (
-    <>
+    <div className="w-full">
    
        <Navbar />
       {/* Hero Section with Full-Screen Image */}
-      <div className="relative max-w-screen-2xl mx-auto  w-full h-[420px] sm:h-[500px] md:h-[550px]">
+      
+      <div className="relative w-full h-[420px] sm:h-[500px] md:h-[550px]">
         <div className="relative w-full h-full">
           <Image
             src="/img1.png"
             alt="room"
             fill
             priority
-            className="object-cover brightness-65 transition-all duration-500 ease-in-out"
+            className="object-cover brightness-75 transition-all duration-500 ease-in-out"
           />
         </div>
         <div className="absolute inset-0 flex items-center justify-center text-center bg-black/40">
@@ -131,7 +132,7 @@ export default function Home() {
               <div className="flex w-[130px] ml-27 justify-center">
                 <button
                   onClick={handleSearch}
-                  className="w-full text-lg h-[45px] bg-gradient-to-r bg-blue-900/100 text-white font-serif rounded-lg shadow-md transition-all duration-300 hover:scale-[1.05] hover:bg-blue-800"
+                  className="w-full text-lg h-[45px] bg-gradient-to-r bg-blue-950 border-white border-2 text-white font-serif rounded-lg shadow-md transition-all duration-300 hover:scale-[1.05] hover:bg-blue-800"
                 >
                   Search
                 </button>
@@ -152,7 +153,7 @@ export default function Home() {
       </div>
 
       <Footer />
-    </>
+    </div>
   );
 }
 

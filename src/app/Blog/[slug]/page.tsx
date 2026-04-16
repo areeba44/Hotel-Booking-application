@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
 export default function BlogDetail() {
     const params = useParams();
     const slug = params?.slug;
@@ -19,8 +20,9 @@ export default function BlogDetail() {
     return (
         <div className="bg-white w-full">
             <Navbar />
-            {/* HERO */}
-            <div className="relative h-[400px] w-full max-w-screen-2xl mx-auto ">
+
+            {/* HERO - FIXED FULL WIDTH */}
+            <div className="relative h-[400px] w-full">
                 <Image
                     src={blog.images1}
                     alt={blog.title}
@@ -49,12 +51,10 @@ export default function BlogDetail() {
                     {blog.description.map((item) => (
                         <div key={item.id} className="space-y-3">
 
-                            {/* TITLE */}
-                            <h2 className="text-[20px] md:text-[22px] font-semibold text-blue-900">
+                            <h2 className="text-[20px] md:text-[22px] font-semibold text-blue-950">
                                 {item.name}
                             </h2>
 
-                            {/* IMAGE (ALWAYS SPACE) */}
                             <div className="w-full h-[250px] bg-gray-100 rounded-md overflow-hidden flex items-center justify-center">
                                 {item.img ? (
                                     <div className="relative w-full h-60">
@@ -72,7 +72,6 @@ export default function BlogDetail() {
                                 )}
                             </div>
 
-                            {/* DESCRIPTION */}
                             <p className="text-gray-600 text-sm leading-relaxed">
                                 {item.description}
                             </p>
@@ -80,35 +79,13 @@ export default function BlogDetail() {
                         </div>
                     ))}
 
-                    {/* SHARE */}
-                    <div className="pt-6 border-t">
-                        <p className="text-sm font-semibold mb-3">
-                            Share this blog:
-                        </p>
-
-                        <div className="flex gap-3">
-                            <button className="bg-blue-600 text-white px-4 py-1.5 text-sm rounded">
-                                Facebook
-                            </button>
-                            <button className="bg-black text-white px-4 py-1.5 text-sm rounded">
-                                Twitter
-                            </button>
-                            <button className="bg-blue-800 text-white px-4 py-1.5 text-sm rounded">
-                                LinkedIn
-                            </button>
-                            <button className="bg-gray-300 px-4 py-1.5 text-sm rounded">
-                                Copy Link
-                            </button>
-                        </div>
-                    </div>
-
                 </div>
 
                 {/* RIGHT SIDEBAR */}
                 <div className="space-y-6">
 
-                    <div className="bg-gray-50 p-5 rounded-lg">
-                        <h3 className="font-bold text-blue-900 mb-4 text-[24px]">
+                    <div className="bg-gray-50 p-6 rounded-lg">
+                        <h3 className="font-bold text-blue-950 mb-4 text-[24px]">
                             Related Posts
                         </h3>
 
@@ -120,11 +97,10 @@ export default function BlogDetail() {
                                 <Link
                                     href={`/Blog/${item.slug}`}
                                     key={item.id}
-                                    className="block bg-white p-3 rounded-lg shadow-sm mb-4 hover:shadow-md transition"
+                                    className="block bg-white p-4 rounded-lg shadow-sm mb-4 hover:shadow-md transition"
                                 >
                                     <div className="flex gap-4">
 
-                                        {/* IMAGE */}
                                         <div className="w-28 h-20 bg-gray-200 rounded-md overflow-hidden flex-shrink-0">
                                             <Image
                                                 src={item.images1}
@@ -135,7 +111,6 @@ export default function BlogDetail() {
                                             />
                                         </div>
 
-                                        {/* CONTENT */}
                                         <div className="space-y-1">
                                             <p className="text-sm font-semibold leading-tight">
                                                 {item.title}
@@ -160,6 +135,7 @@ export default function BlogDetail() {
                 </div>
 
             </div>
+
             <Footer />
         </div>
     );

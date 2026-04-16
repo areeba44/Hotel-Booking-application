@@ -26,14 +26,16 @@ const menuItems = [
 
 export default function AdminDashboard() {
   return (
-    <div className=" w-full max-w-screen-2xl mx-auto flex min-h-screen bg-gray-50 font-sans">
-      {/* Sidebar */}
-      <aside className="w-72 bg-white shadow-lg border-r border-gray-200 flex flex-col">
+         <div className="w-full min-h-screen bg-gray-50 font-sans">
+  <div className="max-w-screen-2xl mx-auto flex">
+      
+      {/* ✅ FIXED Sidebar */}
+      <aside className="fixed top-0 left-0 w-72 h-screen bg-white shadow-lg border-r border-gray-200 flex flex-col z-50">
         <div className="p-6 border-b border-gray-200 flex items-center justify-between">
           <h1 className="text-2xl font-extrabold text-blue-950">Admin Panel</h1>
         </div>
 
-        <nav className="flex-1 p-4 space-y-2">
+        <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
           {menuItems.map((item, index) => {
             const Icon = item.icon;
             if (item.path) {
@@ -60,13 +62,15 @@ export default function AdminDashboard() {
             }
           })}
         </nav>
+
         <div className="p-6 border-t border-gray-200 text-gray-400 text-xs">
           © 2026 MyAdmin
         </div>
       </aside>
 
-      {/* Main Content */}
-      <main className="flex-1 p-8 space-y-6">
+      {/* ✅ Main Content (margin added) */}
+      <main className="flex-1 ml-72 p-8 space-y-6">
+        
         {/* Header */}
         <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
           <h2 className="text-3xl font-bold text-gray-800">Welcome, Admin!</h2>
@@ -84,15 +88,21 @@ export default function AdminDashboard() {
               key={i}
               className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition"
             >
-              <h3 className="text-gray-400 text-xs font-semibold uppercase">{card.title}</h3>
-              <p className="text-2xl font-bold mt-2 text-gray-800">{card.value}</p>
+              <h3 className="text-gray-400 text-xs font-semibold uppercase">
+                {card.title}
+              </h3>
+              <p className="text-2xl font-bold mt-2 text-gray-800">
+                {card.value}
+              </p>
             </div>
           ))}
         </div>
 
         {/* Recent Activity */}
         <div className="bg-white rounded-2xl shadow p-6">
-          <h3 className="text-xl font-semibold mb-4 text-gray-800">Recent Activity</h3>
+          <h3 className="text-xl font-semibold mb-4 text-gray-800">
+            Recent Activity
+          </h3>
           <ul className="divide-y divide-gray-100 text-gray-600">
             {[
               "New user registered",
@@ -110,7 +120,8 @@ export default function AdminDashboard() {
             ))}
           </ul>
         </div>
+
       </main>
-    </div>
+    </div></div>
   );
 }

@@ -7,9 +7,10 @@ import { IoLogoYoutube } from "react-icons/io";
 
 export default function Footer() {
   return (
-    <footer className=" max-w-screen-2xl mx-auto w-full bg-[#162E5C] text-white px-5 sm:px-8 md:px-12 lg:px-20 py-12">
+    <footer className="w-full bg-blue-950 text-white py-12">
 
-      <div className="max-w-screen-2xl mx-auto">
+      {/* CENTER WRAPPER (LIKE NAVBAR STYLE) */}
+      <div className="max-w-screen-2xl mx-auto px-5 sm:px-8 md:px-12 lg:px-20">
 
         {/* TOP GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -31,14 +32,16 @@ export default function Footer() {
 
             {/* SOCIAL */}
             <div className="flex gap-3 mt-6">
-              {[FaFacebookF, FaTwitter, FaInstagram, IoLogoYoutube ].map((Icon, i) => (
-                <div
-                  key={i}
-                  className="w-9 h-9 border text-center rounded-full flex items-center justify-center hover:bg-white hover:text-[#162E5C] transition"
-                >
-                  <Icon size={14} />
-                </div>
-              ))}
+              {[FaFacebookF, FaTwitter, FaInstagram, IoLogoYoutube].map(
+                (Icon, i) => (
+                  <div
+                    key={i}
+                    className="w-9 h-9 border border-white/30 text-center rounded-full flex items-center justify-center hover:bg-white hover:text-[#162E5C] transition"
+                  >
+                    <Icon size={14} />
+                  </div>
+                )
+              )}
             </div>
           </div>
 
@@ -61,7 +64,7 @@ export default function Footer() {
               <li><Link href="/F&Q">Frequently Asked Questions</Link></li>
               <li><Link href="#">Safety Information</Link></li>
               <li><Link href="#">Cancellation Options</Link></li>
-              <li><Link href="ContactUs">Contact Us</Link></li>
+              <li><Link href="/ContactUs">Contact Us</Link></li>
             </ul>
           </div>
 
@@ -76,18 +79,19 @@ export default function Footer() {
             </p>
 
             {/* INPUT */}
-            <div className="flex flex-col sm:flex-row w-full sm:w-[290px] h-auto sm:h-[40px] bg-white rounded-full overflow-hidden">
+            <div className="flex flex-col sm:flex-row w-full sm:w-[290px] bg-white rounded-full overflow-hidden">
               <input
                 type="email"
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-3 sm:py-2 text-sm text-black outline-none"
               />
-              <button className="bg-gray-200 px-1 w-[90px]  py-2 text-sm  text-blue-900 font-bold">
+              <button className="bg-gray-200 px-4 py-2 text-sm text-blue-900 font-bold">
                 Subscribe
               </button>
             </div>
+          </div>
 
-            </div></div>
+        </div>
 
         {/* BOTTOM */}
         <div className="border-t border-white/20 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center text-sm text-gray-300 gap-4">
@@ -103,6 +107,7 @@ export default function Footer() {
           </div>
 
         </div>
+
       </div>
     </footer>
   );

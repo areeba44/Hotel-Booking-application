@@ -3,23 +3,22 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-
 export default function TermsPage() {
   return (
-    <div className="max-w-screen-2xl mx-auto  w-full bg-gradient-to-b from-gray-50 to-white">
+    <div className="w-full bg-gradient-to-b from-gray-50 to-white">
       <Navbar />
 
-      {/* HERO SECTION (FULL WIDTH) */}
+      {/* HERO SECTION */}
       <div className="relative w-full h-[400px] md:h-[450px] flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
+        
         <img
           src="/about.avif"
           alt="Terms & Conditions"
           className="absolute inset-0 w-full h-full object-cover brightness-65"
         />
-        {/* DARK OVERLAY */}
+
         <div className="absolute inset-0 bg-black/50" />
-        {/* TEXT CONTENT */}
+
         <div className="relative z-10 max-w-3xl px-4 text-center text-white">
           <h1 className="text-3xl md:text-5xl font-bold mb-4">
             Terms & Conditions
@@ -31,115 +30,104 @@ export default function TermsPage() {
       </div>
 
       {/* MAIN CONTENT */}
-      <div className="max-w-screen-lg mx-auto px-4 py-12 space-y-10">
+      <div className="w-full">
+        <div className="max-w-screen-2xl mx-auto px-30 py-12 space-y-10">
 
-        {/* INTRO */}
-        <section>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            These Terms & Conditions govern your use of the RateCompares website and services. By using our platform, you confirm your acceptance of these terms.
-          </p>
-          <p className="text-gray-700 leading-relaxed">
-            If you have any questions or concerns, feel free to reach out to our support team.
-          </p>
-        </section>
+          {/* INTRO */}
+          <section>
+            <p className="text-gray-700 leading-relaxed mb-4 ">
+              These Terms & Conditions govern your use of the RateCompares website and services. By using our platform, you confirm your acceptance of these terms.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              If you have any questions or concerns, feel free to reach out to our support team.
+            </p>
+          </section>
 
-        {/* DIVIDER */}
-        <hr className=" my-6" />
+          <hr className="my-6" />
 
-        {/* OUR TERMS AND CONDITIONS */}
-        <section className="space-y-3">
-          <h3 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
-            Our Terms and Conditions
-          </h3>
-          <p className="text-gray-700 leading-relaxed">
-            RateCompares is a platform that helps users compare hotel and travel services. By accessing this site, you agree to our Terms of Use and Privacy Policy.
-          </p>
-        </section>
+          {/* OUR TERMS */}
+          <section className="space-y-3">
+            <h3 className="text-lg font-semibold text-gray-800">
+              Our Terms and Conditions
+            </h3>
+            <p className="text-gray-700 leading-relaxed">
+              RateCompares is a platform that helps users compare hotel and travel services. By accessing this site, you agree to our Terms of Use and Privacy Policy.
+            </p>
+          </section>
 
-        {/* DIVIDER */}
-        <hr className=" my-6" />
+          <hr className="my-6" />
 
-        {/* SERVICES AND CONTRACT */}
-        <section className="space-y-3">
-          <h3 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
-           
-            Services and Contract
-          </h3>
-          <p className="text-gray-700 leading-relaxed">
-            RateCompares provides a comparison tool for third-party services but does not offer these services directly. All agreements are between the user and the third-party provider.
-          </p>
-        </section>
+          {/* SERVICES */}
+          <section className="space-y-3">
+            <h3 className="text-lg font-semibold text-gray-800">
+              Services and Contract
+            </h3>
+            <p className="text-gray-700 leading-relaxed">
+              RateCompares provides a comparison tool for third-party services but does not offer these services directly. All agreements are between the user and the third-party provider.
+            </p>
+          </section>
 
-        {/* DIVIDER */}
-        <hr className="my-6" />
+          <hr className="my-6" />
 
-        {/* PRIVACY AND EMAIL ADVERTISEMENTS */}
-        <section className="space-y-3">
-          <h3 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
-           
-            Privacy and Email Advertisements
-          </h3>
-          <p className="text-gray-700 leading-relaxed">
-            We respect your privacy and will only collect data when necessary. Users may unsubscribe from promotional emails at any time.
-          </p>
-        </section>
+          {/* PRIVACY */}
+          <section className="space-y-3">
+            <h3 className="text-lg font-semibold text-gray-800">
+              Privacy and Email Advertisements
+            </h3>
+            <p className="text-gray-700 leading-relaxed">
+              We respect your privacy and will only collect data when necessary. Users may unsubscribe from promotional emails at any time.
+            </p>
+          </section>
 
-        {/* DIVIDER */}
-        <hr className=" my-6" />
+          <hr className="my-6" />
 
-        {/* USER OBLIGATIONS */}
-        <section className="space-y-3">
-          <h3 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
-           
-            User Obligations
-          </h3>
-          <p className="text-gray-700 leading-relaxed">
-            Users are responsible for the content they upload to the platform. Uploading harmful content, spam, or illegal materials is prohibited.
-          </p>
-        </section>
+          {/* USER */}
+          <section className="space-y-3">
+            <h3 className="text-lg font-semibold text-gray-800">
+              User Obligations
+            </h3>
+            <p className="text-gray-700 leading-relaxed">
+              Users are responsible for the content they upload to the platform. Uploading harmful content, spam, or illegal materials is prohibited.
+            </p>
+          </section>
 
-        {/* DIVIDER */}
-        <hr className=" my-6" />
+          <hr className="my-6" />
 
-        {/* TERMINATION */}
-        <section className="space-y-3">
-          <h3 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
-            
-            Termination
-          </h3>
-          <p className="text-gray-700 leading-relaxed">
-            RateCompares reserves the right to terminate user access at any time in cases of misuse or violation of terms.
-          </p>
-        </section>
+          {/* TERMINATION */}
+          <section className="space-y-3">
+            <h3 className="text-lg font-semibold text-gray-800">
+              Termination
+            </h3>
+            <p className="text-gray-700 leading-relaxed">
+              RateCompares reserves the right to terminate user access at any time in cases of misuse or violation of terms.
+            </p>
+          </section>
 
-        {/* DIVIDER */}
-        <hr className=" my-6" />
+          <hr className="my-6" />
 
-        {/* LIABILITY */}
-        <section className="space-y-3">
-          <h3 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
-           
-            Liability
-          </h3>
-          <p className="text-gray-700 leading-relaxed">
-            RateCompares is not responsible for the accuracy of third-party content. All contracts or bookings made are between the user and the external service provider.
-          </p>
-        </section>
+          {/* LIABILITY */}
+          <section className="space-y-3">
+            <h3 className="text-lg font-semibold text-gray-800">
+              Liability
+            </h3>
+            <p className="text-gray-700 leading-relaxed">
+              RateCompares is not responsible for the accuracy of third-party content. All contracts or bookings made are between the user and the external service provider.
+            </p>
+          </section>
 
-        {/* DIVIDER */}
-        <hr className=" my-6" />
+          <hr className="my-6" />
 
-        {/* CHANGES TO TERMS */}
-        <section className="space-y-3">
-          <h3 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
-            
-            Changes to Terms
-          </h3>
-          <p className="text-gray-700 leading-relaxed">
-            RateCompares reserves the right to update these terms. Users will be notified via email if any changes occur.
-          </p>
-        </section>
+          {/* CHANGES */}
+          <section className="space-y-3">
+            <h3 className="text-lg font-semibold text-gray-800">
+              Changes to Terms
+            </h3>
+            <p className="text-gray-700 leading-relaxed">
+              RateCompares reserves the right to update these terms. Users will be notified via email if any changes occur.
+            </p>
+          </section>
 
+        </div>
       </div>
 
       <Footer />

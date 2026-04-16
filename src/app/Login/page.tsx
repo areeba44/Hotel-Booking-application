@@ -17,7 +17,7 @@ export default function GoogleLoginPopup() {
       <main className="flex-grow">
         {/* Top Section */}
         <div className="w-full max-w-screen-2xl mx-auto px-6 sm:px-10 xl:px-40 pt-40 pb-20 bg-blue-50">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-center">
             Log in or sign up
           </h1>
 

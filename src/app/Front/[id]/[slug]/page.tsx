@@ -65,6 +65,7 @@ import { BiStore } from "react-icons/bi";
 
 
 export default function Detail() {
+  
   const params = useParams();
   const id = params.id
   const slug = params?.slug;
@@ -136,6 +137,37 @@ export default function Detail() {
 
     return <FaCreditCard />;
   };
+  type Rating = {
+  stars: number;
+  count: number;
+};
+
+type UserReview = {
+  comment?: string;
+  date?: string;
+  username?: string;
+  rating: {
+    score: number;
+    max_score: number;
+  };
+};
+
+type Review = {
+  user_review?: UserReview;
+  source_rating?: {
+    score: number;
+    max_score: number;
+    source?: {
+      name?: string;
+      icon?: string;
+    };
+  };
+};
+
+interface ReviewsSectionProps {
+  ratingData?: Rating[];
+  reviews?: Review[];
+}
 
   useEffect(() => {
     if (!id) return;
@@ -360,7 +392,7 @@ export default function Detail() {
                 <p className="text-xl sm:text-2xl font-bold">
                   ${prices[0]?.rate_per_night?.extracted_lowest || ""}
                 </p>
-                <button className=" mt-2 bg-blue-900 hover:bg-blue-800 text-white text-sm sm:text-base font-medium px-6 py-2.5 rounded-md  transition">
+                <button className=" mt-2 bg-blue-950 hover:bg-blue-800 text-white text-sm sm:text-base font-medium px-6 py-2.5 rounded-md  transition">
                   Check Availability
                 </button>
               </div>
@@ -443,7 +475,7 @@ export default function Detail() {
                   <a
                     href={item.link}
                     target="_blank"
-                    className="text-[12px] w-24 h-8 flex items-center justify-center font-serif rounded-xl bg-blue-900/100 text-white px-2 py-1 hover:bg-blue-800 transition"
+                    className="text-[12px] w-24 h-8 flex items-center justify-center font-serif rounded-xl bg-blue-950 text-white px-2 py-1 hover:bg-blue-800 transition"
                   >
                     View Details
                   </a>
@@ -816,35 +848,40 @@ export default function Detail() {
 
 
       {/* SEARCH SECTION BELOW */}
-      <div className="w-full flex justify-center ">
-        <div className="w-full max-w-screen-2xl">
-          <div className="w-full bg-gray-100 sm:px-8 py-6 mt-5">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-sm md:text-base ml-3 font-medium text-gray-700 mb-4">
-                Couldn’t find the right hotel for you?
-              </h2>
+<div className="w-full bg-gray-100 py-6 mt-5">
 
-              <div className="bg-white rounded-lg shadow-sm p-3 md:p-4 flex flex-col md:flex-row gap-3 md:items-end">
-                <div className="flex-1">
-                  <label className="text-xs text-gray-500">
-                    Where do you want to stay?
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="London"
-                    className="w-full mt-1 text-sm text-blue-600 font-medium outline-none bg-transparent"
-                  />
-                </div>
-                <div className="w-full md:w-auto">
-                  <button className="w-full md:w-auto bg-blue-900/100 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-md transition">
-                    Search →
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+  <div className="w-full max-w-screen-2xl mx-auto sm:px-8">
+    
+    <div className="max-w-4xl mx-auto">
+      <h2 className="text-sm md:text-base ml-3 font-medium text-gray-700 mb-4">
+        Couldn’t find the right hotel for you?
+      </h2>
+
+      <div className="bg-white rounded-lg shadow-sm p-3 md:p-4 flex flex-col md:flex-row gap-3 md:items-end">
+        
+        <div className="flex-1">
+          <label className="text-xs text-gray-500">
+            Where do you want to stay?
+          </label>
+          <input
+            type="text"
+            placeholder="London"
+            className="w-full mt-1 text-sm text-blue-600 font-medium outline-none bg-transparent"
+          />
         </div>
+
+        <div className="w-full md:w-auto">
+          <button className="w-full md:w-auto bg-blue-950 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-md transition">
+            Search →
+          </button>
+        </div>
+
       </div>
+    </div>
+
+  </div>
+</div>
+              
       <Slider />
       {loading && (
         <div className="text-center py-20">
@@ -856,3 +893,6 @@ export default function Detail() {
     </>
   );
 }
+
+
+

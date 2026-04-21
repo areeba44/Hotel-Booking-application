@@ -15,16 +15,17 @@ export default function AdvertiserBar() {
   ];
 
   return (
-    <div className="w-full bg-gray-100 border-b border-gray-200 py-6">
+    <div className="max-w-screen-2xl mx-auto relative w-full">
+    <div className=" bg-gray-100 border-b border-gray-200 py-3">
       
-      {/* CENTER WRAPPER (like navbar style) */}
-      <div className="max-w-screen-2xl mx-auto px-6">
+      {/* CENTER WRAPPER */}
+      <div className=" px-4">
         
         {/* Slider Wrapper */}
         <div className="relative overflow-hidden">
           
           {/* Sliding Track */}
-          <div className="flex w-max animate-slide gap-12 items-center">
+          <div className="flex w-max animate-slide gap-8 items-center">
             
             {/* Loop 1 */}
             {logos.map((logo, index) => (
@@ -32,8 +33,8 @@ export default function AdvertiserBar() {
                 key={index}
                 src={logo}
                 alt="partner"
-                width={120}
-                height={60}
+                width={60}
+                height={25}
                 className="object-contain"
               />
             ))}
@@ -44,8 +45,8 @@ export default function AdvertiserBar() {
                 key={`dup-${index}`}
                 src={logo}
                 alt="partner"
-                width={120}
-                height={60}
+                width={80}
+                height={40}
                 className="object-contain"
               />
             ))}
@@ -55,6 +56,6 @@ export default function AdvertiserBar() {
         </div>
 
       </div>
-    </div>
+    </div> </div>
   );
 }

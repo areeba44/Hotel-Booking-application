@@ -10,7 +10,7 @@ export default function Footer() {
     <footer className="w-full bg-blue-950 text-white py-12">
 
       {/* CENTER WRAPPER (LIKE NAVBAR STYLE) */}
-      <div className="max-w-screen-2xl mx-auto px-5 sm:px-8 md:px-12 lg:px-20">
+      <div className="max-w-screen-2xl mx-auto px-5 sm:px-8 md:px-12 lg:px-29">
 
         {/* TOP GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -25,7 +25,7 @@ export default function Footer() {
               className="mb-4"
             />
 
-            <p className="text-sm text-gray-300 leading-relaxed max-w-sm">
+            <p className="text-sm text-gray-300 font-bold leading-relaxed max-w-sm">
               Your trusted partner for luxury hotel bookings worldwide.
               Discover comfort, elegance, and exceptional service.
             </p>
@@ -46,24 +46,24 @@ export default function Footer() {
           </div>
 
           {/* COMPANY */}
-          <div>
-            <h3 className="font-semibold mb-4">COMPANY</h3>
+          <div className="ml-10">
+            <h3 className="font-semibold mb-4 ">COMPANY</h3>
             <ul className="space-y-2 text-sm text-gray-300 font-medium">
               <li><Link href="/About">About-Us</Link></li>
-              <li><Link href="/careers">Careers</Link></li>
+              <li><Link href="/Front">Careers</Link></li>
               <li><Link href="/Blog">Blog</Link></li>
-              <li><Link href="/How">How we work</Link></li>
-              <li><Link href="/Press">Press</Link></li>
+              <li><Link href="/Front">How we work</Link></li>
+              <li><Link href="/Front">Press</Link></li>
             </ul>
           </div>
 
           {/* SUPPORT */}
-          <div>
+          <div className="">
             <h3 className="font-semibold mb-4">SUPPORT</h3>
             <ul className="space-y-2 text-sm text-gray-300 font-medium">
               <li><Link href="/F&Q">Frequently Asked Questions</Link></li>
-              <li><Link href="#">Safety Information</Link></li>
-              <li><Link href="#">Cancellation Options</Link></li>
+              <li><Link href="/Business">Business</Link></li>
+              <li><Link href="/Company">Company</Link></li>
               <li><Link href="/ContactUs">Contact Us</Link></li>
             </ul>
           </div>

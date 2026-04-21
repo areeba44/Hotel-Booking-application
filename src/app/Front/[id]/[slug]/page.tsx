@@ -281,7 +281,8 @@ interface ReviewsSectionProps {
                 <Skeleton className="w-full h-full rounded-2xl" />
               ) : (
                 <img
-                  src={images?.[0]?.thumbnail || "/placeholder.jpg"}
+                  // src={images?.[0]?.thumbnail || "/placeholder.jpg"}
+                   src={"/d1.webp"}
                   className="w-full h-full object-cover rounded-2xl"
                 />
               )}
@@ -300,7 +301,8 @@ interface ReviewsSectionProps {
                   ) : (
                     <>
                       <img
-                        src={images?.[index]?.thumbnail || "/placeholder.jpg"}
+                        // src={images?.[index]?.thumbnail || "/placeholder.jpg"}
+                         src={"/d1.webp"}
                         className="w-full h-full object-cover rounded-2xl"
                       />
 
@@ -347,7 +349,8 @@ interface ReviewsSectionProps {
                 {images?.map((img: ImageType, i: number) => (
                   <div key={i} className="overflow-hidden rounded-xl">
                     <img
-                      src={img.thumbnail || "/placeholder.jpg"}
+                      // src={img.thumbnail || "/placeholder.jpg"}
+                      src={"/d1.webp"}
                       alt="hotel"
                       className="w-full h-48 object-cover hover:scale-105 transition duration-300 cursor-pointer"
                     />

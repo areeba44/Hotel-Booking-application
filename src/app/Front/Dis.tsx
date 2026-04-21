@@ -57,9 +57,9 @@ export default function Destinations() {
   };
 
   return (
-    <section className="py-2 px-12 bg-white mt-10">
+    <section className="py-2 px-12 bg-white ">
       <div className="max-w-screen-2xl mx-auto px-6">
-        <h2 className="text-4xl font-bold mb-5 ml-2 text-blue-950">
+        <h2 className="text-4xl font-semibold mb-5 ml-2 text-blue-950">
           Discover Popular Destinations
         </h2>
 
@@ -113,7 +113,7 @@ export default function Destinations() {
                           {images[0]?.thumbnail && (
                             <div className="h-36 overflow-hidden">
                               <img
-                                src={"I1.PNG"}
+                                src={"L1.jpg"}
                                 alt={dest.name}
                                 className="w-full h-full object-cover hover:scale-105 transition"
                               />

@@ -13,29 +13,26 @@ export default function AboutPage() {
       <div className="w-full bg-gray-50 flex flex-col items-center">
 
         {/* HERO SECTION */}
-        <section className="relative w-full h-[400px] md:h-[450px] flex items-center justify-center overflow-hidden">
+        <section className="relative w-full h-[400px] md:h-[400px] flex items-center justify-center overflow-hidden">
           
           <img
-            src="about.avif"
+            src="/blogimage.jpg"
             alt="Travel"
-            className="absolute inset-0 w-full h-full object-cover brightness-65"
+            className="absolute inset-0 w-full h-full object-cover "
           />
 
-          <div className="absolute inset-0 bg-opacity-30"></div>
 
-          <div className="relative z-10 text-center max-w-3xl px-4">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Discover RateCompares
+       <div className="absolute inset-0 bg-black/40 flex flex-col justify-center px-6 md:px-20 text-white">
+            <h1 className="text-4xl font-bold text-white">
+              Discover <span className="text-yellow-400">RateCompares</span> 
             </h1>
 
             <p className="text-gray-200 text-lg md:text-xl mb-4">
               Helping travelers worldwide find the best hotels at the best prices.
-              Compare, plan, and book with ease.
+              
             </p>
 
-            <button className="px-6 py-3 bg-blue-950 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-700 transition">
-              Learn More
-            </button>
+        
           </div>
         </section>
 
@@ -112,7 +109,7 @@ export default function AboutPage() {
       {/* TAGLINE FULL WIDTH */}
       <section className="w-full py-10">
         
-        <div className="max-w-screen-2xl mx-auto px-6 sm:px-10 lg:px-20">
+        <div className="max-w-screen-2xl mx-auto px-6 sm:px-10 lg:px-42">
           
           <div className="bg-blue-950 text-white rounded-md p-9 shadow-2xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">

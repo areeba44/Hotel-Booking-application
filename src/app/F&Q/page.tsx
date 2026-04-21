@@ -47,17 +47,17 @@ export default function FAQSection() {
 
       {/* FULL WIDTH HERO */}
       <div className="w-full bg-gray-100 ">
-        
-        <div className="relative w-full h-[400px] md:h-[450px] flex items-center justify-center overflow-hidden">
+
+        <div className="relative w-full h-[400px] md:h-[400px] flex items-center justify-center overflow-hidden">
           <img
-            src="about.avif"
+            src="/blogimage.jpg"
             alt="Travel"
-            className="absolute inset-0 w-full h-full object-cover brightness-65"
+            className="absolute inset-0 w-full h-full object-cover"
           />
 
-          <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Frequently Asked Questions
+          <div className="absolute inset-0 bg-black/40 flex flex-col justify-center px-6 md:px-20 text-white">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Frequently Asked<span className="text-yellow-400"> Questions</span>
             </h2>
             <p className="text-gray-200 text-lg md:text-xl">
               Find answers to common questions.
@@ -70,7 +70,7 @@ export default function FAQSection() {
       {/* FAQ CONTENT CENTERED */}
       <div className="w-full px-30">
         <div className="max-w-screen-2xl mx-auto px-4 py-8 space-y-4">
-          
+
           {faqs.map((faq, index) => (
             <div
               key={index}
@@ -89,7 +89,7 @@ export default function FAQSection() {
               </button>
 
               {activeIndex === index && (
-               <div className="px-4 pt-3 pb-4 mt-2 text-gray-600 border-t">
+                <div className="px-4 pt-3 pb-4 mt-2 text-gray-600 border-t">
                   {faq.answer}
                 </div>
               )}
@@ -101,8 +101,8 @@ export default function FAQSection() {
 
       {/* TAGLINE FULL WIDTH */}
       <section className="w-full py-10">
-        <div className="max-w-screen-2xl mx-auto px-6 sm:px-10 lg:px-20">
-          
+        <div className="max-w-screen-2xl mx-auto px-6 sm:px-10 lg:px-32">
+
           <div className="bg-blue-950 text-white rounded-md p-9 shadow-2xl text-center transform  transition">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               You Plan It, We Cover It!

@@ -61,7 +61,7 @@ export default function MostVisited() {
               name: "NOX Kensington",
               location: "United Kingdom",
               price: 480,
-              image: "/m2.jpg",
+              image: "/m22.jpg",
             },
           ]);
           setDataLoaded(true);
@@ -76,7 +76,7 @@ export default function MostVisited() {
     >
       <div className="max-w-screen-2xl mx-auto w-full px-4 md:px-10">
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold mb-3 text-blue-950 tracking-tight">
+        <h2 className="text-3xl md:text-4xl font-semibold mb-3 text-blue-950 tracking-tight">
               Explore Hotel Features
         </h2>
 

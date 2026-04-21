@@ -11,23 +11,22 @@ export default function PrivacyPolicy() {
       <Navbar />
 
       {/* HERO SECTION (FULL WIDTH) */}
-      <div className="relative w-full h-[400px] md:h-[450px] flex items-center justify-center overflow-hidden">
+      <div className="relative w-full h-[400px] md:h-[400px] flex items-center justify-center overflow-hidden">
         
         <img
-          src="/about.avif"
+           src="/blogimage.jpg"
           alt="Privacy Policy"
-          className="absolute inset-0 w-full h-full object-cover brightness-65"
+          className="absolute inset-0 w-full h-full "
         />
 
-        <div className="absolute inset-0 bg-black/50" />
-
-        <div className="relative z-10 max-w-3xl px-4 text-center text-white">
-          <h1 className="text-3xl md:text-5xl font-bold mb-4">
-            Privacy Policy
+      
+<div className="absolute inset-0 bg-black/40 flex flex-col justify-center px-6 md:px-20 text-white">
+          <h1 className="text-4xl font-bold mb-4">
+            Privacy <span className="text-yellow-400">Policy</span> 
           </h1>
           <p className="text-sm md:text-lg leading-relaxed">
             RateCompares.Com values your privacy and strictly follows all data protection rules.
-            We ensure that your personal information is handled securely and transparently.
+            
           </p>
         </div>
       </div>

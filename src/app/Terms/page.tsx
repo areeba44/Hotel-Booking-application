@@ -9,19 +9,17 @@ export default function TermsPage() {
       <Navbar />
 
       {/* HERO SECTION */}
-      <div className="relative w-full h-[400px] md:h-[450px] flex items-center justify-center overflow-hidden">
+      <div className="relative w-full h-[400px] md:h-[400px] flex items-center justify-center overflow-hidden">
         
-        <img
-          src="/about.avif"
+        <img src="/blogimage.jpg"
           alt="Terms & Conditions"
-          className="absolute inset-0 w-full h-full object-cover brightness-65"
+          className="absolute inset-0 w-full h-full "
         />
 
-        <div className="absolute inset-0 bg-black/50" />
-
-        <div className="relative z-10 max-w-3xl px-4 text-center text-white">
-          <h1 className="text-3xl md:text-5xl font-bold mb-4">
-            Terms & Conditions
+       
+        <div className="absolute inset-0 bg-black/40 flex flex-col justify-center px-6 md:px-20 text-white">
+          <h1 className="text-4xl font-bold mb-4">
+            Terms & <span className="text-yellow-400">Conditions</span>
           </h1>
           <p className="text-sm md:text-lg leading-relaxed">
             By using our website, you agree to the terms outlined below. Please read these terms carefully.

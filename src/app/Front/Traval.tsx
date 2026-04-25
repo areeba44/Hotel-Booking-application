@@ -7,7 +7,7 @@ export default function StatsSection() {
       <div className="max-w-7xl mx-auto grid gap-6 md:grid-cols-3">
 
         {/* Card 1 */}
-        <div className="border rounded-2xl p-6 flex flex-col justify-between hover:shadow-md transition">
+        <div className="shadow-xl rounded-2xl p-6 flex flex-col justify-between hover:shadow-md transition">
   
   <div className="flex items-center -space-x-3 gap-1 mb-4">
     
@@ -43,7 +43,7 @@ export default function StatsSection() {
         </div>
 
         {/* Card 2 */}
-        <div className="border rounded-2xl p-6 flex flex-col justify-between hover:shadow-md transition">
+        <div className="shadow-xl  rounded-2xl p-6 flex flex-col justify-between hover:shadow-md transition">
           <div className="flex -space-x-3 mb-4">
             <img
               src="/men1.webp"
@@ -72,7 +72,7 @@ export default function StatsSection() {
         </div>
 
         {/* Card 3 */}
-        <div className="border rounded-2xl p-6 flex flex-col justify-between hover:shadow-md transition">
+        <div className="shadow-xl  rounded-2xl p-6 flex flex-col justify-between hover:shadow-md transition">
           <div className="flex text-yellow-400 text-[25px] mb-4">
             {"★★★★★"}
           </div>

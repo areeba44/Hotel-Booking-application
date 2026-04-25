@@ -1,11 +1,15 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, RefObject } from "react";
 import Image from "next/image";
 
-export default function Ready() {
+export default function Ready({
+  scrollRef,
+}: {
+  scrollRef: RefObject<HTMLElement | null>;
+}) {
   const [loading, setLoading] = useState(true);
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -13,7 +17,7 @@ export default function Ready() {
         if (entry.isIntersecting) {
           setTimeout(() => {
             setLoading(false);
-          }, 1000); // skeleton delay
+          }, 1000);
         }
       },
       { threshold: 0.2 }
@@ -37,7 +41,6 @@ export default function Ready() {
 
   return (
     <div ref={sectionRef} className="w-full bg-white mt-10 relative">
-
       <div className="max-w-screen-2xl mx-auto relative w-full">
 
         {/* ================= LOADING ================= */}
@@ -56,7 +59,7 @@ export default function Ready() {
 
             {/* Overlay */}
             <div className="absolute inset-0 flex items-center justify-center px-4">
-              <div className="bg-blue-900/80 rounded-md text-white  p-6 sm:p-8 md:p-10 max-w-xl w-full text-center shadow-xl">
+              <div className="bg-blue-900/80 rounded-md text-white p-6 sm:p-8 md:p-10 max-w-xl  w-[500px] text-center shadow-xl">
 
                 <h2 className="text-2xl sm:text-3xl font-serif mb-3">
                   Ready to book your next stay?
@@ -67,13 +70,20 @@ export default function Ready() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button className="border border-white  font-bold  cursor-pointer px-6 py-2 hover:bg-white hover:text-blue-700 transition">
-                    View Detail
-                  </button>
 
-                  <button className="bg-white font-bold cursor-pointer text-blue-900/100 px-6 py-2  hover:bg-gray-200 transition">
+                  
+                  {/* 🔥 SCROLL BUTTON */}
+                  <button
+                    onClick={() => {
+                      scrollRef?.current?.scrollIntoView({
+                        behavior: "smooth",
+                      });
+                    }}
+                    className="bg-white font-bold  border-0 rounded-md border-blue-950 cursor-pointer font-serif text-blue-950 px-6 py-2 hover:bg-gray-200 transition"
+                  >
                     Search Hotels
                   </button>
+
                 </div>
 
               </div>

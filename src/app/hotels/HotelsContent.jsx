@@ -1,7 +1,6 @@
 "use client";
 
 import Footer from "@/components/Footer";
-import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { useEffect, useState } from "react";
@@ -18,7 +17,7 @@ export default function HotelsContent() {
   const [freebiesOpen, setFreebiesOpen] = useState(false);
   const [amenitiesOpen, setAmenitiesOpen] = useState(false);
   const [hotels, setHotels] = useState([])
- 
+
   useEffect(() => {
     if (dataParam) {
       const parsedData = JSON.parse(decodeURIComponent(dataParam));
@@ -76,222 +75,271 @@ export default function HotelsContent() {
 
       {/* AVAILABLE HOTELS HEADING */}
       <div className="mt-7 px-6 font-bold">
-        <h1 className="text-3xl mb-4 ml-4 font-sans">Available Hotels</h1>
+        
 
         {/* FILTER BUTTONS */}
-<div className="w-full">
-  <div className="flex flex-wrap gap-3 mb-6 w-full overflow-x-auto md:overflow-visible">
+        <div className="w-full">
+          <div className="flex flex-wrap gap-3 mb-6 w-full overflow-x-auto md:overflow-visible">
 
-    {/* All Filters */}
-    <div className="relative inline-block">
-      <button
-        onClick={() => setAllFiltersOpen(!allFiltersOpen)}
-        className="bg-white cursor-pointer rounded-lg w-39 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <HiAdjustmentsHorizontal className="w-5 h-5" />
-          All filters
+            {/* All Filters */}
+            <div className="relative inline-block">
+              <button
+                onClick={() => setAllFiltersOpen(!allFiltersOpen)}
+                className="bg-white cursor-pointer rounded-lg w-39 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <HiAdjustmentsHorizontal className="w-5 h-5" />
+                  All filters
+                </div>
+                <span className="ml-2 text-gray-500">{allFiltersOpen ? "▲" : "▼"}</span>
+              </button>
+
+              {allFiltersOpen && (
+                <div className="absolute mt-2 bg-white shadow-lg rounded-xl w-60 z-50 border border-gray-200 max-h-72 overflow-y-auto">
+                  <ul className="flex flex-col">
+                    {allFilters.map((filter, index) => (
+                      <li key={index} className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700 text-sm">
+                        {filter}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            {/* Price */}
+            <div className="relative inline-block">
+              <button
+                onClick={() => setPriceOpen(!priceOpen)}
+                className="bg-white cursor-pointer rounded-lg w-26 h-10 font-bold border-0 shadow px-4 flex items-center justify-between"
+              >
+                Price
+                <span className="ml-2 text-gray-500">{priceOpen ? "▲" : "▼"}</span>
+              </button>
+
+              {priceOpen && (
+                <div className="absolute mt-2 bg-white shadow-lg rounded-xl w-40 z-50 border border-gray-200">
+                  <ul className="flex flex-col">
+                    {priceOptions.map((item, index) => (
+                      <li key={index} className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700 text-sm flex items-center gap-2">
+                        <FaDollarSign /> {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            {/* Free Breakfast */}
+            <button className="bg-white cursor-pointer rounded-lg w-37 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
+              Free Breakfast
+            </button>
+
+            {/* Star */}
+            <button className="bg-white cursor-pointer rounded-lg w-23 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
+              Star 4+
+            </button>
+
+            {/* Review Score */}
+            <button className="bg-white cursor-pointer rounded-lg w-40 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
+              8+ review score
+            </button>
+
+            {/* Freebies */}
+            <div className="relative inline-block">
+              <button
+                onClick={() => setFreebiesOpen(!freebiesOpen)}
+                className="bg-white cursor-pointer rounded-lg w-30 h-10 font-bold border-0 shadow px-4 flex items-center justify-between"
+              >
+                Freebies
+                <span className="ml-2 text-gray-500">{freebiesOpen ? "▲" : "▼"}</span>
+              </button>
+
+              {freebiesOpen && (
+                <div className="absolute mt-2 bg-white shadow-lg rounded-xl w-64 z-50 border border-gray-200 max-h-80 overflow-y-auto">
+                  <ul className="flex flex-col">
+                    {freebies.map((item, index) => (
+                      <li key={index} className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2 text-gray-700 text-sm">
+                        {item.icon} {item.name}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            {/* Under price */}
+            <button className="bg-white cursor-pointer rounded-lg w-32 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
+              Under $45
+            </button>
+
+            {/* Amenities */}
+            <div className="relative inline-block">
+              <button
+                onClick={() => setAmenitiesOpen(!amenitiesOpen)}
+                className="bg-white cursor-pointer rounded-lg w-33 h-10 font-bold border-0 shadow px-4 flex items-center justify-between"
+              >
+                Amenities
+                <span className="ml-2 text-gray-500">{amenitiesOpen ? "▲" : "▼"}</span>
+              </button>
+
+              {amenitiesOpen && (
+                <div className="absolute mt-2 bg-white shadow-lg rounded-xl w-64 z-50 border border-gray-200 max-h-80 overflow-y-auto">
+                  <ul className="flex flex-col">
+                    {amenities.map((item, index) => (
+                      <li key={index} className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2 text-gray-700 text-sm">
+                        {item.icon} {item.name}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+            {/* Class */}
+            <button className="bg-white cursor-pointer rounded-lg w-26 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
+              Class 4+
+            </button>
+
+          </div>
         </div>
-        <span className="ml-2 text-gray-500">{allFiltersOpen ? "▲" : "▼"}</span>
-      </button>
 
-      {allFiltersOpen && (
-        <div className="absolute mt-2 bg-white shadow-lg rounded-xl w-60 z-50 border border-gray-200 max-h-72 overflow-y-auto">
-          <ul className="flex flex-col">
-            {allFilters.map((filter, index) => (
-              <li key={index} className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700 text-sm">
-                {filter}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
+     {/* HOTEL + MAP SECTION */}
+<div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
 
-    {/* Price */}
-    <div className="relative inline-block">
-      <button
-        onClick={() => setPriceOpen(!priceOpen)}
-        className="bg-white cursor-pointer rounded-lg w-26 h-10 font-bold border-0 shadow px-4 flex items-center justify-between"
+  {/* HOTEL LIST */}
+  <div className="lg:col-span-3 space-y-3">
+
+    {hotels.map((hotel) => (
+      <div
+        key={hotel.id}
+        className="bg-white w-full h-[190px] rounded-md hover:shadow-xl shadow-2xl transition overflow-hidden"
       >
-        Price
-        <span className="ml-2 text-gray-500">{priceOpen ? "▲" : "▼"}</span>
-      </button>
+        <div className="flex flex-col lg:flex-row">
 
-      {priceOpen && (
-        <div className="absolute mt-2 bg-white shadow-lg rounded-xl w-40 z-50 border border-gray-200">
-          <ul className="flex flex-col">
-            {priceOptions.map((item, index) => (
-              <li key={index} className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700 text-sm flex items-center gap-2">
-                <FaDollarSign /> {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
+          {/* IMAGE */}
+          <Link href="#">
+            <div className="relative w-full lg:w-[220px] h-[190px] flex-shrink-0 overflow-hidden">
+              <img
+                src={
+                  hotel.images
+                    ? JSON.parse(hotel.images)[0]?.original_image
+                    : ""
+                }
+                alt={hotel.name}
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              />
+            </div>
+          </Link>
 
-    {/* Free Breakfast */}
-    <button className="bg-white cursor-pointer rounded-lg w-37 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
-      Free Breakfast
-    </button>
-
-    {/* Star */}
-    <button className="bg-white cursor-pointer rounded-lg w-23 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
-      Star 4+
-    </button>
-
-    {/* Review Score */}
-    <button className="bg-white cursor-pointer rounded-lg w-40 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
-      8+ review score
-    </button>
-
-    {/* Freebies */}
-    <div className="relative inline-block">
-      <button
-        onClick={() => setFreebiesOpen(!freebiesOpen)}
-        className="bg-white cursor-pointer rounded-lg w-30 h-10 font-bold border-0 shadow px-4 flex items-center justify-between"
-      >
-        Freebies
-        <span className="ml-2 text-gray-500">{freebiesOpen ? "▲" : "▼"}</span>
-      </button>
-
-      {freebiesOpen && (
-        <div className="absolute mt-2 bg-white shadow-lg rounded-xl w-64 z-50 border border-gray-200 max-h-80 overflow-y-auto">
-          <ul className="flex flex-col">
-            {freebies.map((item, index) => (
-              <li key={index} className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2 text-gray-700 text-sm">
-                {item.icon} {item.name}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
-
-    {/* Under price */}
-    <button className="bg-white cursor-pointer rounded-lg w-32 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
-      Under $45
-    </button>
-
-    {/* Amenities */}
-    <div className="relative inline-block">
-      <button
-        onClick={() => setAmenitiesOpen(!amenitiesOpen)}
-        className="bg-white cursor-pointer rounded-lg w-33 h-10 font-bold border-0 shadow px-4 flex items-center justify-between"
-      >
-        Amenities
-        <span className="ml-2 text-gray-500">{amenitiesOpen ? "▲" : "▼"}</span>
-      </button>
-
-      {amenitiesOpen && (
-        <div className="absolute mt-2 bg-white shadow-lg rounded-xl w-64 z-50 border border-gray-200 max-h-80 overflow-y-auto">
-          <ul className="flex flex-col">
-            {amenities.map((item, index) => (
-              <li key={index} className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2 text-gray-700 text-sm">
-                {item.icon} {item.name}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
-
-    {/* Class */}
-    <button className="bg-white cursor-pointer rounded-lg w-26 h-10 font-bold border-0 shadow px-4 flex items-center justify-between">
-      Class 4+
-    </button>
-
-  </div>
+          {/* INFO */}
+          <div className="flex-1 p-3 min-w-0">
+           <div className="w-full overflow-hidden">
+  <h2 className="font-serif text-[16px] truncate">
+    {hotel.name}
+  </h2>
 </div>
 
-        {/* HOTEL LIST */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2 space-y-5">
-            {hotels.map((hotel) => (
-              <div key={hotel.id} className="bg-white rounded-xl border hover:shadow-lg transition overflow-hidden">
-                <div className="flex flex-col lg:flex-row">
-                  {/* IMAGE */}
-                  <Link href="#">
-                    <div className="relative w-full lg:w-[280px] h-51 flex-shrink-0 overflow-hidden">
-                      <img
-                        src={hotel.images ? JSON.parse(hotel.images)[0]?.original_image : ""}
-                        alt={hotel.name}
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                      />
-                    </div>
-                  </Link>
+            <p className="text-sm text-gray-500 font-medium">
+              {hotel.address}
+            </p>
 
-                  {/* INFO */}
-                  <div className="flex-1 p-4 min-w-0">
-                    <h2 className="font-serif text-lg">{hotel.name}</h2>
-                    <p className="text-sm text-gray-500">{hotel.address}</p>
-                    <div className="flex items-center gap-1 text-orange-500 mt-1">
-                      {[...Array(4)].map((_, i) => (<FaStar key={i} size={14} />))}
-                    </div>
-                    <div className="flex items-center gap-2 text-sm mt-1">
-                      <span className="font-bold text-black">{hotel.overall_rating}</span>
-                      <span className="text-gray-500">/ {hotel.reviews} reviews</span>
-                    </div>
-                    <div className="text-sm text-gray-900 font-light line-clamp-3 mt-2">
-                      <p dangerouslySetInnerHTML={{ __html: hotel.description }} />
-                    </div>
-                  </div>
-
-                  {/* PRICE BOX */}
-                  <div className="w-full lg:w-[260px] bg-gray-50 border-t lg:border-t-0 lg:border-l p-4 flex flex-col justify-between">
-                    <div className="text-right">
-                      <p className="text-xs text-red-500">Cheaper than usual</p>
-                      {hotel.prices && (() => {
-                        const parsedPrices = JSON.parse(hotel.prices || "[]");
-                        return (
-                          <>
-                            <h3 className="text-3xl font-extrabold text-gray-900 leading-tight">
-                              ${parsedPrices[0]?.rate_per_night?.extracted_lowest}
-                            </h3>
-
-                            <p className="text-xs text-gray-500 mt-1">
-                              price per night
-                            </p>
-
-                            <Link href={parsedPrices[0].link}>
-                              <p className="mt-4 mb-2 w-full text-center bg-blue-900 hover:bg-blue-700 text-white py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ease-in-out cursor-pointer shadow-sm hover:shadow-md">
-                                {parsedPrices[0].source}
-                              </p>
-                            </Link>
-                          </>
-                        );
-                      })()}
-                    </div>
-                    <button
-                      onClick={() => handleNavigate(hotel)}
-                      className="w-full block bg-blue-900 text-white py-2 text-sm rounded-md hover:bg-blue-800 text-center transition"
-                    >
-                      More Details
-                    </button>
-                  </div>
-                </div>
+            <div className="flex items-center gap-2 mt-1">
+              <div className="flex items-center text-yellow-500">
+                {[...Array(4)].map((_, i) => (
+                  <FaStar key={i} size={14} />
+                ))}
               </div>
-            ))}
+
+              <span className="text-sm text-gray-500">
+                {hotel.reviews} Review
+              </span>
+            </div>
+
+            <div className="text-xs text-gray-900 font-light line-clamp-2 mt-2">
+              <p dangerouslySetInnerHTML={{ __html: hotel.description }} />
+            </div>
           </div>
 
-          {/* MAP SECTION */}
-          <div className="lg:block hidden bg-gray-200 rounded-xl p-4 h-[600px] md:h-[800px]">
-            <iframe
-              src={`https://www.google.com/maps?q=${encodeURIComponent(
-                "Rizq Luxurious Villa, 28 Street - Business Bay - Ghadeer Al Tair - Dubai - United Arab Emirates"
-              )}&output=embed`}
-              width="100%"
-              height="100%"
-              className="rounded-xl"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+          {/* PRICE BOX */}
+          <div className="w-full lg:w-[220px] bg-gray-50 border-t lg:border-t-0 lg:border-l border-gray-100 shadow-lg p-4 flex flex-col justify-between">
+
+            <div className="text-left">
+              <p className="text-xs text-red-500">
+                Cheaper than usual
+              </p>
+
+              {hotel.prices && (() => {
+                const parsedPrices = JSON.parse(hotel.prices || "[]");
+                return (
+                  <>
+                    <h3 className="text-xl font-bold text-black leading-tight mt-1">
+                      ${parsedPrices[0]?.rate_per_night?.extracted_lowest}
+                    </h3>
+
+                    <p className="text-xs text-gray-500 mt-1">
+                      per night
+                    </p>
+
+                    <Link href={parsedPrices[0].link}>
+                      <p className="mt-4 w-full text-center gap-1 bg-blue-950 hover:bg-blue-900 text-white py-2 rounded-md text-sm font-semibold transition cursor-pointer shadow-sm hover:shadow-md truncate">
+                        {parsedPrices[0].source}
+                      </p>
+                    </Link>
+                  </>
+                );
+              })()}
+            </div>
+
+            <button
+              onClick={() => handleNavigate(hotel)}
+              className="w-full bg-blue-950 text-white py-2 text-sm rounded-md hover:bg-blue-900 text-center transition"
+            >
+              More Details
+            </button>
+
           </div>
         </div>
       </div>
+    ))}
+<div className="flex items-center justify-center gap-3 mt-6 mb-2">
 
+  <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition">
+    Previous
+  </button>
+
+  <button className="px-4 py-2 bg-blue-950 text-white rounded-md">
+    1
+  </button>
+
+  <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition">
+    2
+  </button>
+
+  <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition">
+    Next
+  </button>
+
+</div>
+  </div>
+
+  {/* MAP SECTION */}
+  <div className="lg:block hidden lg:col-span-2 bg-gray-200 rounded-md overflow-hidden h-full">
+
+    <iframe
+      src={`https://www.google.com/maps?q=hotels&output=embed`}
+      width="100%"
+      height="100%"
+      className="rounded-xl"
+      style={{ border: 0 }}
+      allowFullScreen
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+    ></iframe>
+
+  </div>
+
+
+
+</div></div>
       {/* FOOTER */}
       <Footer />
     </div>

@@ -84,7 +84,7 @@ export default function LoginPage() {
           {/* Close */}
           <button
             onClick={() => router.push("/")}
-            className="absolute top-3 right-3 text-gray-500 hover:text-black text-lg"
+            className="absolute top-3 right-3 text-gray-500 hover:text-black text-lg cursor-pointer"
           >
             ✕
           </button>
@@ -109,7 +109,7 @@ export default function LoginPage() {
           {/* Button */}
           <button
             onClick={handleContinue}
-            className="w-full h-[47px] text-[18px] font-sans bg-blue-950 text-white py-2 rounded-md transition mb-3"
+            className="w-full h-[47px] text-[18px] font-sans cursor-pointer bg-blue-950 text-white py-2 rounded-md transition mb-3"
           >
             Continue
           </button>
@@ -122,7 +122,7 @@ export default function LoginPage() {
           </div>
 
           {/* Google */}
-          <button className="w-full font-sans font-bold text-[18px] border border-gray-300 py-4 rounded-lg hover:bg-gray-100 transition flex items-center justify-center gap-2">
+          <button className="w-full font-sans font-bold cursor-pointer text-[18px] border border-gray-300 py-4 rounded-lg hover:bg-gray-100 transition flex items-center justify-center gap-2">
             <FcGoogle size={30} />
             Continue with Google
           </button>

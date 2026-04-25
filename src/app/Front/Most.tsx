@@ -134,7 +134,7 @@ export default function MostVisited() {
 
                       {index === 1 && (
                         <Link href="http://localhost:3000/Front/TVRFNA==/nox-kensington---twin-studio">
-                          <button className="bg-white text-blue-950 font-semibold px-5 py-2 rounded-full text-sm hover:bg-gray-200 transition-all duration-300 shadow-md">
+                          <button className="bg-white cursor-pointer text-blue-950 font-semibold px-5 py-2 rounded-full text-sm hover:bg-gray-200 transition-all duration-300 shadow-md">
                             View Details
                           </button>
                         </Link>

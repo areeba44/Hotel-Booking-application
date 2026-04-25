@@ -99,9 +99,9 @@ export default function ContactPage() {
                   Email Address <span className="text-red-500">*</span>
                 </label>
                 <input
-                    className="w-full h-14 px-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                    placeholder="Enter your Email address"
-                  />
+                  className="w-full h-14 px-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                  placeholder="Enter your Email address"
+                />
               </div>
               <div className="md:col-span-2 flex flex-col md:flex-row gap-2">
                 {/* Phone Number */}
@@ -127,21 +127,21 @@ export default function ContactPage() {
                     <option>Support</option>
                     <option>Partnership</option>
                   </select>
- </div> </div></div>
-<label className="text-sm font-medium">
-                    Message <span className="text-red-500">*</span>
-                  </label>
-                 <textarea
-  className="input  h-32 w-full h-14 px-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                 
-  placeholder="Your message..."
-/>
+                </div> </div></div>
+            <label className="text-sm font-medium">
+              Message <span className="text-red-500">*</span>
+            </label>
+            <textarea
+              className="input  h-32 w-full h-14 px-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
 
-<button className="mt-6 py-2 px-5 bg-yellow-400 hover:bg-yellow-500 text-white rounded-md font-semibold shadow-md hover:shadow-lg transition block">
-  Send Message
-</button>
-               
-             </div>
+              placeholder="Your message..."
+            />
+
+            <button className="mt-6 py-2 px-5 bg-yellow-400 hover:bg-yellow-500 text-white rounded-md font-semibold shadow-md hover:shadow-lg transition block">
+              Send Message
+            </button>
+
+          </div>
 
 
 

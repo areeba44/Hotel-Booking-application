@@ -395,7 +395,7 @@ interface ReviewsSectionProps {
                 <p className="text-xl sm:text-2xl font-bold">
                   ${prices[0]?.rate_per_night?.extracted_lowest || ""}
                 </p>
-                <button className=" mt-2 bg-blue-950 hover:bg-blue-800 text-white text-sm sm:text-base font-medium px-6 py-2.5 rounded-md  transition">
+                <button className=" mt-2 bg-blue-950 cursor-pointer hover:bg-blue-900 text-white text-sm sm:text-base font-medium px-6 py-2.5 rounded-md  transition">
                   Check Availability
                 </button>
               </div>
@@ -478,7 +478,7 @@ interface ReviewsSectionProps {
                   <a
                     href={item.link}
                     target="_blank"
-                    className="text-[12px] w-24 h-8 flex items-center justify-center font-serif rounded-xl bg-blue-950 text-white px-2 py-1 hover:bg-blue-800 transition"
+                    className="text-[12px] w-24 h-8 flex items-center justify-center font-serif rounded-xl bg-blue-950 text-white px-2 py-1 hover:bg-blue-900 transition"
                   >
                     View Details
                   </a>

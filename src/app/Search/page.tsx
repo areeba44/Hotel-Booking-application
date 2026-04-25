@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+
 import {
   FaUser,
   FaHeart,
@@ -17,20 +18,21 @@ export default function FavoritesPage() {
     { name: "Search preferences", path: "/Search", icon: <FaSearch /> },
   ];
 
-  return (
-    <div className="min-h-screen flex flex-col bg-gray-100">
 
+
+  return (
+    <div>
       <Navbar />
 
       {/* MAIN */}
-      <div className="flex flex-1 flex-col lg:flex-row gap-5 p-10 px-20">
+      <div className="flex flex-1 flex-col lg:flex-row gap-5 p-5 mb-10  p-10 px-20">
 
         {/* SIDEBAR */}
         <div className="w-full lg:w-64 bg-white rounded-xl p-4">
-
           <button className="mb-4 text-sm text-gray-600">
             ← Back
           </button>
+
 
 
           <ul className="space-y-3">
@@ -47,26 +49,20 @@ export default function FavoritesPage() {
             ))}
           </ul>
 
-
-          <button className="mt-6 w-full bg-blue-950 text-white cursor-pointer py-2 rounded-md">
+          <button className="mt-6 w-full bg-blue-950 text-white py-2 rounded-md  cursor-pointer">
             Logout
           </button>
         </div>
 
         {/* CONTENT */}
-        <main className="flex-1 bg-white rounded-xl p-6">
-          <h1 className="text-3xl font-bold mb-4 text-gray-700">
-            Your Favorite Stays
+        <div className="flex-1 bg-white rounded-xl p-6">
+          <h1 className="text-3xl  mb-4 text-gray-700 font-bold">
+       Countine Your Luxury Stay
           </h1>
-          <p className="text-gray-500">
-            Your favorites have not been added yet
-          </p>
-        </main>
-
+          <p className="text-[15px]  mb-4 text-blue-950">You haven't viewed any hotels yet.</p>
+        </div>
       </div>
-
       <Footer />
-
     </div>
   );
 }

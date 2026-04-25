@@ -41,7 +41,7 @@ export default function TravelUI() {
       </section>
 
       {/* BLOG CARDS (FULL WIDTH FIX) */}
-      <section className="bg-gray-100 py-10 px-30 w-full">
+     <section className="shadow-md py-10 px-30 w-full">
         
         {/* CENTER CONTENT */}
         <div className="max-w-screen-2xl mx-auto px-4 grid md:grid-cols-3 sm:grid-cols-2 gap-6">
@@ -50,7 +50,7 @@ export default function TravelUI() {
             <Link
               href={`/Blog/${item.slug}`}
               key={index}
-              className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition h-[355px]"
+              className="bg-white rounded-xl shadow-2xl overflow-hidden hover:shadow-xl transition h-[355px]"
             >
               <div className="relative w-full h-44">
                 <Image

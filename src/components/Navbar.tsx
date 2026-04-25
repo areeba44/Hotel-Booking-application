@@ -29,22 +29,22 @@ export default function Navbar() {
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12 h-[70px] flex justify-between items-center">
 
         {/* ✅ Logo */}
-         <Link href={"/Front"}>
-                <Image
-                  src="/Rate.png"
-                  alt="Logo"
-                  width={200}
-                  height={90}
-                  className="w-59 h-20 object-contain ml-16"
-                />
-              </Link>
+        <Link href={"/Front"}>
+          <Image
+            src="/Rate.png"
+            alt="Logo"
+            width={200}
+            height={90}
+            className="w-59 h-20 object-contain ml-16"
+          />
+        </Link>
 
         {/* ✅ Desktop Menu */}
         <div className="hidden md:flex items-center gap-2 mr-20">
 
           {/* Signup */}
           <Link href="./Signup">
-            <button className="flex font-bold items-center gap-2 px-4 py-2 border border-white rounded-lg text-white hover:bg-white hover:text-blue-900 transition">
+            <button className="flex font-bold items-center  cursor-pointer gap-2 px-4 py-2 border border-white rounded-lg text-white hover:bg-white hover:text-blue-900 transition">
               <HiOutlineUserAdd />
               Signup
             </button>
@@ -54,18 +54,23 @@ export default function Navbar() {
           <div className="relative">
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="flex items-center font-bold  gap-2 px-4 py-2 border border-white rounded-lg text-white hover:bg-white hover:text-blue-900 transition"
+              className="flex items-center font-bold  cursor-pointer gap-2 px-4 py-2 border border-white rounded-lg text-white hover:bg-white hover:text-blue-900 transition"
             >
               <FiAlignJustify />
               Menu
             </button>
 
             {dropdownOpen && (
-              <div className="absolute right-0 mt-2 w-60 bg-white rounded-md shadow-lg z-50 overflow-hidden">
+              <div className="absolute  cursor-pointer right-0 mt-2 w-60 bg-white rounded-md shadow-lg z-50 overflow-hidden">
 
-                <div className="px-4 py-2 font-semibold border-b">
+                <div className="px-4 py-2 font-semibold border-b-gray-800">
                   Trips
                 </div>
+                  
+                  <Link href="/Account" className="flex items-center gap-3 px-4 py-3 hover:bg-gray-100">
+                  <FaRegHeart />
+                  Account
+                </Link> 
 
                 <Link href="/Fav" className="flex items-center gap-3 px-4 py-3 hover:bg-gray-100">
                   <FaRegHeart />

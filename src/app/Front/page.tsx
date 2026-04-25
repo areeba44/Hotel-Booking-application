@@ -13,15 +13,17 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { Search } from "lucide-react";   
+import { useRef } from "react";
 
 export default function Home() {
+
   const [hotelName, setHotelName] = useState("");
   const [searchhotel, setSearchHotel] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-const images = ["/img1.webp", "/img2.jpg", "/img3.jpg"]; 
-const [current, setCurrent] = useState(0);
-
+  const images = ["/img1.webp", "/img2.jpg", "/img3.jpg"]; 
+  const [current, setCurrent] = useState(0);
+  const searchRef = useRef(null);
   // ✅ Auto Slide Change
   useEffect(() => {
     const interval = setInterval(() => {
@@ -101,7 +103,7 @@ const [current, setCurrent] = useState(0);
       </div>
 
       {/* Search Box */}
-<div className="absolute bottom-32 w-full px-4 sm:px-8 lg:px-16 flex justify-center">
+<div ref={searchRef} className="absolute bottom-32 w-full px-4 sm:px-8 lg:px-16 flex justify-center">
   <div className="w-full max-w-2xl bg-white/90 backdrop-blur-lg rounded-xl shadow-lg p-4 transition-all duration-300">
     
     <div className="grid grid-cols-3 gap-3 items-end">
@@ -170,7 +172,7 @@ const [current, setCurrent] = useState(0);
       <Most />
       <Slider />
       <Amenities />
-      <Ready />
+     <Ready scrollRef={searchRef || null} />
     </div>
 
 

@@ -36,7 +36,7 @@ export default function Footer() {
                 (Icon, i) => (
                   <div
                     key={i}
-                    className="w-9 h-9 border border-white/30 text-center rounded-full flex items-center justify-center hover:bg-white hover:text-[#162E5C] transition"
+                    className="w-9 h-9 border cursor-pointer border-white/30 text-center rounded-full flex items-center justify-center hover:bg-white hover:text-[#162E5C] transition"
                   >
                     <Icon size={14} />
                   </div>
@@ -85,7 +85,7 @@ export default function Footer() {
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-3 sm:py-2 text-sm text-black outline-none"
               />
-              <button className="bg-gray-200 px-4 py-2 text-sm text-blue-900 font-bold">
+              <button className="bg-gray-200 px-4 cursor-pointer py-2 text-sm text-blue-900 font-bold">
                 Subscribe
               </button>
             </div>
